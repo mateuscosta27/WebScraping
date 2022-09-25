@@ -212,31 +212,33 @@ class Pixbet:
            self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
         
     def export_dataframe(self):
-        self.df.to_csv(self.directory_file+'\\DataFrame_pixbet.csv',encoding='utf-8', sep=';', index=False)
+        self.df.to_csv(self.directory_file+'\\df_pixbet.csv',encoding='utf-8', sep=';', index=False)
         
     def create_index_pixbet(self):
-        indice_pixbet={'Timec':[], 'Timev':[]}
-        df1 = self.pixbet['TimeCasa']
+        pixbet = pd.read_csv(self.directory_file+'\\df_pixbet.csv', encoding = 'utf-8', sep=';')
+        ind_pixbet={'Timec':[], 'Timev':[]}
+        df1 = pixbet['TimeCasa']
         for nome in df1:
             abrev = nome[0:3]
-            indice_pixbet['Timec'].append(abrev)
+            ind_pixbet['Timec'].append(abrev)
                 
-        df1 = self.pixbet['TimeVisitante']
+        df1 = pixbet['TimeVisitante']
         for nome in df1:
             abrev = nome[0:3]  
-            indice_pixbet['Timev'].append(abrev)
+            ind_pixbet['Timev'].append(abrev)
                 
-        df_pixbet = pd.DataFrame(indice_pixbet,columns=['Timec', 'Timev'])
+        df_pixbet = pd.DataFrame(ind_pixbet,columns=['Timec', 'Timev'])
         df_pixbet['Index'] = df_pixbet['Timec'].map(str)+'x'+df_pixbet['Timev']
 
         df_pixbet = df_pixbet.drop(['Timec', 'Timev'], axis=1)
-        self.pixbet.insert(0,'index',df_pixbet)
-        self.df_pixbet = df_pixbet
+        pixbet.insert(0,'index',df_pixbet)
+        pixbet.to_csv(self.directory_file+'\\DataFrame_pixbet.csv',encoding='utf-8', sep=';', index=False)
         
     def remove_file(self):
         try:
             os.remove(self.directory_file+'\\scraping_pixbet.csv')
+            os.remove(self.directory_file+'\\df_pixbet.csv')
         except OSError as e:
-            print(f"Error:{e.strerror}")    
-        print(f"Arquivo esta no seguinte diretorio{self.directory_file}")
+            print(f"Error:{e.strerror}")
+            print('Algo deu errado')
     
