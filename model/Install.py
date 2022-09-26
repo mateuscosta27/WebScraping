@@ -5,6 +5,8 @@ import requests as rq
 from io import BytesIO
 import zipfile
 
+import sys,os
+sys.path.insert(0,os.path.abspath(os.curdir))
 
 class Install:
     def __init__(self) :

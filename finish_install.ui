@@ -23,7 +23,7 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="lblTitleFinish">
+   <widget class="QLabel" name="lbl_title">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -36,7 +36,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#037f8c;&quot;&gt;INSTALAÇÃO E CONFIGURAÇÃO CONCLUÍDA!!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnStartFinish">
+   <widget class="QPushButton" name="btn_start">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -54,7 +54,7 @@ background-color: rgb(3, 127, 140);</string>
      <string>INICIAR PROGRAMA</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnExitFinish">
+   <widget class="QPushButton" name="btn_exit">
     <property name="geometry">
      <rect>
       <x>300</x>

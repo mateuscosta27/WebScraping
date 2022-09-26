@@ -19,32 +19,40 @@ class Ui_formFinish(object):
         formFinish.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(formFinish)
         self.centralwidget.setObjectName("centralwidget")
-        self.lblTitleFinish = QtWidgets.QLabel(self.centralwidget)
-        self.lblTitleFinish.setGeometry(QtCore.QRect(10, 50, 601, 111))
-        self.lblTitleFinish.setObjectName("lblTitleFinish")
-        self.btnStartFinish = QtWidgets.QPushButton(self.centralwidget)
-        self.btnStartFinish.setGeometry(QtCore.QRect(100, 160, 195, 45))
-        self.btnStartFinish.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
+        self.lbl_title = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_title.setGeometry(QtCore.QRect(10, 50, 601, 111))
+        self.lbl_title.setObjectName("lbl_title")
+        self.btn_start = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_start.setGeometry(QtCore.QRect(100, 160, 195, 45))
+        self.btn_start.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(3, 127, 140);")
-        self.btnStartFinish.setObjectName("btnStartFinish")
-        self.btnExitFinish = QtWidgets.QPushButton(self.centralwidget)
-        self.btnExitFinish.setGeometry(QtCore.QRect(300, 160, 195, 45))
-        self.btnExitFinish.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
+        self.btn_start.setObjectName("btn_start")
+        self.btn_exit = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_exit.setGeometry(QtCore.QRect(300, 160, 195, 45))
+        self.btn_exit.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(3, 127, 140);")
-        self.btnExitFinish.setObjectName("btnExitFinish")
+        self.btn_exit.setObjectName("btn_exit")
         formFinish.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(formFinish)
         QtCore.QMetaObject.connectSlotsByName(formFinish)
+        
+        ##Botões do Sistema##
+        
+        self.btn_exit.clicked.connect(self.sair_sistema)
+        
+    def sair_sistema(self):
+        sys.exit()
+        
 
     def retranslateUi(self, formFinish):
         _translate = QtCore.QCoreApplication.translate
         formFinish.setWindowTitle(_translate("formFinish", "Assistente de Instalação"))
-        self.lblTitleFinish.setText(_translate("formFinish", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:600; color:#037f8c;\">INSTALAÇÃO E CONFIGURAÇÃO CONCLUÍDA!!</span></p></body></html>"))
-        self.btnStartFinish.setText(_translate("formFinish", "INICIAR PROGRAMA"))
-        self.btnExitFinish.setText(_translate("formFinish", "Sair"))
+        self.lbl_title.setText(_translate("formFinish", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:600; color:#037f8c;\">INSTALAÇÃO E CONFIGURAÇÃO CONCLUÍDA!!</span></p></body></html>"))
+        self.btn_start.setText(_translate("formFinish", "INICIAR PROGRAMA"))
+        self.btn_exit.setText(_translate("formFinish", "Sair"))
 
 
 if __name__ == "__main__":
