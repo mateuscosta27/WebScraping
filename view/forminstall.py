@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from 
+
 
 class Ui_formInstall(object):
     def setupUi(self, formInstall):
