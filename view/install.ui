@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#037f8c;&quot;&gt;BEM VINDO AO ASSISTENTE DE INSTALAÇÃO - GAE&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#037f8c;&quot;&gt;GERENCIADOR DE APOSTAS ESPORTIVAS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#037f8c;&quot;&gt;BEM VINDO AO ASSISTENTE DE CONFIGURAÇÃO - APOSTADORPRO&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#037f8c;&quot;&gt;GERENCIADOR DE APOSTAS ESPORTIVAS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_start">
@@ -54,7 +54,7 @@ color: rgb(255, 255, 255);
 background-color: rgb(3, 127, 140);</string>
     </property>
     <property name="text">
-     <string>Iniciar instalação</string>
+     <string>Iniciar Configuração</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_exit">

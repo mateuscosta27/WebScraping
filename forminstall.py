@@ -43,17 +43,18 @@ class Ui_formInstall(object):
         QtCore.QMetaObject.connectSlotsByName(formInstall)
         
         ###Botões do sistema###
-        self.btn_start.clicked.connect(self.iniciar) ## insere os diretorios do sistema ##
-        self.btn_start.clicked.connect(self.progresso) ## inicia a barra de progresso##
-        self.btn_exit.clicked.connect(self.sair_sistema) ## sai do sistema##
+        self.btn_start.clicked.connect(self.conf_db) ## insere os diretorios do sistema ##
+        self.btn_start.clicked.connect(self.progress) ## inicia a barra de progresso##
+        self.btn_exit.clicked.connect(self.exit_system) ## sai do sistema##
         
-    def iniciar(self): ##Inicia a funação Install para criação dos diretorios##
+    ###função de configuração###   
+    def conf_db(self): ##Inicia a funação conf_db para criação dos diretorios##
         install = Install()
         install.download_driver()
         install.database()
         
-        
-    def progresso(self): ## inicia a barra de progresso##
+    ##Função da barra de progresso###   
+    def progress(self): ## inicia a barra de progresso##
         barra = self.br_progress
         barra.setVisible(True)
         barra.setEnabled(True)
@@ -65,33 +66,31 @@ class Ui_formInstall(object):
         
         if i == 100:
             sleep(0.5)
-            self.finish_form()
+            self.form_final()
             sleep(0.5)
-            self.sair_install()
+            self.exit_install()
             
-            
-            
-            
+                          
     ###Função que chama o formFinish##  
-    def finish_form(self):
+    def form_final(self):
         self.formFinish = QtWidgets.QMainWindow()
         self.ui = Ui_formFinish()
         self.ui.setupUi(self.formFinish)
         self.formFinish.show()
        
     ##Função fecha o forminstall###
-    def sair_install(self):
+    def exit_install(self):
         formInstall.close()
     ###Função sai do sistema###               
-    def sair_sistema(self):
+    def exit_system(self):
         sys.exit()
          
 
     def retranslateUi(self, formInstall):
         _translate = QtCore.QCoreApplication.translate
         formInstall.setWindowTitle(_translate("formInstall", "Assitente de Instalação"))
-        self.lbl_title.setText(_translate("formInstall", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:600; color:#037f8c;\">BEM VINDO AO ASSISTENTE DE INSTALAÇÃO - GAE</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; color:#037f8c;\">GERENCIADOR DE APOSTAS ESPORTIVAS</span></p></body></html>"))
-        self.btn_start.setText(_translate("formInstall", "Iniciar instalação"))
+        self.lbl_title.setText(_translate("formInstall", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:600; color:#037f8c;\">BEM VINDO AO ASSISTENTE DE CONFIGURAÇÃO - ASPOSTADORPRO</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; color:#037f8c;\">GERENCIADOR DE APOSTAS ESPORTIVAS</span></p></body></html>"))
+        self.btn_start.setText(_translate("formInstall", "Iniciar Configuração"))
         self.btn_exit.setText(_translate("formInstall", "Sair"))
 
 
@@ -103,3 +102,5 @@ if __name__ == "__main__":
     ui.setupUi(formInstall)
     formInstall.show()
     sys.exit(app.exec_())
+
+
