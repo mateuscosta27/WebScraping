@@ -1,3 +1,4 @@
+from sys import is_finalizing
 import threading
 from PyQt5 import QtCore, QtGui, QtWidgets
 from model import *
@@ -5,6 +6,7 @@ from model.Model import Betano
 from formFinish import *
 from multiprocessing import Process
 import threading
+import asyncio
 
 class Ui_formPrincipal(object):
     def setupUi(self, formPrincipal):
@@ -25,7 +27,7 @@ class Ui_formPrincipal(object):
         self.btn_sair.setGeometry(QtCore.QRect(690, 350, 101, 41))
         self.btn_sair.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
-"background-color: rgb(3, 127, 140);")
+"background-color: rgb(3, 127, 140); border-radius: 10px")
         self.btn_sair.setObjectName("btn_sair")
         self.btn_coletar = QtWidgets.QPushButton(self.centralwidget)
         self.btn_coletar.setGeometry(QtCore.QRect(270, 140, 275, 41))
@@ -37,19 +39,19 @@ class Ui_formPrincipal(object):
         self.btn_visJogos.setGeometry(QtCore.QRect(270, 240, 275, 41))
         self.btn_visJogos.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
-"background-color: rgb(3, 127, 140);")
+"background-color: rgb(3, 127, 140); border-radius: 10px")
         self.btn_visJogos.setObjectName("btn_visJogos")
         self.btn_visPossibilidades = QtWidgets.QPushButton(self.centralwidget)
         self.btn_visPossibilidades.setGeometry(QtCore.QRect(270, 190, 275, 41))
         self.btn_visPossibilidades.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
-"background-color: rgb(3, 127, 140);")
+"background-color: rgb(3, 127, 140); border-radius: 10px")
         self.btn_visPossibilidades.setObjectName("btn_visPossibilidades")
         self.btn_simular = QtWidgets.QPushButton(self.centralwidget)
         self.btn_simular.setGeometry(QtCore.QRect(270, 290, 275, 41))
         self.btn_simular.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);\n"
-"background-color: rgb(3, 127, 140);")
+"background-color: rgb(3, 127, 140); border-radius: 10px")
         self.btn_simular.setObjectName("btn_simular")
         formPrincipal.setCentralWidget(self.centralwidget)
 
@@ -69,29 +71,35 @@ class Ui_formPrincipal(object):
         betano = Betano()
         betano.open_web_site()
         betano.close_banner()
-         
-    def parallel_process(self):
-        self.thread2 = threading.Thread(target=self.disable_buttons)  
-        self.thread1 = threading.Thread(target=self.collect)
-        self.thread2.start()
-        self.thread1.start()
+        betano.scroll_page()
+        betano.parser_data()
+        betano.export_data()
+        betano.data_transform()
+        betano.parser_data_double_chance()
+        betano.export_double_chance()
+        betano.double_chance()
+        betano.data_convert_types()
+        betano.df_concat()
+        betano.export_dataframe()
+        betano.creating_index_betano()
         
-          
+    def parallel_process(self):
+        self.thread1 = threading.Thread(target=self.collect)
+        self.thread1.start()    
+
     def disable_buttons(self):
+        while self.thread2.is_alive != False:
+            self.btn_coletar.setDisabled(True)
+            self.btn_visPossibilidades.setDisabled(True)
+            self.btn_visJogos.setDisabled(True)
+            self.btn_simular.setDisabled(True)
+        else:
+            self.btn_coletar.setDisabled(False)
+            self.btn_visPossibilidades.setDisabled(False)
+            self.btn_visJogos.setDisabled(False)
+            self.btn_simular.setDisabled(False)
+
        
-        self.btn_coletar.setDisabled(True)
-        self.btn_visPossibilidades.setDisabled(True)
-        self.btn_visPossibilidades.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
-        "color: rgb(255, 255, 255);\n"
-        "background-color: rgb(184, 184, 184);")
-        self.btn_visJogos.setDisabled(True)
-        self.btn_visJogos.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
-        "color: rgb(255, 255, 255);\n"
-        "background-color: rgb(184, 184, 184);")
-        self.btn_simular.setDisabled(True)
-        self.btn_simular.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
-        "color: rgb(255, 255, 255);\n"
-        "background-color: rgb(184, 184, 184);")
         
                 
         

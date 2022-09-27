@@ -66,7 +66,7 @@ class Betano:
     def parser_data_double_chance(self):
         ###Obtendo dados da dupla chance##
         sleep(5)
-        btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div') ##path do botão de dupla chance##
+        btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div') ##path do botão de dupla chance##
         btn_dupla_chance.click()
         sleep(3)
         self.driver.refresh()
@@ -99,6 +99,7 @@ class Betano:
             self.DuplaChance[convertion] = pd.Series(self.DuplaChance[convertion], dtype=float)
         self.df_dupla = self.DuplaChance
         self.df_dupla.to_csv(self.directory_file+'\\DataFrame_betano_dupla.csv',encoding='utf-8', sep=';', index=False) ##exportando csv##
+        self.driver.close()
                
     def data_convert_types(self):
         #self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
