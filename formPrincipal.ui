@@ -32,7 +32,11 @@
    <string/>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);</string>
+   <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;
+
+
+border-color: rgb(4, 35, 38);</string>
   </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
@@ -61,9 +65,27 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(3, 127, 140);</string>
+     <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
     </property>
     <property name="text">
      <string>Sair</string>
@@ -79,9 +101,27 @@ background-color: rgb(3, 127, 140);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(3, 127, 140);</string>
+     <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
     </property>
     <property name="text">
      <string>Coletar Dados</string>
@@ -97,9 +137,27 @@ background-color: rgb(3, 127, 140);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(3, 127, 140);</string>
+     <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
     </property>
     <property name="text">
      <string>Visualizar Jogos</string>
@@ -115,9 +173,27 @@ background-color: rgb(3, 127, 140);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(3, 127, 140);</string>
+     <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
     </property>
     <property name="text">
      <string>Visualizar Possibilidades de Aposta</string>
@@ -133,9 +209,27 @@ background-color: rgb(3, 127, 140);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(255, 255, 255);
-background-color: rgb(3, 127, 140);</string>
+     <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
     </property>
     <property name="text">
      <string>Simular Aposta</string>
