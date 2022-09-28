@@ -99,7 +99,7 @@ class Betano:
             self.DuplaChance[convertion] = pd.Series(self.DuplaChance[convertion], dtype=float)
         self.df_dupla = self.DuplaChance
         self.df_dupla.to_csv(self.directory_file+'\\DataFrame_betano_dupla.csv',encoding='utf-8', sep=';', index=False) ##exportando csv##
-        self.driver.close()
+       
                
     def data_convert_types(self):
         #self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
@@ -165,22 +165,20 @@ class Pixbet:
     def open_web_site(self):
         self.driver.get(self.web_site)
         self.driver.maximize_window()
+        sleep(2)
 
     def parser_data(self):
         self.soup = BeautifulSoup(self.driver.page_source, 'lxml')
         self.partidas =self.soup.find_all('table',{'class':'odds_table'})
-        self.driver.close()
+        
           
     def data_transform(self):
         self.dic_jogos = {'Jogos':[]}
         for sub in self.soup.find_all('tr', {'class': 'odds_tr'}):
             jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
             self.dic_jogos['Jogos'].append(jogos) 
-            
+        self.driver.close()   
     def export_data(self):
-        self.directory_file = 'C:\\ApostasEsportivas'
-        if not os.path.exists(self.directory_file):
-            os.makedirs(self.directory_file)
         df = pd.DataFrame(self.dic_jogos)
         df.to_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';', index=False)
         
@@ -208,7 +206,7 @@ class Pixbet:
             self.df[column_remove] = self.df[column_remove].apply(lambda x:str(x).strip())
     
     def data_convert_types(self):
-        self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
+        #self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
         for column_float in self.df.columns[4:]:
            self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
         
@@ -230,7 +228,6 @@ class Pixbet:
                 
         df_pixbet = pd.DataFrame(ind_pixbet,columns=['Timec', 'Timev'])
         df_pixbet['Index'] = df_pixbet['Timec'].map(str)+'x'+df_pixbet['Timev']
-
         df_pixbet = df_pixbet.drop(['Timec', 'Timev'], axis=1)
         pixbet.insert(0,'index',df_pixbet)
         pixbet.to_csv(self.directory_file+'\\DataFrame_pixbet.csv',encoding='utf-8', sep=';', index=False)
