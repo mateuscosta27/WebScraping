@@ -1,1 +1,2 @@
-from .Install import Install
+from .Confdb import *
+from .Model import *
