@@ -1,10 +1,14 @@
-
-from PyQt5 import QtCore, QtGui, QtWidgets
+import os
+import sys
+import threading
 from time import sleep
-from formConfdb import *
-from model import Install
-from formConfdbFinished import *
+from PyQt5 import QtCore, QtGui, QtWidgets
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
+from formConfdb import *
+from formConfdbFinished import *
+from controller import Controller
 
 
 class Ui_formPrincipal(object):
@@ -151,49 +155,37 @@ class Ui_formPrincipal(object):
         self.retranslateUi(formPrincipal)
         QtCore.QMetaObject.connectSlotsByName(formPrincipal)
         
-        ###Botões do sistema###
-        self.btn_start.clicked.connect(self.conf_db) ## insere os diretorios do sistema ##
-        self.btn_start.clicked.connect(self.progress) ## inicia a barra de progresso##
-        self.btn_exit.clicked.connect(self.exit_system) ## sai do sistema##
+     ###Botões Modulo principal###
         
-    ###função de configuração###   
-    def conf_db(self): ##Inicia a funação conf_db para criação dos diretorios##
-        install = Install()
-        install.download_driver()
-        install.database()
+        self.btn_sair.clicked.connect(self.sair_sistema)
+        self.btn_coletar.clicked.connect(self.parallel_process)
         
-    ##Função da barra de progresso###   
-    def progress(self): ## inicia a barra de progresso##
-        barra = self.br_progress
-        barra.setVisible(True)
-        barra.setEnabled(True)
-        barra.setTextVisible(True)
-        sleep(0.01)
-        for i in range(101):
-            sleep(0.01)
-            barra.setProperty("value", i)
         
-        if i == 100:
-            sleep(0.5)
-            self.form_final()
-            sleep(0.5)
-            self.exit_install()
-            
-                          
-    ###Função que chama o formFinish##  
-    def form_final(self):
-        self.formConfdbFinished = QtWidgets.QMainWindow()
-        self.ui = Ui_formConfdbFinished()
-        self.ui.setupUi(self.formConfdbFinished)
-        self.formConfdbFinished.show()
-       
-    ##Função fecha o forminstall###
-    def exit_install(self):
-        formConfdb.close()
-    ###Função sai do sistema###               
-    def exit_system(self):
-        sys.exit()
         
+        ###funções sistema###
+    def collect(self):
+        controller = Controller()
+        controller.controller_betano()
+        
+    def parallel_process(self):
+        self.thread1 = threading.Thread(target=self.collect)
+        self.thread1.start()    
+
+    def disable_buttons(self):
+        
+        while self.thread1.is_alive != False:
+            self.btn_coletar.setDisabled(True)
+            self.btn_visPossibilidades.setDisabled(True)
+            self.btn_visJogos.setDisabled(True)
+            self.btn_simular.setDisabled(True)
+        else:
+            self.btn_coletar.setDisabled(False)
+            self.btn_visPossibilidades.setDisabled(False)
+            self.btn_visJogos.setDisabled(False)
+            self.btn_simular.setDisabled(False)
+                      
+    def sair_sistema(self):
+           sys.exit()
         
         
         

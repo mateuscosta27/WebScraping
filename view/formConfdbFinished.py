@@ -1,7 +1,12 @@
-
+import os
+import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 from formConfdb import *
 from formPrincipal import *
+
+
 
 
 class Ui_formConfdbFinished(object):

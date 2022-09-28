@@ -1,8 +1,12 @@
-
-from PyQt5 import QtCore, QtGui, QtWidgets
+import os
+import sys
 from time import sleep
+from PyQt5 import QtCore, QtGui, QtWidgets
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 from model import Install
 from formConfdbFinished import *
+
 
 class Ui_formConfdb(object):
     def setupUi(self, formConfdb):
@@ -69,8 +73,9 @@ class Ui_formConfdb(object):
         self.br_progress.setGeometry(QtCore.QRect(40, 120, 561, 23))
         self.br_progress.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(1, 31, 38);")
-        self.br_progress.setProperty("value", 50)
+        self.br_progress.setProperty("value", 0)
         self.br_progress.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
+        self.br_progress.setVisible(False)
         self.br_progress.setTextVisible(True)
         self.br_progress.setObjectName("br_progress")
         formConfdb.setCentralWidget(self.centralwidget)
