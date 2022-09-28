@@ -170,7 +170,7 @@ class Ui_formPrincipal(object):
         
     def thred_process(self):
         self.thread1 = threading.Thread(target=self.collect)
-        self.thread1.start()    
+        self.thread1.start()          
 
     def disable_buttons(self):
         
@@ -185,8 +185,8 @@ class Ui_formPrincipal(object):
             self.btn_visJogos.setDisabled(False)
             self.btn_simular.setDisabled(False)
                       
-    def sair_sistema(self):
-           sys.exit()
+    def sair_sistema(self):       
+        sys.exit()
         
         
         
