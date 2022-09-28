@@ -8,7 +8,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 from formConfdb import *
 from formConfdbFinished import *
-from controller import Controller
+from controller.Controller import Controller
 
 
 class Ui_formPrincipal(object):
@@ -158,16 +158,17 @@ class Ui_formPrincipal(object):
      ###Botões Modulo principal###
         
         self.btn_sair.clicked.connect(self.sair_sistema)
-        self.btn_coletar.clicked.connect(self.parallel_process)
+        self.btn_coletar.clicked.connect(self.thred_process)
         
         
         
         ###funções sistema###
     def collect(self):
         controller = Controller()
-        controller.controller_betano()
+        #controller.controller_betano()
+        controller.controller_pixbet()
         
-    def parallel_process(self):
+    def thred_process(self):
         self.thread1 = threading.Thread(target=self.collect)
         self.thread1.start()    
 

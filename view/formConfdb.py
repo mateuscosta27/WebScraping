@@ -1,10 +1,12 @@
 import os
 import sys
 from time import sleep
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-from model import Install
+from controller import Controller
 from formConfdbFinished import *
 
 
@@ -90,9 +92,8 @@ class Ui_formConfdb(object):
         
     ###função de configuração###   
     def conf_db(self): ##Inicia a funação conf_db para criação dos diretorios##
-        install = Install()
-        install.download_driver()
-        install.database()
+        confdb = Controller()
+        confdb.controller_confdb()
         
     ##Função da barra de progresso###   
     def progress(self): ## inicia a barra de progresso##
@@ -106,9 +107,8 @@ class Ui_formConfdb(object):
             barra.setProperty("value", i)
         
         if i == 100:
-            sleep(0.5)
+            sleep(0.8)
             self.form_final()
-            sleep(0.5)
             self.exit_install()
             
                           
