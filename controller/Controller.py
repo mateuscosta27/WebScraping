@@ -3,14 +3,22 @@ import os
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
+sys.path.insert(0,os.path.abspath(os.curdir))
 from model.Model import Betano
 from model.Model import Pixbet
+from model.Confdb import Confdb
 
 
 class Controller:
     def __init__(self) -> None:
         pass
     
+    
+    def controller_confdb(self):
+        conf = Confdb()
+        conf.download_driver()
+        conf.database()
+        
     def controller_betano(self):
         betano = Betano()
         betano.open_web_site()
@@ -41,4 +49,5 @@ class Controller:
         pixbet.data_convert_types()
         pixbet.export_dataframe()
         pixbet.create_index_pixbet()
-        
+        pixbet.remove_file()
+  
