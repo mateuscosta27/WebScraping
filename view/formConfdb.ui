@@ -10,6 +10,12 @@
     <height>250</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>620</width>
+    <height>250</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
     <width>620</width>
@@ -22,6 +28,10 @@
   <property name="windowTitle">
    <string>Assitente de Instalação</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>src/config_icon.png</normaloff>src/config_icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
@@ -31,8 +41,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>601</width>
-      <height>111</height>
+      <width>620</width>
+      <height>115</height>
      </rect>
     </property>
     <property name="text">
@@ -44,9 +54,21 @@
      <rect>
       <x>100</x>
       <y>160</y>
-      <width>195</width>
+      <width>200</width>
       <height>45</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>200</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -78,11 +100,23 @@ QPushButton:pressed{
    <widget class="QPushButton" name="btn_exit">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>320</x>
       <y>160</y>
-      <width>195</width>
+      <width>200</width>
       <height>45</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>200</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>200</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -117,11 +151,23 @@ QPushButton:pressed{
     </property>
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>120</y>
-      <width>561</width>
-      <height>23</height>
+      <width>580</width>
+      <height>25</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>580</width>
+      <height>25</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>580</width>
+      <height>25</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;

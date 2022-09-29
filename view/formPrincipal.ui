@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Modulo Principal</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>src/principal_icon.png</normaloff>src/principal_icon.png</iconset>
+  </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>
@@ -38,6 +42,9 @@ border-radius: 20px;
 
 border-color: rgb(4, 35, 38);</string>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
@@ -47,9 +54,21 @@ border-color: rgb(4, 35, 38);</string>
      <rect>
       <x>142</x>
       <y>20</y>
-      <width>532</width>
-      <height>46</height>
+      <width>535</width>
+      <height>75</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>535</width>
+      <height>75</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>535</width>
+      <height>75</height>
+     </size>
     </property>
     <property name="text">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600; color:#037f8c;&quot;&gt;BEM VINDO AO  APOSTADORPRO&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#037f8c;&quot;&gt;Torne sua possibilidades em jogos certeiros&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -60,9 +79,21 @@ border-color: rgb(4, 35, 38);</string>
      <rect>
       <x>690</x>
       <y>350</y>
-      <width>101</width>
-      <height>41</height>
+      <width>105</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>105</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>105</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -96,9 +127,21 @@ QPushButton:pressed{
      <rect>
       <x>270</x>
       <y>140</y>
-      <width>275</width>
-      <height>41</height>
+      <width>280</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>280</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>280</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -132,9 +175,21 @@ QPushButton:pressed{
      <rect>
       <x>270</x>
       <y>240</y>
-      <width>275</width>
-      <height>41</height>
+      <width>280</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>280</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>280</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -168,9 +223,15 @@ QPushButton:pressed{
      <rect>
       <x>270</x>
       <y>190</y>
-      <width>275</width>
-      <height>41</height>
+      <width>280</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>280</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -196,7 +257,7 @@ QPushButton:pressed{
 }</string>
     </property>
     <property name="text">
-     <string>Visualizar Possibilidades de Aposta</string>
+     <string> Possibilidades</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_simular">
@@ -204,9 +265,15 @@ QPushButton:pressed{
      <rect>
       <x>270</x>
       <y>290</y>
-      <width>275</width>
-      <height>41</height>
+      <width>280</width>
+      <height>45</height>
      </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>280</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{

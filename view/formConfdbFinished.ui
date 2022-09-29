@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Assistente de Configuração</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>src/config_icon.png</normaloff>src/config_icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
@@ -34,8 +38,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>361</width>
-      <height>61</height>
+      <width>360</width>
+      <height>70</height>
      </rect>
     </property>
     <property name="text">
@@ -47,9 +51,21 @@
      <rect>
       <x>80</x>
       <y>80</y>
-      <width>190</width>
+      <width>195</width>
       <height>45</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>195</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>195</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -83,9 +99,21 @@ QPushButton:pressed{
      <rect>
       <x>80</x>
       <y>130</y>
-      <width>190</width>
+      <width>195</width>
       <height>45</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>195</width>
+      <height>45</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>195</width>
+      <height>45</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{

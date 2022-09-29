@@ -10,20 +10,27 @@ from controller import Controller
 from formConfdbFinished import *
 
 
+
 class Ui_formConfdb(object):
     def setupUi(self, formConfdb):
         formConfdb.setObjectName("formConfdb")
         formConfdb.resize(620, 250)
+        formConfdb.setMinimumSize(QtCore.QSize(620, 250))
         formConfdb.setMaximumSize(QtCore.QSize(620, 250))
         formConfdb.setFocusPolicy(QtCore.Qt.ClickFocus)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("src/config_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        formConfdb.setWindowIcon(icon)
         formConfdb.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(formConfdb)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_title = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_title.setGeometry(QtCore.QRect(0, 0, 601, 111))
+        self.lbl_title.setGeometry(QtCore.QRect(0, 0, 620, 115))
         self.lbl_title.setObjectName("lbl_title")
         self.btn_start = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_start.setGeometry(QtCore.QRect(100, 160, 195, 45))
+        self.btn_start.setGeometry(QtCore.QRect(100, 160, 200, 45))
+        self.btn_start.setMinimumSize(QtCore.QSize(200, 45))
+        self.btn_start.setMaximumSize(QtCore.QSize(200, 45))
         self.btn_start.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -47,7 +54,9 @@ class Ui_formConfdb(object):
 "}")
         self.btn_start.setObjectName("btn_start")
         self.btn_exit = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_exit.setGeometry(QtCore.QRect(300, 160, 195, 45))
+        self.btn_exit.setGeometry(QtCore.QRect(320, 160, 200, 45))
+        self.btn_exit.setMinimumSize(QtCore.QSize(200, 45))
+        self.btn_exit.setMaximumSize(QtCore.QSize(200, 45))
         self.btn_exit.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -72,20 +81,22 @@ class Ui_formConfdb(object):
         self.btn_exit.setObjectName("btn_exit")
         self.br_progress = QtWidgets.QProgressBar(self.centralwidget)
         self.br_progress.setEnabled(True)
-        self.br_progress.setGeometry(QtCore.QRect(40, 120, 561, 23))
+        self.br_progress.setGeometry(QtCore.QRect(20, 120, 580, 25))
+        self.br_progress.setMinimumSize(QtCore.QSize(580, 25))
+        self.br_progress.setMaximumSize(QtCore.QSize(580, 25))
         self.br_progress.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
 "color: rgb(1, 31, 38);")
         self.br_progress.setProperty("value", 0)
         self.br_progress.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
-        self.br_progress.setVisible(False)
         self.br_progress.setTextVisible(True)
+        self.br_progress.setVisible(False)
         self.br_progress.setObjectName("br_progress")
         formConfdb.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(formConfdb)
         QtCore.QMetaObject.connectSlotsByName(formConfdb)
         
-        ###Botões do sistema###
+         ###Botões do sistema###
         self.btn_start.clicked.connect(self.conf_db) ## insere os diretorios do sistema ##
         self.btn_start.clicked.connect(self.progress) ## inicia a barra de progresso##
         self.btn_exit.clicked.connect(self.exit_system) ## sai do sistema##
@@ -125,17 +136,6 @@ class Ui_formConfdb(object):
     ###Função sai do sistema###               
     def exit_system(self):
         sys.exit()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
 
     def retranslateUi(self, formConfdb):

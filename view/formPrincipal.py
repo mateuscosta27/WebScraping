@@ -17,6 +17,9 @@ class Ui_formPrincipal(object):
         formPrincipal.resize(800, 400)
         formPrincipal.setMinimumSize(QtCore.QSize(800, 400))
         formPrincipal.setMaximumSize(QtCore.QSize(800, 400))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("src/principal_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        formPrincipal.setWindowIcon(icon)
         formPrincipal.setWindowOpacity(1.0)
         formPrincipal.setToolTip("")
         formPrincipal.setStyleSheet("background-color: rgb(255, 255, 255);\n"
@@ -24,14 +27,19 @@ class Ui_formPrincipal(object):
 "\n"
 "\n"
 "border-color: rgb(4, 35, 38);")
+        formPrincipal.setTabShape(QtWidgets.QTabWidget.Rounded)
         formPrincipal.setDockOptions(QtWidgets.QMainWindow.AllowTabbedDocks|QtWidgets.QMainWindow.AnimatedDocks)
         self.centralwidget = QtWidgets.QWidget(formPrincipal)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_title = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_title.setGeometry(QtCore.QRect(142, 20, 532, 46))
+        self.lbl_title.setGeometry(QtCore.QRect(142, 20, 535, 75))
+        self.lbl_title.setMinimumSize(QtCore.QSize(535, 75))
+        self.lbl_title.setMaximumSize(QtCore.QSize(535, 75))
         self.lbl_title.setObjectName("lbl_title")
         self.btn_sair = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_sair.setGeometry(QtCore.QRect(690, 350, 101, 41))
+        self.btn_sair.setGeometry(QtCore.QRect(690, 350, 105, 45))
+        self.btn_sair.setMinimumSize(QtCore.QSize(105, 45))
+        self.btn_sair.setMaximumSize(QtCore.QSize(105, 45))
         self.btn_sair.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -55,7 +63,9 @@ class Ui_formPrincipal(object):
 "}")
         self.btn_sair.setObjectName("btn_sair")
         self.btn_coletar = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_coletar.setGeometry(QtCore.QRect(270, 140, 275, 41))
+        self.btn_coletar.setGeometry(QtCore.QRect(270, 140, 280, 45))
+        self.btn_coletar.setMinimumSize(QtCore.QSize(280, 45))
+        self.btn_coletar.setMaximumSize(QtCore.QSize(280, 45))
         self.btn_coletar.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -79,7 +89,9 @@ class Ui_formPrincipal(object):
 "}")
         self.btn_coletar.setObjectName("btn_coletar")
         self.btn_visJogos = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_visJogos.setGeometry(QtCore.QRect(270, 240, 275, 41))
+        self.btn_visJogos.setGeometry(QtCore.QRect(270, 240, 280, 45))
+        self.btn_visJogos.setMinimumSize(QtCore.QSize(280, 45))
+        self.btn_visJogos.setMaximumSize(QtCore.QSize(280, 45))
         self.btn_visJogos.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -103,7 +115,8 @@ class Ui_formPrincipal(object):
 "}")
         self.btn_visJogos.setObjectName("btn_visJogos")
         self.btn_visPossibilidades = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_visPossibilidades.setGeometry(QtCore.QRect(270, 190, 275, 41))
+        self.btn_visPossibilidades.setGeometry(QtCore.QRect(270, 190, 280, 45))
+        self.btn_visPossibilidades.setMaximumSize(QtCore.QSize(280, 45))
         self.btn_visPossibilidades.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -127,7 +140,8 @@ class Ui_formPrincipal(object):
 "}")
         self.btn_visPossibilidades.setObjectName("btn_visPossibilidades")
         self.btn_simular = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_simular.setGeometry(QtCore.QRect(270, 290, 275, 41))
+        self.btn_simular.setGeometry(QtCore.QRect(270, 290, 280, 45))
+        self.btn_simular.setMaximumSize(QtCore.QSize(280, 45))
         self.btn_simular.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -155,11 +169,11 @@ class Ui_formPrincipal(object):
         self.retranslateUi(formPrincipal)
         QtCore.QMetaObject.connectSlotsByName(formPrincipal)
         
-     ###Botões Modulo principal###
+        
+    ###Botões Modulo principal###
         
         self.btn_sair.clicked.connect(self.sair_sistema)
         self.btn_coletar.clicked.connect(self.thred_process)
-        
         
         
         ###funções sistema###
@@ -168,30 +182,14 @@ class Ui_formPrincipal(object):
         #controller.controller_betano()
         controller.controller_pixbet()
         
+        
     def thred_process(self):
         self.thread1 = threading.Thread(target=self.collect)
         self.thread1.start()          
-
-    def disable_buttons(self):
         
-        while self.thread1.is_alive != False:
-            self.btn_coletar.setDisabled(True)
-            self.btn_visPossibilidades.setDisabled(True)
-            self.btn_visJogos.setDisabled(True)
-            self.btn_simular.setDisabled(True)
-        else:
-            self.btn_coletar.setDisabled(False)
-            self.btn_visPossibilidades.setDisabled(False)
-            self.btn_visJogos.setDisabled(False)
-            self.btn_simular.setDisabled(False)
                       
     def sair_sistema(self):       
-        sys.exit()
-        
-        
-        
-        
-        
+        sys.exit()    
         
         
         
@@ -213,7 +211,7 @@ class Ui_formPrincipal(object):
         self.btn_sair.setText(_translate("formPrincipal", "Sair"))
         self.btn_coletar.setText(_translate("formPrincipal", "Coletar Dados"))
         self.btn_visJogos.setText(_translate("formPrincipal", "Visualizar Jogos"))
-        self.btn_visPossibilidades.setText(_translate("formPrincipal", "Visualizar Possibilidades de Aposta"))
+        self.btn_visPossibilidades.setText(_translate("formPrincipal", " Possibilidades"))
         self.btn_simular.setText(_translate("formPrincipal", "Simular Aposta"))
 
 

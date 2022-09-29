@@ -8,21 +8,25 @@ from formPrincipal import *
 
 
 
-
 class Ui_formConfdbFinished(object):
     def setupUi(self, formConfdbFinished):
         formConfdbFinished.setObjectName("formConfdbFinished")
         formConfdbFinished.resize(365, 185)
         formConfdbFinished.setMinimumSize(QtCore.QSize(365, 185))
         formConfdbFinished.setMaximumSize(QtCore.QSize(365, 185))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("src/config_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        formConfdbFinished.setWindowIcon(icon)
         formConfdbFinished.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(formConfdbFinished)
         self.centralwidget.setObjectName("centralwidget")
         self.lbl_title = QtWidgets.QLabel(self.centralwidget)
-        self.lbl_title.setGeometry(QtCore.QRect(0, 0, 361, 61))
+        self.lbl_title.setGeometry(QtCore.QRect(0, 0, 360, 70))
         self.lbl_title.setObjectName("lbl_title")
         self.btn_start = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_start.setGeometry(QtCore.QRect(80, 80, 190, 45))
+        self.btn_start.setGeometry(QtCore.QRect(80, 80, 195, 45))
+        self.btn_start.setMinimumSize(QtCore.QSize(195, 45))
+        self.btn_start.setMaximumSize(QtCore.QSize(195, 45))
         self.btn_start.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -46,7 +50,9 @@ class Ui_formConfdbFinished(object):
 "}")
         self.btn_start.setObjectName("btn_start")
         self.btn_exit = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_exit.setGeometry(QtCore.QRect(80, 130, 190, 45))
+        self.btn_exit.setGeometry(QtCore.QRect(80, 130, 195, 45))
+        self.btn_exit.setMinimumSize(QtCore.QSize(195, 45))
+        self.btn_exit.setMaximumSize(QtCore.QSize(195, 45))
         self.btn_exit.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -75,7 +81,8 @@ class Ui_formConfdbFinished(object):
         QtCore.QMetaObject.connectSlotsByName(formConfdbFinished)
         
         
-         ##Botões do Sistema##
+        
+        ##Botões do Sistema##
         self.btn_start.clicked.connect(self.start_main) ## Inicia modulo principal
         self.btn_exit.clicked.connect(self.exit_system) ## Encerra o sistema
         
@@ -92,10 +99,7 @@ class Ui_formConfdbFinished(object):
         fi.close()
     ###Função de sair do sistema###         
     def exit_system(self):
-        sys.exit()
-        
-        
-        
+        sys.exit()    
 
     def retranslateUi(self, formConfdbFinished):
         _translate = QtCore.QCoreApplication.translate
