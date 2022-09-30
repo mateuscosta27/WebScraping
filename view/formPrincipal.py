@@ -179,8 +179,8 @@ class Ui_formPrincipal(object):
         ###funções sistema###
     def collect(self):
         controller = Controller()
-        #controller.controller_betano()
         controller.controller_betano()
+        controller.controller_pixbet()
         
         
     def thred_process(self):

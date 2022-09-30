@@ -229,7 +229,7 @@ class Pixbet:
         df_pixbet = pd.DataFrame(ind_pixbet,columns=['Timec', 'Timev'])
         df_pixbet['Index'] = df_pixbet['Timec'].map(str)+'x'+df_pixbet['Timev']
         df_pixbet = df_pixbet.drop(['Timec', 'Timev'], axis=1)
-        pixbet.insert(0,'index',df_pixbet)
+        pixbet.insert(0,'ind',df_pixbet)
         pixbet.to_csv(self.directory_file+'\\DataFrame_pixbet.csv',encoding='utf-8', sep=';', index=False)
         
     def remove_file(self):
