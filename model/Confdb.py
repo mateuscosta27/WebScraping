@@ -26,5 +26,6 @@ class Confdb:
     def database(self):
         ###criando database###
         directory_database = 'C:\\tmp\\Bancos'
-        con = sqlite3.connect(directory_database+'\\DADOS.db')           
+        con = sqlite3.connect(directory_database+'\\DADOS.db')
+        con.close()           
                 

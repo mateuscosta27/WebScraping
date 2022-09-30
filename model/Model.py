@@ -62,7 +62,9 @@ class Betano:
         self.df = df
         for column_remove in self.df.columns:
             self.df[column_remove] = self.df[column_remove].apply(lambda x:str(x).strip()) ##Removendo espaços da direita e da esquerda das strings##
-            
+        ##inserindo ano para formatar padrão a data
+        ano = '/2022'
+        self.df['Data'] =  self.df['Data'].apply(lambda x: (x+ano).replace('/','-'))    
     def parser_data_double_chance(self):
         ###Obtendo dados da dupla chance##
         sleep(5)
@@ -102,7 +104,8 @@ class Betano:
        
                
     def data_convert_types(self):
-        #self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
+        self.df['Data'] = self.df['Data'].apply(lambda x: pd.to_datetime(x, format='%d-%m-%Y')) 
+        conrvert = str(self.df['TimeCasa','TimeVisitante'] )
         for column_float in self.df.columns[4:]:
            self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
            
