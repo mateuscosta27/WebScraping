@@ -66,7 +66,7 @@ class Betano:
     def parser_data_double_chance(self):
         ###Obtendo dados da dupla chance##
         sleep(5)
-        btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div') ##path do botão de dupla chance##
+        btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div/div/span') ##path do botão de dupla chance##
         btn_dupla_chance.click()
         sleep(3)
         self.driver.refresh()
@@ -138,7 +138,7 @@ class Betano:
         betano.to_csv(self.directory_file+'\\DataFrame_betano.csv',encoding='utf-8', sep=';', index=False)  ##exportando dataframe final##
              
         try:
-            os.remove(self.directory_file+'\\scraping_betano.csv')
+            #os.remove(self.directory_file+'\\scraping_betano.csv')
             os.remove(self.directory_file+'\\df_betano.csv')
             os.remove(self.directory_file+'\\DataFrame_betano_dupla.csv')
             os.remove(self.directory_file+'\\scraping_betano_dupla.csv')

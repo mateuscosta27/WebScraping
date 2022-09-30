@@ -180,7 +180,7 @@ class Ui_formPrincipal(object):
     def collect(self):
         controller = Controller()
         #controller.controller_betano()
-        controller.controller_pixbet()
+        controller.controller_betano()
         
         
     def thred_process(self):
