@@ -179,14 +179,14 @@ class Ui_formPrincipal(object):
         ###funções sistema###
     def collect(self):
         controller = Controller()
-        controller.controller_betano()
+        #controller.controller_betano()
         controller.controller_pixbet()
         
         
     def thred_process(self):
         self.thread1 = threading.Thread(target=self.collect)
-        self.thread1.start()          
-        
+        self.thread1.start()
+    
                       
     def sair_sistema(self):       
         sys.exit()    
