@@ -292,7 +292,7 @@ class Ui_formViewResult(object):
         
     def comme_back(self):
         self.formPrincipal = QtWidgets.QMainWindow()
-        self.ui = Ui_formPrincipal()
+        self.ui = self.Ui_formPrincipal()
         self.ui.setupUi(self.formPrincipal)
         self.formPrincipal.show()
         formViewResult.close()
@@ -328,7 +328,7 @@ class Ui_formViewResult(object):
         con_db.close()
         
     def list_match_jogos(self):
-        self.lbl_table.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Jogos nas 2 casas</span></p></body></html>")   
+        self.lbl_table.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Jogos Pixbet</span></p></body></html>")   
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
@@ -344,9 +344,7 @@ class Ui_formViewResult(object):
                 for j in range(0,5):
                         self.tb_view.setItem(i,j,QtWidgets.QTableWidgetItem(str(resultSet[i][j])))              
         con_db.close()
-                                
-          
-                
+                                           
     def exit_system(self):
             sys.exit()
 

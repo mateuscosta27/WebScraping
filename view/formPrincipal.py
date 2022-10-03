@@ -9,6 +9,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from formConfdb import *
 from formConfdbFinished import *
 from controller.Controller import Controller
+from formViewResult import *
 
 
 class Ui_formPrincipal(object):
@@ -179,14 +180,16 @@ class Ui_formPrincipal(object):
         ###funções sistema###
     def collect(self):
         controller = Controller()
-        #controller.controller_betano()
         controller.controller_pixbet()
+        controller.controller_betano()
+        
         
         
     def thred_process(self):
         self.thread1 = threading.Thread(target=self.collect)
         self.thread1.start()
     
+            
                       
     def sair_sistema(self):       
         sys.exit()    
