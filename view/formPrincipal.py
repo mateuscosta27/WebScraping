@@ -223,6 +223,7 @@ class Ui_formPrincipal(object):
         controller = Controller()
         #controller.controller_pixbet()
         controller.controller_betano()
+        controller.create_tables()
         self.btn_visPossibilidades.setEnabled(True)
         self.btn_visJogos.setEnabled(True)
         self.btn_simular.setEnabled(True)
