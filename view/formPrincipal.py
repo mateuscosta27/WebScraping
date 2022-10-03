@@ -1,3 +1,4 @@
+from faulthandler import is_enabled
 import os
 import sys
 import threading
@@ -9,7 +10,7 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from formConfdb import *
 from formConfdbFinished import *
 from controller.Controller import Controller
-from formViewResult import *
+from formPossibilities import *
 
 
 class Ui_formPrincipal(object):
@@ -179,19 +180,69 @@ class Ui_formPrincipal(object):
         
         ###funções sistema###
     def collect(self):
+        ###Estilo do botão desabilitato###
+        style_disabled = ("QPushButton{\n"
+                        "    border-style: none;\n"
+                        "    border-width: 2px;\n"
+                        "    font: 75 11pt \"MS Shell Dlg 2\";\n"
+                        "    color: rgb(255, 255, 255);\n"
+                        "    background-color: rgb(184, 184, 184);\n"
+                        "    border-radius: 12px;\n"
+                        "    border-bottom-color: rgb(4, 35, 38);\n"
+                        "    border-right-color:  rgb(4, 35, 38);\n"
+                        "}\n")
+        ###Estilo do botão desabilitato###                
+        style_enabled =  ("QPushButton{\n"
+                        "    border-style: none;\n"
+                        "    border-width: 2px;\n"
+                        "    font: 75 11pt \"MS Shell Dlg 2\";\n"
+                        "    color: rgb(255, 255, 255);\n"
+                        "    background-color: rgb(3, 127, 140);\n"
+                        "    border-radius: 12px;\n"
+                        "    border-bottom-color: rgb(4, 35, 38);\n"
+                        "    border-right-color:  rgb(4, 35, 38);\n"
+                        "}\n"
+                        "\n"
+                        "QPushButton:pressed{\n"
+                        "    border-style: insetset;\n"
+                        "    border-width: 2px;\n"
+                        "    font: 75 11pt \"MS Shell Dlg 2\";\n"
+                        "    color: rgb(255, 255, 255);\n"
+                        "    background-color: rgb(3, 127, 140);\n"
+                        "    border-radius: 8px;\n"
+                        "    border-top-color: rgb(4, 35, 38);\n"
+                        "    border-left-color:  rgb(4, 35, 38);\n"
+                        "}")               
+
+        self.btn_visPossibilidades.setEnabled(False)
+        self.btn_visJogos.setEnabled(False)
+        self.btn_simular.setEnabled(False)
+        self.btn_visPossibilidades.setStyleSheet(style_disabled)
+        self.btn_visJogos.setStyleSheet(style_disabled)
+        self.btn_simular.setStyleSheet(style_disabled)
         controller = Controller()
-        controller.controller_pixbet()
+        #controller.controller_pixbet()
         controller.controller_betano()
+        self.btn_visPossibilidades.setEnabled(True)
+        self.btn_visJogos.setEnabled(True)
+        self.btn_simular.setEnabled(True)
+        self.btn_visPossibilidades.setStyleSheet(style_enabled)
+        self.btn_visJogos.setStyleSheet(style_enabled)
+        self.btn_simular.setStyleSheet(style_enabled)
         
-        
+
+
+
+
+
         
     def thred_process(self):
         self.thread1 = threading.Thread(target=self.collect)
         self.thread1.start()
+        
     
-            
                       
-    def sair_sistema(self):       
+    def sair_sistema(self):
         sys.exit()    
         
         
@@ -210,7 +261,7 @@ class Ui_formPrincipal(object):
     def retranslateUi(self, formPrincipal):
         _translate = QtCore.QCoreApplication.translate
         formPrincipal.setWindowTitle(_translate("formPrincipal", "Modulo Principal"))
-        self.lbl_title.setText(_translate("formPrincipal", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:600; color:#037f8c;\">BEM VINDO AO  APOSTADORPRO</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; color:#037f8c;\">Torne sua possibilidades em jogos certeiros</span></p></body></html>"))
+        self.lbl_title.setText(_translate("formPrincipal", "<html><head/><body><p align=\"center\"><span style=\" font-size:11pt; font-weight:600; color:#037f8c;\">BEM VINDO AO  APOSTADORPRO</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:600; color:#037f8c;\">Torne suas possibilidades em jogos certeiros</span></p></body></html>"))
         self.btn_sair.setText(_translate("formPrincipal", "Sair"))
         self.btn_coletar.setText(_translate("formPrincipal", "Coletar Dados"))
         self.btn_visJogos.setText(_translate("formPrincipal", "Visualizar Jogos"))

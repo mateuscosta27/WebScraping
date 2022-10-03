@@ -84,6 +84,7 @@ class Betano:
             jogos = jogo.get_text().strip()
             dic_duplachance['Dupla'].append(jogos)
         self.dic_duplachance = dic_duplachance
+    def close_driver(self):    
         self.driver.close() ##fechando o driver##
         
     def export_double_chance(self): 

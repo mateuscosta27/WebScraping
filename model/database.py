@@ -34,6 +34,8 @@ class Database:
             con = self.con_db       
         )
         self.con_db.close()
-        
+
+teste = Database()
+teste.create_table_betano()        
         
         

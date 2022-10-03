@@ -31,6 +31,7 @@ class Controller:
         betano.parser_data_double_chance()
         betano.export_double_chance()
         betano.double_chance()
+        betano.close_driver()
         betano.data_convert_types()
         betano.df_concat()
         betano.export_dataframe()
