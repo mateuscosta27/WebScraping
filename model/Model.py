@@ -105,7 +105,6 @@ class Betano:
                
     def data_convert_types(self):
         self.df['Data'] = self.df['Data'].apply(lambda x: pd.to_datetime(x, format='%d-%m-%Y')) 
-        conrvert = str(self.df['TimeCasa','TimeVisitante'] )
         for column_float in self.df.columns[4:]:
            self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
            
