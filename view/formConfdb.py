@@ -3,7 +3,6 @@ import sys
 from time import sleep
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 from controller import Controller

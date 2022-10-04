@@ -33,9 +33,6 @@ class Database:
             index=False,
             con = self.con_db       
         )
-        self.con_db.close()
-
-teste = Database()
-teste.create_table_betano()        
+        self.con_db.close()       
         
         

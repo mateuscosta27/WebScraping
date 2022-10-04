@@ -1,5 +1,10 @@
+import os
+import sys
 import sqlite3
-from formPrincipal import *
+
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -264,9 +269,10 @@ class Ui_formViewResult(object):
             "formViewResult", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Jogos</span></p></body></html>"))
 
 
-###Botões do sistema##
+        ###Botões do sistema##
         self.btn_sair.clicked.connect(self.exit_system)
         self.btn_voltar.clicked.connect(self.return_main_screen)
+        ###Radio Buttons###
         self.rb_matchOdds.clicked.connect(self.list_match_odds)
         self.rb_totalGols.clicked.connect(self.lis_total_goals)
 
@@ -305,33 +311,29 @@ class Ui_formViewResult(object):
         item.setText('MenosGols_Pixbet')
         item = self.tb_view.horizontalHeaderItem(9)
         item.setText('Possibilidade2')    
-
-    def return_main_screen(self):
-        """Volta para a tela principal
-           Returns to the main screen
-        """
-        self.formPrincipal = QtWidgets.QMainWindow()
-        self.ui = self.Ui_formPrincipal()
-        self.ui.setupUi(self.formPrincipal)
-        self.formPrincipal.show()
-        formViewResult.close()
-
+    
     def list_match_odds(self):
         """Lista as probabilidades boas para apostas
            List good odds for betting
         """
-        self.lbl_table.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Jogos Betano</span></p></body></html>")
+        self.lbl_table.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Odds Boas para aposta</span></p></body></html>")
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
         mycursor.execute("""select p.Data, p.Hora ,p.timecasa as TimeCasa_pixbet, p.timevisitante as TimeVisitante_pixbet ,p.Odds1  as Odds1_pixbet, b.Odds2  as Odds2_betano,
                                 CASE 
                                         when ((1/p.Odds1) + (1/b.Odds2)) < 1 then 'PixbetXBetano'
-                                        END as Aportunidade1,
+                                        when p.Odds1 = 'None' then 'Sem dados'
+	                                when b.Odds2 = 'None' then 'Sem dados'
+                                        ELSE "Sem Possibilidades"
+                                        END as Possibilidade1,
                                         b.Odds1 as Odds1_betano, p.Odds2 as Odds2_pixbet,	
                                 Case
                                         when ((1/b.Odds1) + (1/p.Odds2)) < 1 then 'BetanoXPixbet'
-                                        END as Aportunidade2
+                                        when b.Odds1 = 'None' then 'Sem dados'
+	                                when p.Odds2 = 'None' then 'Sem dados'
+                                        ELSE "Sem Possibilidades"
+                                        END as 'Possibilidade2'
                                         
                                         
                                         from tb_pixbet p
@@ -348,19 +350,23 @@ class Ui_formViewResult(object):
         con_db.close()
 
     def lis_total_goals(self):
-        self.lbl_table.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Jogos Betano</span></p></body></html>")
+        self.lbl_table.setText("<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">+-2,5 Gols</span></p></body></html>")
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
         mycursor.execute("""select p.Data, p.Hora ,p.timecasa as TimeCasa_pixbet, p.timevisitante as TimeVisitante_pixbet ,p.MaisGols  as MaisGols_pixbet, b.MenosGols  as MenosGols_betano,
                                 CASE 
                                         when ((1/p.MaisGols) + (1/b.MenosGols)) < 1 then 'PixbetXBetano'
-                                        ELSE "Sem Oportunidades"
+                                        when p.MaisGols = 'None' then 'Sem dados'
+	                                when b.MenosGols = 'None' then 'Sem dados'
+                                        ELSE "Sem Possibilidades"
                                         END as Aportunidade1,
                                         b.Odds1 as Odds1_betano, p.Odds2 as Odds2_pixbet,	
                                 Case
                                         when ((1/b.MaisGols) + (1/p.MenosGols)) < 1 then 'BetanoXPixbet'
-                                        ELSE "Sem Oportunidades"
+                                        when b.MaisGols = 'None' then 'Sem dados'
+	                                when p.MenosGols = 'None' then 'Sem dados'
+                                        ELSE "Sem Possibilidades"
                                         END as Aportunidade2
                                         
                                         
@@ -371,14 +377,16 @@ class Ui_formViewResult(object):
         resultSet = mycursor.fetchall()
         self.tb_view.setRowCount(len(resultSet))
         self.tb_view.setColumnCount(10)
-        self.total_goals_name()
-        self.match_odds_name()  # função para renomear as colunas
+        self.total_goals_name()  # função para renomear as colunas 
         for i in range(0, len(resultSet)):
             for j in range(0, 10):
                 self.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()    
-            
 
+    def return_main_screen(self):
+        formViewResult.close()
+        
+                            
     def exit_system(self):
         """Sai do sistema
            Exit of System
