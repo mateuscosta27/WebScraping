@@ -385,8 +385,7 @@ class Ui_formViewResult(object):
 
     def return_main_screen(self):
         formViewResult.close()
-        
-                            
+                                    
     def exit_system(self):
         """Sai do sistema
            Exit of System

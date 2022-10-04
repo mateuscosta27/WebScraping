@@ -270,7 +270,6 @@ class Ui_formPrincipal(object):
         self.btn_visPossibilidades.setText(_translate("formPrincipal", " Possibilidades"))
         self.btn_simular.setText(_translate("formPrincipal", "Simular Aposta"))
 
-
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
