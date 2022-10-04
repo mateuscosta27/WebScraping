@@ -1,7 +1,6 @@
-from concurrent.futures import thread
+
 import sys
 import os
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 sys.path.insert(0,os.path.abspath(os.curdir))
@@ -60,4 +59,3 @@ class Controller:
         controller = Database()
         controller.create_table_betano()
         controller.create_table_pixbet()        
-  

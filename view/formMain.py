@@ -230,7 +230,7 @@ class Ui_formPrincipal(object):
         self.btn_simular.setStyleSheet(style_disabled)
         
         ##Instância de Classe##
-        ##class instance$$
+        ##class instance##
         controller = Controller()
         controller.controller_pixbet()
         controller.controller_betano()
