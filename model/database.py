@@ -11,6 +11,7 @@ class Database:
         self.directory_database = 'C:\\tmp\\Bancos'
         self.directory_file = 'C:\\tmp\\Arquivos'
         self.con_db = sqlite3.connect(self.directory_database+'\\DADOS.db')
+        
     def create_table_betano(self):
         self.con_db
         betano = pd.read_csv(self.directory_file+'\\DataFrame_betano.csv',encoding='utf-8', sep=';')
@@ -20,7 +21,7 @@ class Database:
             index=False,
             con = self.con_db       
         )
-        self.con_db.close()
+       
     
     
     def create_table_pixbet(self):
@@ -33,6 +34,6 @@ class Database:
             index=False,
             con = self.con_db       
         )
-        self.con_db.close()       
+            
         
         

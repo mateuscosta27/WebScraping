@@ -1,8 +1,6 @@
 import os
 import sys
 import threading
-
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 from formConfdb import *
@@ -221,7 +219,8 @@ class Ui_formPrincipal(object):
                          "    border-left-color:  rgb(4, 35, 38);\n"
                          "}")
         ##Este bloco desabilita os botões impedindo o clique##
-        ##This block disables the buttons preventing clicking##    
+        ##This block disables the buttons preventing clicking##  
+        self.btn_coletar.setEnabled(False)  
         self.btn_visPossibilidades.setEnabled(False)
         self.btn_visJogos.setEnabled(False)
         self.btn_simular.setEnabled(False)
@@ -237,6 +236,7 @@ class Ui_formPrincipal(object):
         controller.create_tables()
         ##Volta valor padrão dos botões##
         ##Volta valor padrão dos botões##
+        self.btn_coletar.setEnabled(True)
         self.btn_visPossibilidades.setEnabled(True)
         self.btn_visJogos.setEnabled(True)
         self.btn_simular.setEnabled(True)
@@ -245,6 +245,9 @@ class Ui_formPrincipal(object):
         self.btn_simular.setStyleSheet(style_enabled)
 
     def thred_process(self):
+        """Trabalha com thread na coleta
+           Works with thread in the collection
+        """
         self.thread1 = threading.Thread(target=self.collect)
         self.thread1.start()
            
@@ -258,6 +261,9 @@ class Ui_formPrincipal(object):
         self.formViewResult.show()
         
     def exit_system(self):
+        """Sai do sistema
+           Exit system
+        """
         sys.exit()
 
     def retranslateUi(self, formPrincipal):
