@@ -1,19 +1,12 @@
 import io, re, string, os
-class Teste:
-    def __init__(self):
-        self.directory_driver = 'C:\\tmp\\Driver\\chromedriver.exe'
 
+path = os.path.abspath('C:\\tmp\\Driver\\chromedriver.exe')
+replacement = 'akl_roepstdlwoeproslP0weos'.encode()
 
-    def alter_driver(self):
-        self.path = os.path.abspath(self.directory_driver)
-        self.replacement = 'akl_roepstdlwoeproslP0weos'.encode()
-
-        with io.open(self.path, "r+b") as fh:
-            for line in iter(lambda: fh.readline(), b""):
-                fh.seek(len(line), 1)
-                newline = re.sub(b"cdc_.{22}", self.replacement, line)
-                fh.write(newline)
-
-
-teste = Teste()
-teste.alter_driver()
+with io.open(path, "r+b") as fh:
+    for line in iter(lambda: fh.readline(), b""):
+        if b"cdc_" in line:
+            fh.seek(-len(line), 1)
+            newline = re.sub(b"cdc_.{22}",replacement, line)
+            fh.write(newline)
+            print("\033[93m[*]\33[0m Linha encontrada e alterada com sucesso:   ")
