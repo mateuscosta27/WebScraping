@@ -15,6 +15,9 @@ class Betano:
         self.path = self.directory_driver +'\\chromedriver.exe'
         self.web_site = 'https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=0' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
+        self.options.add_argument('--window-size=1920,1080')
+        self.options.add_argument('--start-maximized')
+        self.options.add_argument('--headless')
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
     
@@ -145,6 +148,7 @@ class Betano:
             os.remove(self.directory_file+'\\df_betano.csv')
             os.remove(self.directory_file+'\\DataFrame_betano_dupla.csv')
             os.remove(self.directory_file+'\\scraping_betano_dupla.csv')
+            os.remove(self.directory_file+'\\scraping_betano.csv')
         except OSError as e:
             print(f"Error:{e.strerror}")
             print('Algo deu errado')
@@ -163,6 +167,7 @@ class Pixbet:
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
+       
 
 
     def open_web_site(self):
