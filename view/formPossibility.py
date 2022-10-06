@@ -31,14 +31,14 @@ class Ui_formViewResult(object):
         self.lbl_title.setMaximumSize(QtCore.QSize(600, 50))
         self.lbl_title.setObjectName("lbl_title")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.groupBox.setGeometry(QtCore.QRect(1060, 10, 170, 155))
+        self.groupBox.setGeometry(QtCore.QRect(1025, 10, 220, 155))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(170)
         sizePolicy.setVerticalStretch(140)
         sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
         self.groupBox.setSizePolicy(sizePolicy)
-        self.groupBox.setMinimumSize(QtCore.QSize(170, 155))
-        self.groupBox.setMaximumSize(QtCore.QSize(170, 155))
+        self.groupBox.setMinimumSize(QtCore.QSize(220, 155))
+        self.groupBox.setMaximumSize(QtCore.QSize(220, 155))
         self.groupBox.setStyleSheet("background-color: rgb(3, 127, 140);\n"
 "border-radius: 5px;\n"
 "")
@@ -48,9 +48,9 @@ class Ui_formViewResult(object):
         self.groupBox.setCheckable(False)
         self.groupBox.setObjectName("groupBox")
         self.rb_matchOdds = QtWidgets.QRadioButton(self.groupBox)
-        self.rb_matchOdds.setGeometry(QtCore.QRect(16, 45, 140, 20))
-        self.rb_matchOdds.setMinimumSize(QtCore.QSize(140, 20))
-        self.rb_matchOdds.setMaximumSize(QtCore.QSize(140, 20))
+        self.rb_matchOdds.setGeometry(QtCore.QRect(16, 45, 150, 20))
+        self.rb_matchOdds.setMinimumSize(QtCore.QSize(150, 20))
+        self.rb_matchOdds.setMaximumSize(QtCore.QSize(150, 20))
         self.rb_matchOdds.setStyleSheet("\n"
 "QRadioButton{\n"
 "    font: 75 12pt \"MS Shell Dlg 2\";\n"
