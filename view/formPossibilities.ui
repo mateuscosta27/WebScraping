@@ -12,14 +12,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1200</width>
-    <height>600</height>
+    <width>1275</width>
+    <height>650</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>2000</width>
-    <height>1500</height>
+    <width>1275</width>
+    <height>650</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -42,8 +42,8 @@
    <widget class="QLabel" name="lbl_title">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>1</y>
+      <x>440</x>
+      <y>10</y>
       <width>500</width>
       <height>50</height>
      </rect>
@@ -70,7 +70,7 @@
       <x>1060</x>
       <y>10</y>
       <width>170</width>
-      <height>140</height>
+      <height>155</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -82,13 +82,13 @@
     <property name="minimumSize">
      <size>
       <width>170</width>
-      <height>140</height>
+      <height>155</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
       <width>170</width>
-      <height>140</height>
+      <height>155</height>
      </size>
     </property>
     <property name="styleSheet">
@@ -111,7 +111,7 @@ border-radius: 5px;
     <widget class="QRadioButton" name="rb_matchOdds">
      <property name="geometry">
       <rect>
-       <x>14</x>
+       <x>16</x>
        <y>45</y>
        <width>140</width>
        <height>20</height>
@@ -130,8 +130,16 @@ border-radius: 5px;
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
+      <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
      </property>
      <property name="text">
       <string>Match Odds</string>
@@ -140,7 +148,7 @@ color: rgb(0, 0, 0);</string>
     <widget class="QRadioButton" name="rb_DuplaChance">
      <property name="geometry">
       <rect>
-       <x>14</x>
+       <x>16</x>
        <y>10</y>
        <width>140</width>
        <height>20</height>
@@ -165,8 +173,16 @@ color: rgb(0, 0, 0);</string>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
+      <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
      </property>
      <property name="text">
       <string>Dupla Chance</string>
@@ -175,8 +191,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QRadioButton" name="rb_ambosMarcam">
      <property name="geometry">
       <rect>
-       <x>14</x>
-       <y>75</y>
+       <x>16</x>
+       <y>80</y>
        <width>140</width>
        <height>20</height>
       </rect>
@@ -200,8 +216,16 @@ color: rgb(0, 0, 0);</string>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
+      <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
      </property>
      <property name="text">
       <string>Ambos Marcam</string>
@@ -210,8 +234,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QRadioButton" name="rb_totalGols">
      <property name="geometry">
       <rect>
-       <x>14</x>
-       <y>100</y>
+       <x>16</x>
+       <y>115</y>
        <width>140</width>
        <height>20</height>
       </rect>
@@ -235,8 +259,16 @@ color: rgb(0, 0, 0);</string>
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-color: rgb(0, 0, 0);</string>
+      <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
      </property>
      <property name="text">
       <string>Total de Gols</string>
@@ -263,72 +295,207 @@ color: rgb(0, 0, 0);</string>
     </property>
     <column>
      <property name="text">
-      <string>Hora</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Data</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>TimeCasa</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>TimeVisitante</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Odds1</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>OddsX</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Odds2</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>MaisGols</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>MenosGols</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>MarcamS</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>MarcamN</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Dupla1</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Dupla12</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Dupla2</string>
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>New Column</string>
      </property>
     </column>
    </widget>
@@ -380,58 +547,10 @@ QPushButton:pressed{
      <string>Sair</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_voltar">
-    <property name="geometry">
-     <rect>
-      <x>999</x>
-      <y>597</y>
-      <width>120</width>
-      <height>45</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>120</width>
-      <height>45</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>120</width>
-      <height>45</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	border-style: none;
-	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
-	border-radius: 12px;
-	border-bottom-color: rgb(4, 35, 38);
-	border-right-color:  rgb(4, 35, 38);
-}
-
-QPushButton:pressed{
-	border-style: insetset;
-	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
-	border-radius: 8px;
-	border-top-color: rgb(4, 35, 38);
-	border-left-color:  rgb(4, 35, 38);
-}</string>
-    </property>
-    <property name="text">
-     <string>Voltar</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btn_simular">
     <property name="geometry">
      <rect>
-      <x>859</x>
+      <x>1000</x>
       <y>597</y>
       <width>120</width>
       <height>45</height>
