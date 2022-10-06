@@ -42,22 +42,28 @@
    <widget class="QLabel" name="lbl_title">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>340</x>
       <y>10</y>
-      <width>500</width>
-      <height>50</height>
+      <width>600</width>
+      <height>100</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="minimumSize">
      <size>
-      <width>500</width>
-      <height>50</height>
+      <width>600</width>
+      <height>100</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
       <width>600</width>
-      <height>50</height>
+      <height>100</height>
      </size>
     </property>
     <property name="text">
@@ -67,10 +73,10 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>1060</x>
+      <x>1010</x>
       <y>10</y>
-      <width>170</width>
-      <height>155</height>
+      <width>250</width>
+      <height>160</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -81,14 +87,14 @@
     </property>
     <property name="minimumSize">
      <size>
-      <width>170</width>
-      <height>155</height>
+      <width>250</width>
+      <height>160</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
-      <width>170</width>
-      <height>155</height>
+      <width>250</width>
+      <height>160</height>
      </size>
     </property>
     <property name="styleSheet">
@@ -111,21 +117,21 @@ border-radius: 5px;
     <widget class="QRadioButton" name="rb_matchOdds">
      <property name="geometry">
       <rect>
-       <x>16</x>
+       <x>40</x>
        <y>45</y>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
@@ -148,9 +154,9 @@ QRadioButton:pressed{
     <widget class="QRadioButton" name="rb_DuplaChance">
      <property name="geometry">
       <rect>
-       <x>16</x>
+       <x>40</x>
        <y>10</y>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </rect>
      </property>
@@ -162,13 +168,13 @@ QRadioButton:pressed{
      </property>
      <property name="minimumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
@@ -191,9 +197,9 @@ QRadioButton:pressed{
     <widget class="QRadioButton" name="rb_ambosMarcam">
      <property name="geometry">
       <rect>
-       <x>16</x>
+       <x>40</x>
        <y>80</y>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </rect>
      </property>
@@ -205,13 +211,13 @@ QRadioButton:pressed{
      </property>
      <property name="minimumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
@@ -234,9 +240,9 @@ QRadioButton:pressed{
     <widget class="QRadioButton" name="rb_totalGols">
      <property name="geometry">
       <rect>
-       <x>16</x>
+       <x>40</x>
        <y>115</y>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </rect>
      </property>
@@ -248,13 +254,13 @@ QRadioButton:pressed{
      </property>
      <property name="minimumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>140</width>
+       <width>220</width>
        <height>20</height>
       </size>
      </property>
@@ -550,15 +556,15 @@ QPushButton:pressed{
    <widget class="QPushButton" name="btn_simular">
     <property name="geometry">
      <rect>
-      <x>1000</x>
+      <x>960</x>
       <y>597</y>
-      <width>120</width>
+      <width>150</width>
       <height>45</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>120</width>
+      <width>150</width>
       <height>45</height>
      </size>
     </property>
