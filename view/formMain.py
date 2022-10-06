@@ -174,6 +174,9 @@ class Ui_formPrincipal(object):
         self.btn_coletar.clicked.connect(self.thred_process)
         self.btn_visPossibilidades.clicked.connect(self.open_possibilities)
         
+
+        
+        
     ###funções sistema###
     
     def collect(self):
@@ -259,7 +262,7 @@ class Ui_formPrincipal(object):
         self.ui = Ui_formViewResult()
         self.ui.setupUi(self.formViewResult)
         self.formViewResult.show()
-        
+
     def exit_system(self):
         """Sai do sistema
            Exit system

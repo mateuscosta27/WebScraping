@@ -2,10 +2,10 @@ import os
 import sys
 import sqlite3
 
-
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-from PyQt5 import QtCore, QtGui, QtWidgets
+from formAlert import *
+
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -212,32 +212,7 @@ class Ui_formViewResult(object):
         self.tb_view.setHorizontalHeaderItem(39, item)
         item = QtWidgets.QTableWidgetItem()
         self.tb_view.setHorizontalHeaderItem(40, item)
-        self.btn_sair = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_sair.setGeometry(QtCore.QRect(1139, 597, 120, 45))
-        self.btn_sair.setMinimumSize(QtCore.QSize(120, 45))
-        self.btn_sair.setMaximumSize(QtCore.QSize(120, 45))
-        self.btn_sair.setStyleSheet("QPushButton{\n"
-"    border-style: none;\n"
-"    border-width: 2px;\n"
-"    font: 75 11pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(3, 127, 140);\n"
-"    border-radius: 12px;\n"
-"    border-bottom-color: rgb(4, 35, 38);\n"
-"    border-right-color:  rgb(4, 35, 38);\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"    border-style: insetset;\n"
-"    border-width: 2px;\n"
-"    font: 75 11pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(3, 127, 140);\n"
-"    border-radius: 8px;\n"
-"    border-top-color: rgb(4, 35, 38);\n"
-"    border-left-color:  rgb(4, 35, 38);\n"
-"}")
-        self.btn_sair.setObjectName("btn_sair")
+        
         self.btn_simular = QtWidgets.QPushButton(self.centralwidget)
         self.btn_simular.setGeometry(QtCore.QRect(1000, 597, 120, 45))
         self.btn_simular.setMinimumSize(QtCore.QSize(120, 45))
@@ -368,11 +343,11 @@ class Ui_formViewResult(object):
         item.setText(_translate("formViewResult", "New Column"))
         item = self.tb_view.horizontalHeaderItem(40)
         item.setText(_translate("formViewResult", "New Column"))
-        self.btn_sair.setText(_translate("formViewResult", "Sair"))
         self.btn_simular.setText(_translate("formViewResult", "Simular Aposta"))
         self.lbl_table.setText(_translate("formViewResult", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Jogos</span></p></body></html>"))
+       
+       
         ###Botões do sistema##
-        self.btn_sair.clicked.connect(self.exit_system)
         
         ###Radio Buttons###
         self.rb_DuplaChance.clicked.connect(self.double_odds)
@@ -565,15 +540,14 @@ class Ui_formViewResult(object):
             for j in range(0, 10):
                 self.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()    
-
-    def return_main_screen(self):
-        formViewResult.close()
-                                    
+      
     def exit_system(self):
         """Sai do sistema
            Exit of System
         """
-        sys.exit()
+        formViewResult.close()
+    
+        #sys.exit()
 
 
 if __name__ == "__main__":
