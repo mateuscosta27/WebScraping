@@ -279,7 +279,7 @@ class Ui_formViewResult(object):
 "    ")
         self.lbl_table.setObjectName("lbl_table")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(5, 630, 351, 16))
+        self.label.setGeometry(QtCore.QRect(5, 630, 411, 16))
         self.label.setStyleSheet("font: 8pt \"Arial Rounded MT Bold\";\n"
 "color: rgb(0, 0, 0);")
         self.label.setObjectName("label")

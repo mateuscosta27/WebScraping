@@ -165,7 +165,7 @@ class Ui_formPrincipal(object):
 "}")
         self.btn_simular.setObjectName("btn_simular")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(5, 379, 351, 16))
+        self.label.setGeometry(QtCore.QRect(5, 379, 411, 16))
         self.label.setStyleSheet("font: 8pt \"Arial Rounded MT Bold\";\n"
 "color: rgb(0, 0, 0);")
         self.label.setObjectName("label")
