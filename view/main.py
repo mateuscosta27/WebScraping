@@ -6,6 +6,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 from formMain import *
 from formPossibility import *
+from formProb import *
 
 class ViewResult(QMainWindow):
     def __init__(self):
@@ -223,8 +224,30 @@ class ViewResult(QMainWindow):
 
 
 
+class Probability(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_formViewProb()
+        self.ui.setupUi(self)
+
+        self.ui.btn_sair.clicked.connect(self.return_main)
+    
 
 
+    def closeEvent(self, event):
+        """
+        Esta função chama o modulo principal
+        This function call main module
+        """
+        self.main = ModuloPrincipal()
+        self.main.show()
+        event.accept()
+    
+    def return_main(self):
+        
+        """Close viewResult
+        """
+        self.close()
 
     
 class ModuloPrincipal(QMainWindow):
@@ -235,9 +258,11 @@ class ModuloPrincipal(QMainWindow):
         self.formMain = self.ui
 
         self.viewResult = ViewResult()
+        self.viewProb = Probability()
         ###Buttons###
         self.ui.btn_sair.clicked.connect(self.exit_system)
         self.ui.btn_visPossibilidades.clicked.connect(self.open_possibilities)
+        self.ui.btn_simular.clicked.connect(self.open_probability)
         
     ###Functions###
     def open_possibilities(self):
@@ -247,7 +272,11 @@ class ModuloPrincipal(QMainWindow):
         self.viewResult.show()    
         self.hide()
         self.viewResult.lis_total_goals()
-              
+    def open_probability(self):
+        self.viewProb.show()    
+        self.hide()
+
+
     def exit_system(self):
         """Sai do sistema
            Exit system
