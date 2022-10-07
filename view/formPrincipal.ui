@@ -302,6 +302,23 @@ QPushButton:pressed{
      <string>Simular Aposta</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>379</y>
+      <width>351</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 8pt &quot;Arial Rounded MT Bold&quot;;
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Todos os direitos reservados ©  MaTTecnologia Aplicada 2022</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
