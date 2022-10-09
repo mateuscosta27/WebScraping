@@ -1,0 +1,1173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Main</class>
+ <widget class="QMainWindow" name="Main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1136</width>
+    <height>685</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Modulo Principal</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame_top">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(3, 127, 140);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_btn_menu">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(3, 127, 140);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btn_menu">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>290</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0367A6;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+            </property>
+            <property name="text">
+             <string>Menu</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>src/menu_icon.png</normaloff>src/menu_icon.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(3, 127, 140);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="fram_bot">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_side">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>0</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: #FFF;
+border: 2px solid;
+border-left: none;
+border-top: none;
+border-bottom:none;
+border-right-color: rgb(3, 127, 140);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btn_coletar">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0367A6;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+            </property>
+            <property name="text">
+             <string>Coletar Dados</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_visPossibilidades">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0367A6;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+            </property>
+            <property name="text">
+             <string> Possibilidades</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_visJogos">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0367A6;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+            </property>
+            <property name="text">
+             <string>Visualizar Jogos</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_simular">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0367A6;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+            </property>
+            <property name="text">
+             <string>Simular Aposta</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>383</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="minimumSize">
+             <size>
+              <width>280</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>280</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0367A6;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(3, 127, 140);
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+            </property>
+            <property name="text">
+             <string>Sobre</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_content">
+         <property name="styleSheet">
+          <string notr="true">background-color: #fff;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: #fff;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QStackedWidget" name="pages">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Plain</enum>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="currentIndex">
+                <number>1</number>
+               </property>
+               <widget class="QWidget" name="page_home"/>
+               <widget class="QWidget" name="page_possibilities">
+                <property name="mouseTracking">
+                 <bool>false</bool>
+                </property>
+                <property name="tabletTracking">
+                 <bool>false</bool>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QFrame" name="frame">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QFrame" name="frame_options">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>70</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>70</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(3, 127, 140);</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <property name="lineWidth">
+                       <number>1</number>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_6">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QRadioButton" name="rb_DuplaChance">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>Dupla Chance</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="rb_matchOdds">
+                         <property name="minimumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>Match Odds</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="rb_ambosMarcam">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>Ambos Marcam</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="rb_totalGols">
+                         <property name="sizePolicy">
+                          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                          </sizepolicy>
+                         </property>
+                         <property name="minimumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>220</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>Total de Gols</string>
+                         </property>
+                         <property name="checked">
+                          <bool>true</bool>
+                         </property>
+                         <property name="autoRepeat">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_tb">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_6">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QTableWidget" name="tb_view">
+                         <property name="toolTipDuration">
+                          <number>-3</number>
+                         </property>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                         </column>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_commom">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(3, 127, 140);
+border-radius: 5px;
+</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="styleSheet">
+                <string notr="true">font: 75 9pt &quot;MS Shell Dlg 2&quot;;
+color: #fff;
+</string>
+               </property>
+               <property name="text">
+                <string>Todos os direitos reservados ©  MaTTecnologia Aplicada 2022</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
