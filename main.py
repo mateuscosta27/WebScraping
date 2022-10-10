@@ -8,7 +8,8 @@ from PyQt5 import Qt
 from PyQt5.QtGui import *
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-from ui_main import *
+from ui_forms.ui_main import *
+
 
 
 
