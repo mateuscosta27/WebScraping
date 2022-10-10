@@ -9,6 +9,8 @@ from PyQt5.QtGui import *
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 from ui_forms.ui_main import *
+from ui_forms.Controller import *
+import threading
 
 
 
@@ -26,6 +28,8 @@ class ModuloPrincipal(QMainWindow):
         self.ui.pages.setCurrentWidget(self.ui.page_home)
         self.ui.btn_visProbabilidades.clicked.connect(self.double_odds)
         self.ui.rb_DuplaChance.setChecked(True)
+        self.ui.lb_collect_animation.setVisible(False)
+        self.ui.lb_text_animation.setVisible(False)
         
     ############################################################################################
     #Toggle Buton
@@ -35,30 +39,42 @@ class ModuloPrincipal(QMainWindow):
     ############################################################################################
     #Qpush Buton
     ############################################################################################ 
-        self.ui.btn_coletar.clicked.connect(self.create_animation_icon)
-        self.ui.btn_coletar.clicked.connect(self.create_animation_text)
+        self.ui.btn_coletar.clicked.connect(self.thred_process)
+        self.ui.btn_coletar.clicked.connect(self.animation)
     ################################################################################################   
     #Radio buttons 
     ################################################################################################
         self.ui.rb_DuplaChance.clicked.connect(self.double_odds)
         self.ui.rb_matchOdds.clicked.connect(self.list_match_odds)
         self.ui.rb_totalGols.clicked.connect(self.lis_total_goals)
+        self.ui.rb_jogos_betano.clicked.connect(self.games_betano)
         
     ################################################################################################   
     #Animações
     ################################################################################################
     def create_animation_icon(self):
+        self.ui.lb_collect_animation.setVisible(True)
         self.loading_animation_icon = QMovie("src/collect_icon.gif")
         self.ui.lb_collect_animation.setMovie(self.loading_animation_icon)
-        self.loading_animation_icon.start()
-    
+        
     def create_animation_text(self):
+        self.ui.lb_text_animation.setVisible(True)
         self.loading_animation_text = QMovie("src/text_icon.gif")
         self.ui.lb_text_animation.setMovie(self.loading_animation_text)
-        self.loading_animation_text.start()        
+               
+    def star_animations(self):
+        self.loading_animation_icon.start()
+        self.loading_animation_text.start()
         
-
-        
+    def stop_animations(self):
+        self.loading_animation_icon.stop()
+        self.loading_animation_text.stop()
+         
+    def animation(self):
+        self.create_animation_icon()
+        self.create_animation_text()
+        self.star_animations()
+                     
     def side_menu(self):
         width = self.ui.frame_side.width() 
         if width == 0:
@@ -87,20 +103,43 @@ class ModuloPrincipal(QMainWindow):
         self.animation_btn_menu.start()
 
     ################################################################################################   
-    #Paginas do sistema  
+    #Paginas do sistema  Botões
     ################################################################################################
         self.ui.btn_visProbabilidades.clicked.connect(self.showPossibilites)
         self.ui.btn_coletar.clicked.connect(self.showHome)
+        self.ui.btn_visJogos.clicked.connect(self.showGames)
         
+        
+    ################################################################################################   
+    #Paginas do sistema
+    ################################################################################################    
     def showPossibilites(self):
         self.ui.pages.setCurrentWidget(self.ui.page_possibilities)
         
     def showHome(self):
         self.ui.pages.setCurrentWidget(self.ui.page_home)
+    
+    def showGames(self):
+        self.ui.pages.setCurrentWidget(self.ui.page_view_games)    
     ################################################################################################   
     #realizar o webscraping nos sites
     ################################################################################################
-            
+    def collect(self):
+        controller = Controller()
+        controller.controller_probabilidades()
+        controller.controller_pixbet()
+        controller.controller_betano()
+        controller.create_tables()
+        self.stop_animations()
+        self.ui.lb_collect_animation.setVisible(False)
+        self.ui.lb_text_animation.setVisible(False)
+
+    def thred_process(self):
+        """Trabalha com thread na coleta
+           Works with thread in the collection
+        """
+        self.thread1 = threading.Thread(target=self.collect)
+        self.thread1.start()            
     
     ################################################################################################   
     #Renomear colunas da tabela
@@ -172,11 +211,45 @@ class ModuloPrincipal(QMainWindow):
         item = self.ui.tb_view.horizontalHeaderItem(6)
         item.setText('Possibilidade1')
         item = self.ui.tb_view.horizontalHeaderItem(7)
-        item.setText('MaisGolsBetano_Betano')
+        item.setText('MaisGols_Betano')
         item = self.ui.tb_view.horizontalHeaderItem(8)
         item.setText('MenosGols_Pixbet')
         item = self.ui.tb_view.horizontalHeaderItem(9)
-        item.setText('Possibilidade2')    
+        item.setText('Possibilidade2')
+        
+    def games_betano_name(self):
+        """Renomeia as colunas de acordo com a seleção
+           Renaming the columns according to the selection
+        """
+        item = self.ui.tb_view_games.horizontalHeaderItem(0)
+        item.setText('Data')
+        item = self.ui.tb_view_games.horizontalHeaderItem(1)
+        item.setText('Hora')
+        item = self.ui.tb_view_games.horizontalHeaderItem(2)
+        item.setText('Mandante')
+        item = self.ui.tb_view_games.horizontalHeaderItem(3)
+        item.setText('Visitante')
+        item = self.ui.tb_view_games.horizontalHeaderItem(4)
+        item.setText('Odds1')
+        item = self.ui.tb_view_games.horizontalHeaderItem(5)
+        item.setText('OddsX')
+        item = self.ui.tb_view_games.horizontalHeaderItem(6)
+        item.setText('Odds2')
+        item = self.ui.tb_view_games.horizontalHeaderItem(7)
+        item.setText('+2,5Gols')
+        item = self.ui.tb_view_games.horizontalHeaderItem(8)
+        item.setText('-2,5Gols')
+        item = self.ui.tb_view_games.horizontalHeaderItem(9)
+        item.setText('AmbosMarcamS')
+        item = self.ui.tb_view_games.horizontalHeaderItem(10)
+        item.setText('AmbosMarcamN')
+        item = self.ui.tb_view_games.horizontalHeaderItem(11)
+        item.setText('Dupla1x')
+        item = self.ui.tb_view_games.horizontalHeaderItem(12)
+        item.setText('Dupla2x')
+        item = self.ui.tb_view_games.horizontalHeaderItem(13)
+        item.setText('Dupla12')
+               
                    
     ################################################################################################   
     #Exibir tabelas do sistema
@@ -285,7 +358,38 @@ class ModuloPrincipal(QMainWindow):
         for i in range(0, len(resultSet)):
             for j in range(0, 10):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close() 
+        con_db.close()
+    
+    def games_betano(self):
+        directory_database = 'C:\\tmp\\Bancos'
+        con_db = sqlite3.connect(directory_database+'\\DADOS.db')
+        mycursor = con_db.cursor()
+        mycursor.execute("""select 
+                                Data, 
+                                Hora, 
+                                TimeCasa, 
+                                TimeVisitante, 
+                                Odds1 ,
+                                OddsX , 
+                                Odds2 ,
+                                MaisGols,
+                                MenosGols,
+                                AmbosMarcamSim,
+                                AmbosMarcamNao,
+                                Dupla1x,
+                                Dupla2x,
+                                Dupla12  
+                            from tb_betano;
+                            """)
+
+        resultSet = mycursor.fetchall()
+        self.ui.tb_view_games.setRowCount(len(resultSet))
+        self.ui.tb_view_games.setColumnCount(14)
+        self.games_betano_name()  # função para renomear as colunas 
+        for i in range(0, len(resultSet)):
+            for j in range(0, 14):
+                self.ui.tb_view_games.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
+        con_db.close()    
 
 
 if __name__ == "__main__":

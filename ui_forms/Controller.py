@@ -4,10 +4,9 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 sys.path.insert(0,os.path.abspath(os.curdir))
-from model.Model import Betano
-from model.Model import Pixbet
-from model.Confdb import Confdb
-from model.database import Database, Query
+from ui_forms.Model import *
+from ui_forms.Confdb import *
+from ui_forms.database import *
 
 
 
@@ -54,9 +53,13 @@ class Controller:
         pixbet.create_index_pixbet()
         pixbet.remove_file()
         
+    def controller_probabilidades(self):
+        controller = Probabilidades()
+        controller.download_dataBase()    
         
     def create_tables(self):
         controller = Database()
         controller.create_table_betano()
-        controller.create_table_pixbet()        
+        controller.create_table_pixbet()
+        controller.create_table_probabilidaes()        
         

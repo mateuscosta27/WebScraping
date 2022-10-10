@@ -1,10 +1,14 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from bs4 import BeautifulSoup
-from time import sleep
-import pandas as pd
-import os
 
+
+import shutil
+import os, sys
+import pandas as pd
+from time import sleep
+from urllib import request
+from bs4 import BeautifulSoup
+from selenium import webdriver
+sys.path.insert(0,os.path.abspath(os.curdir))
+from selenium.webdriver.chrome.options import Options
 
 
 class Betano:
@@ -248,3 +252,18 @@ class Pixbet:
             print(f"Error:{e.strerror}")
             print('Algo deu errado')
     
+class Probabilidades:
+    
+    def __init__(self):
+        self.directpry_file = 'C:\\tmp\\Arquivos' 
+        self.get1 = 'https://projects.fivethirtyeight.com/soccer-api/club/spi_matches_latest.csv'
+        self.get2 ='https://projects.fivethirtyeight.com/soccer-api/club/spi_global_rankings.csv'
+        self.get3 = 'https://projects.fivethirtyeight.com/soccer-api/international/spi_global_rankings_intl.csv'
+        
+    def download_dataBase(self):
+        request.urlretrieve(self.get1, 'matches_latest.csv') 
+        request.urlretrieve(self.get2, 'global_rankings.csv')
+        request.urlretrieve(self.get2, 'global_rankings_intl.csv')
+        names = ['matches_latest.csv','global_rankings.csv','global_rankings_intl.csv']
+        for name in names:
+            shutil.move(name, self.directpry_file)    

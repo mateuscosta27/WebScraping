@@ -34,3 +34,13 @@ class Database:
             index=False,
             con = self.con_db       
         )
+        
+    def create_table_probabilidaes(self):
+        self.con_db
+        betano = pd.read_csv(self.directory_file+'\\matches_latest.csv',encoding='utf-8', sep=',')
+        betano.to_sql(
+        name= 'tb_matches_latest',
+        if_exists='replace',
+        index=False,
+        con = self.con_db       
+                )
