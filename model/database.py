@@ -34,6 +34,3 @@ class Database:
             index=False,
             con = self.con_db       
         )
-            
-        
-        

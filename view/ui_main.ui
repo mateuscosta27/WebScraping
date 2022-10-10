@@ -14,10 +14,7 @@
    <string>Modulo Principal</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -30,7 +27,10 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
      <widget class="QFrame" name="frame_top">
       <property name="minimumSize">
        <size>
@@ -45,13 +45,13 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(3, 127, 140);</string>
+       <string notr="true">background-color: #0954B2;</string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Sunken</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
@@ -84,7 +84,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(3, 127, 140);</string>
+          <string notr="true">background-color:#0954B2;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -118,7 +118,7 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>290</width>
+              <width>0</width>
               <height>35</height>
              </size>
             </property>
@@ -126,9 +126,9 @@
              <string notr="true">QPushButton{
 	border-style: none;
 	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #0954B2;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -136,9 +136,9 @@
 QPushButton:hover{
 	border-style: none;
 	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #0367A6;
+	background-color: #4195FF;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -146,11 +146,11 @@ QPushButton:hover{
 
 
 QPushButton:pressed{
-	border-style: insetset;
+	border-style: none;
 	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color:#0954B2;
 	border-radius: 8px;
 	border-top-color: rgb(4, 35, 38);
 	border-left-color:  rgb(4, 35, 38);
@@ -161,7 +161,7 @@ QPushButton:pressed{
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>src/menu_icon.png</normaloff>src/menu_icon.png</iconset>
+              <normaloff>src/menu_icon.svg</normaloff>src/menu_icon.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -175,25 +175,42 @@ QPushButton:pressed{
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="frame_3">
+        <widget class="QFrame" name="frame_info">
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(3, 127, 140);</string>
+          <string notr="true">background-color: rgb(9, 84, 178);</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+         </layout>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-    <item>
+    <item row="1" column="0">
      <widget class="QFrame" name="fram_bot">
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
@@ -234,39 +251,48 @@ border: 2px solid;
 border-left: none;
 border-top: none;
 border-bottom:none;
-border-right-color: rgb(3, 127, 140);</string>
+border-right-color: #0954B2;</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>10</number>
+          </property>
           <property name="leftMargin">
-           <number>5</number>
+           <number>0</number>
           </property>
           <property name="topMargin">
            <number>5</number>
           </property>
           <property name="rightMargin">
-           <number>10</number>
+           <number>0</number>
           </property>
           <property name="bottomMargin">
-           <number>2</number>
+           <number>0</number>
           </property>
-          <item>
+          <item alignment="Qt::AlignHCenter">
            <widget class="QPushButton" name="btn_coletar">
             <property name="minimumSize">
              <size>
-              <width>280</width>
+              <width>200</width>
               <height>45</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>280</width>
+              <width>200</width>
               <height>45</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -275,7 +301,7 @@ border-right-color: rgb(3, 127, 140);</string>
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -285,7 +311,7 @@ QPushButton:hover{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #0367A6;
+	background-color: #0954B2;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -297,28 +323,38 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 8px;
 	border-top-color: rgb(4, 35, 38);
 	border-left-color:  rgb(4, 35, 38);
 }</string>
             </property>
             <property name="text">
-             <string>Coletar Dados</string>
+             <string notr="true">Coletar Dados</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>src/collect_icon.svg</normaloff>src/collect_icon.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="btn_visPossibilidades">
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="btn_visOdds">
             <property name="minimumSize">
              <size>
-              <width>280</width>
+              <width>190</width>
               <height>45</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>280</width>
+              <width>200</width>
               <height>45</height>
              </size>
             </property>
@@ -328,7 +364,7 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -338,7 +374,7 @@ QPushButton:hover{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #0367A6;
+	background-color: #0954B2;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -350,28 +386,38 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 8px;
 	border-top-color: rgb(4, 35, 38);
 	border-left-color:  rgb(4, 35, 38);
 }</string>
             </property>
             <property name="text">
-             <string> Possibilidades</string>
+             <string>Odds Coletadas</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>src/odds_icon.svg</normaloff>src/odds_icon.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
             </property>
            </widget>
           </item>
-          <item>
+          <item alignment="Qt::AlignHCenter">
            <widget class="QPushButton" name="btn_visJogos">
             <property name="minimumSize">
              <size>
-              <width>280</width>
+              <width>200</width>
               <height>45</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>280</width>
+              <width>200</width>
               <height>45</height>
              </size>
             </property>
@@ -381,7 +427,7 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -391,7 +437,7 @@ QPushButton:hover{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #0367A6;
+	background-color: #0954B2;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -403,28 +449,38 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 8px;
 	border-top-color: rgb(4, 35, 38);
 	border-left-color:  rgb(4, 35, 38);
 }</string>
             </property>
             <property name="text">
-             <string>Visualizar Jogos</string>
+             <string>Jogos Coletados</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>src/games_icon.svg</normaloff>src/games_icon.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="btn_simular">
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="btn_visProbabilidades">
             <property name="minimumSize">
              <size>
-              <width>280</width>
+              <width>200</width>
               <height>45</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>280</width>
+              <width>200</width>
               <height>45</height>
              </size>
             </property>
@@ -434,7 +490,7 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -444,7 +500,7 @@ QPushButton:hover{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #0367A6;
+	background-color: #0954B2;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -456,14 +512,24 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #4195FF;
 	border-radius: 8px;
 	border-top-color: rgb(4, 35, 38);
 	border-left-color:  rgb(4, 35, 38);
 }</string>
             </property>
             <property name="text">
-             <string>Simular Aposta</string>
+             <string>Probabilidades</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>src/possibility_icon.svg</normaloff>src/possibility_icon.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -480,28 +546,60 @@ QPushButton:pressed{
             </property>
            </spacer>
           </item>
-          <item>
-           <widget class="QPushButton" name="pushButton">
+          <item alignment="Qt::AlignLeft">
+           <widget class="QFrame" name="frame_about">
             <property name="minimumSize">
              <size>
-              <width>280</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>280</width>
-              <height>35</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">QPushButton{
+             <string notr="true">background-color: rgb(9, 84, 178);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item alignment="Qt::AlignRight">
+              <widget class="QPushButton" name="btn_about">
+               <property name="minimumSize">
+                <size>
+                 <width>225</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>230</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
 	border-style: none;
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
-	border-radius: 12px;
+	background-color: #0954B2;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
 }
@@ -510,7 +608,7 @@ QPushButton:hover{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #0367A6;
+	background-color: #4195FF;
 	border-radius: 12px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -522,15 +620,37 @@ QPushButton:pressed{
 	border-width: 2px;
 	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: rgb(3, 127, 140);
+	background-color: #0954B2;
 	border-radius: 8px;
 	border-top-color: rgb(4, 35, 38);
 	border-left-color:  rgb(4, 35, 38);
 }</string>
-            </property>
-            <property name="text">
-             <string>Sobre</string>
-            </property>
+               </property>
+               <property name="text">
+                <string>Sobre</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>src/about_icon.svg</normaloff>src/about_icon.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>25</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="autoDefault">
+                <bool>true</bool>
+               </property>
+               <property name="default">
+                <bool>false</bool>
+               </property>
+               <property name="flat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
@@ -539,7 +659,7 @@ QPushButton:pressed{
        <item>
         <widget class="QFrame" name="frame_content">
          <property name="styleSheet">
-          <string notr="true">background-color: #fff;</string>
+          <string notr="true">background-color:#0954B2;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -564,12 +684,12 @@ QPushButton:pressed{
            <number>0</number>
           </property>
           <item>
-           <widget class="QFrame" name="frame_2">
+           <widget class="QFrame" name="frame_pages">
             <property name="styleSheet">
              <string notr="true">background-color: #fff;</string>
             </property>
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
@@ -602,15 +722,131 @@ QPushButton:pressed{
                 <enum>QFrame::NoFrame</enum>
                </property>
                <property name="frameShadow">
-                <enum>QFrame::Plain</enum>
+                <enum>QFrame::Raised</enum>
                </property>
                <property name="lineWidth">
-                <number>1</number>
+                <number>0</number>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
-               <widget class="QWidget" name="page_home"/>
+               <widget class="QWidget" name="page_home">
+                <layout class="QGridLayout" name="gridLayout_2">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QFrame" name="frame_2">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_8">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="lb_collect_animation">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="pixmap">
+                       <pixmap>src/texte_icon.gif</pixmap>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QFrame" name="frame_4">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>150</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_7">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="lb_text_animation">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="pixmap">
+                       <pixmap>src/texte_icon.gif</pixmap>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
                <widget class="QWidget" name="page_possibilities">
                 <property name="mouseTracking">
                  <bool>false</bool>
@@ -673,7 +909,7 @@ QPushButton:pressed{
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(3, 127, 140);</string>
+                       <string notr="true">background-color: #4195FF;</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
@@ -734,6 +970,12 @@ QRadioButton:pressed{
                          </property>
                          <property name="text">
                           <string>Dupla Chance</string>
+                         </property>
+                         <property name="autoRepeatDelay">
+                          <number>300</number>
+                         </property>
+                         <property name="autoRepeatInterval">
+                          <number>100</number>
                          </property>
                         </widget>
                        </item>
@@ -877,152 +1119,122 @@ QRadioButton:pressed{
                        </property>
                        <item>
                         <widget class="QTableWidget" name="tb_view">
+                         <property name="font">
+                          <font>
+                           <family>MS Shell Dlg 2</family>
+                           <pointsize>12</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
                          <property name="toolTipDuration">
                           <number>-3</number>
                          </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(193, 193, 193);
+</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::NoFrame</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Sunken</enum>
+                         </property>
+                         <property name="autoScrollMargin">
+                          <number>20</number>
+                         </property>
+                         <property name="editTriggers">
+                          <set>QAbstractItemView::NoEditTriggers</set>
+                         </property>
+                         <property name="dragEnabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="alternatingRowColors">
+                          <bool>true</bool>
+                         </property>
+                         <property name="selectionMode">
+                          <enum>QAbstractItemView::ContiguousSelection</enum>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="sortingEnabled">
+                          <bool>true</bool>
+                         </property>
+                         <property name="columnCount">
+                          <number>15</number>
+                         </property>
+                         <attribute name="horizontalHeaderDefaultSectionSize">
+                          <number>175</number>
+                         </attribute>
+                         <attribute name="horizontalHeaderMinimumSectionSize">
+                          <number>50</number>
+                         </attribute>
+                         <attribute name="verticalHeaderDefaultSectionSize">
+                          <number>50</number>
+                         </attribute>
+                         <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                          <bool>true</bool>
+                         </attribute>
                          <column>
                           <property name="text">
                            <string>New Column</string>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignLeading|AlignVCenter</set>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignLeading|AlignVCenter</set>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="textAlignment">
+                           <set>AlignLeading|AlignVCenter</set>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
@@ -1111,16 +1323,16 @@ QRadioButton:pressed{
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>45</height>
+              <height>35</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(3, 127, 140);
-border-radius: 5px;
+             <string notr="true">background-color: #0954B2;
+border-radius: 2px;
 </string>
             </property>
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
@@ -1133,7 +1345,7 @@ border-radius: 5px;
               <number>0</number>
              </property>
              <property name="topMargin">
-              <number>5</number>
+              <number>0</number>
              </property>
              <property name="rightMargin">
               <number>0</number>

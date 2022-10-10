@@ -7,7 +7,7 @@ sys.path.insert(0,os.path.abspath(os.curdir))
 from model.Model import Betano
 from model.Model import Pixbet
 from model.Confdb import Confdb
-from model.database import Database
+from model.database import Database, Query
 
 
 
@@ -59,3 +59,4 @@ class Controller:
         controller = Database()
         controller.create_table_betano()
         controller.create_table_pixbet()        
+        
