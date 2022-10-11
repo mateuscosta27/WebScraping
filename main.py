@@ -27,6 +27,8 @@ class ModuloPrincipal(QMainWindow):
     ############################################################################################    
         self.ui.pages.setCurrentWidget(self.ui.page_home)
         self.ui.btn_visProbabilidades.clicked.connect(self.double_odds)
+        self.ui.btn_visJogos.clicked.connect(self.games_betano)
+        self.ui.rb_jogos_betano.setChecked(True)
         self.ui.rb_DuplaChance.setChecked(True)
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
@@ -48,6 +50,13 @@ class ModuloPrincipal(QMainWindow):
         self.ui.rb_matchOdds.clicked.connect(self.list_match_odds)
         self.ui.rb_totalGols.clicked.connect(self.lis_total_goals)
         self.ui.rb_jogos_betano.clicked.connect(self.games_betano)
+
+    ################################################################################################   
+    #Paginas do sistema  Botões
+    ################################################################################################
+        self.ui.btn_visProbabilidades.clicked.connect(self.showPossibilites)
+        self.ui.btn_coletar.clicked.connect(self.showHome)
+        self.ui.btn_visJogos.clicked.connect(self.showGames)
         
     ################################################################################################   
     #Animações
@@ -101,15 +110,7 @@ class ModuloPrincipal(QMainWindow):
         self.animation_btn_menu.setEndValue(new_width)
         self.animation_btn_menu.setEasingCurve(QtCore.QEasingCurve.Type(2))
         self.animation_btn_menu.start()
-
-    ################################################################################################   
-    #Paginas do sistema  Botões
-    ################################################################################################
-        self.ui.btn_visProbabilidades.clicked.connect(self.showPossibilites)
-        self.ui.btn_coletar.clicked.connect(self.showHome)
-        self.ui.btn_visJogos.clicked.connect(self.showGames)
-        
-        
+    
     ################################################################################################   
     #Paginas do sistema
     ################################################################################################    
