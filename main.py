@@ -50,6 +50,7 @@ class ModuloPrincipal(QMainWindow):
         self.ui.rb_matchOdds.clicked.connect(self.list_match_odds)
         self.ui.rb_totalGols.clicked.connect(self.lis_total_goals)
         self.ui.rb_jogos_betano.clicked.connect(self.games_betano)
+        self.ui.rb_jogos_pixbet.clicked.connect(self.games_pixbet)
 
     ################################################################################################   
     #Paginas do sistema  Botões
@@ -57,6 +58,7 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_visProbabilidades.clicked.connect(self.showPossibilites)
         self.ui.btn_coletar.clicked.connect(self.showHome)
         self.ui.btn_visJogos.clicked.connect(self.showGames)
+        self.ui.btn_previsoes.clicked.connect(self.showPreviews)
         
     ################################################################################################   
     #Animações
@@ -121,7 +123,10 @@ class ModuloPrincipal(QMainWindow):
         self.ui.pages.setCurrentWidget(self.ui.page_home)
     
     def showGames(self):
-        self.ui.pages.setCurrentWidget(self.ui.page_view_games)    
+        self.ui.pages.setCurrentWidget(self.ui.page_view_games)
+    
+    def showPreviews(self):
+        self.ui.pages.setCurrentWidget(self.ui.page_preview)        
     ################################################################################################   
     #realizar o webscraping nos sites
     ################################################################################################
@@ -218,7 +223,7 @@ class ModuloPrincipal(QMainWindow):
         item = self.ui.tb_view.horizontalHeaderItem(9)
         item.setText('Possibilidade2')
         
-    def games_betano_name(self):
+    def games_name(self):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
         """
@@ -250,7 +255,8 @@ class ModuloPrincipal(QMainWindow):
         item.setText('Dupla2x')
         item = self.ui.tb_view_games.horizontalHeaderItem(13)
         item.setText('Dupla12')
-               
+    
+
                    
     ################################################################################################   
     #Exibir tabelas do sistema
@@ -386,11 +392,42 @@ class ModuloPrincipal(QMainWindow):
         resultSet = mycursor.fetchall()
         self.ui.tb_view_games.setRowCount(len(resultSet))
         self.ui.tb_view_games.setColumnCount(14)
-        self.games_betano_name()  # função para renomear as colunas 
+        self.games_name()  # função para renomear as colunas 
         for i in range(0, len(resultSet)):
             for j in range(0, 14):
                 self.ui.tb_view_games.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()    
+        con_db.close()
+        
+    def games_pixbet(self):
+        directory_database = 'C:\\tmp\\Bancos'
+        con_db = sqlite3.connect(directory_database+'\\DADOS.db')
+        mycursor = con_db.cursor()
+        mycursor.execute("""select 
+                                Data, 
+                                Hora, 
+                                TimeCasa, 
+                                TimeVisitante, 
+                                Odds1 ,
+                                OddsX , 
+                                Odds2 ,
+                                MaisGols,
+                                MenosGols,
+                                AmbosMarcamSim,
+                                AmbosMarcamNao,
+                                Dupla1x,
+                                Dupla2x,
+                                Dupla12  
+                            from tb_pixbet;
+                            """)
+
+        resultSet = mycursor.fetchall()
+        self.ui.tb_view_games.setRowCount(len(resultSet))
+        self.ui.tb_view_games.setColumnCount(14)
+        self.games_name()  # função para renomear as colunas 
+        for i in range(0, len(resultSet)):
+            for j in range(0, 14):
+                self.ui.tb_view_games.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
+        con_db.close()        
 
 
 if __name__ == "__main__":

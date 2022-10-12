@@ -55,11 +55,16 @@ class Controller:
         
     def controller_probabilidades(self):
         controller = Probabilidades()
-        controller.download_dataBase()    
+        controller.check_exists()
+        controller.download_dataBase()
+        controller.move_files()    
         
     def create_tables(self):
         controller = Database()
         controller.create_table_betano()
         controller.create_table_pixbet()
-        controller.create_table_probabilidaes()        
+        controller.create_table_matches_latest() 
+        controller.create_table_global_rankings()
+        controller.create_table_global_rankings_intl()
+               
         

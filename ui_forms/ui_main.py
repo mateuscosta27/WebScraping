@@ -22,10 +22,10 @@ class Ui_Main(object):
         Main.setIconSize(QtCore.QSize(70, 70))
         self.centralwidget = QtWidgets.QWidget(Main)
         self.centralwidget.setObjectName("centralwidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setSpacing(0)
-        self.gridLayout.setObjectName("gridLayout")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_10.setSpacing(0)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
         self.frame_top = QtWidgets.QFrame(self.centralwidget)
         self.frame_top.setMinimumSize(QtCore.QSize(0, 45))
         self.frame_top.setMaximumSize(QtCore.QSize(16777215, 45))
@@ -100,7 +100,7 @@ class Ui_Main(object):
         self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.horizontalLayout_2.addWidget(self.frame_info)
-        self.gridLayout.addWidget(self.frame_top, 0, 0, 1, 1)
+        self.verticalLayout_10.addWidget(self.frame_top)
         self.fram_bot = QtWidgets.QFrame(self.centralwidget)
         self.fram_bot.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.fram_bot.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -161,7 +161,7 @@ class Ui_Main(object):
 "    border-top-color: rgb(4, 35, 38);\n"
 "    border-left-color:  rgb(4, 35, 38);\n"
 "}")
-        self.btn_coletar.setText("Coletar Dados")
+        self.btn_coletar.setText("Coletar Odds")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("src/collect_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_coletar.setIcon(icon2)
@@ -291,6 +291,43 @@ class Ui_Main(object):
         self.btn_visProbabilidades.setIconSize(QtCore.QSize(45, 45))
         self.btn_visProbabilidades.setObjectName("btn_visProbabilidades")
         self.verticalLayout.addWidget(self.btn_visProbabilidades, 0, QtCore.Qt.AlignHCenter)
+        self.btn_previsoes = QtWidgets.QPushButton(self.frame_side)
+        self.btn_previsoes.setMinimumSize(QtCore.QSize(200, 45))
+        self.btn_previsoes.setMaximumSize(QtCore.QSize(200, 45))
+        self.btn_previsoes.setStyleSheet("QPushButton{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #4195FF;\n"
+"    border-radius: 12px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #0954B2;\n"
+"    border-radius: 12px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:pressed{\n"
+"    border-style: insetset;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #4195FF;\n"
+"    border-radius: 8px;\n"
+"    border-top-color: rgb(4, 35, 38);\n"
+"    border-left-color:  rgb(4, 35, 38);\n"
+"}")
+        self.btn_previsoes.setObjectName("btn_previsoes")
+        self.verticalLayout.addWidget(self.btn_previsoes, 0, QtCore.Qt.AlignHCenter)
         spacerItem = QtWidgets.QSpacerItem(20, 383, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.frame_about = QtWidgets.QFrame(self.frame_side)
@@ -345,7 +382,7 @@ class Ui_Main(object):
         self.btn_about.setDefault(False)
         self.btn_about.setFlat(False)
         self.btn_about.setObjectName("btn_about")
-        self.verticalLayout_2.addWidget(self.btn_about, 0, QtCore.Qt.AlignRight)
+        self.verticalLayout_2.addWidget(self.btn_about, 0, QtCore.Qt.AlignHCenter)
         self.verticalLayout.addWidget(self.frame_about, 0, QtCore.Qt.AlignLeft)
         self.horizontalLayout.addWidget(self.frame_side)
         self.frame_content = QtWidgets.QFrame(self.fram_bot)
@@ -424,26 +461,6 @@ class Ui_Main(object):
 "}")
         self.rb_jogos_pixbet.setObjectName("rb_jogos_pixbet")
         self.horizontalLayout_10.addWidget(self.rb_jogos_pixbet)
-        self.rb_jogos_duas = QtWidgets.QRadioButton(self.frame_options_games)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.rb_jogos_duas.sizePolicy().hasHeightForWidth())
-        self.rb_jogos_duas.setSizePolicy(sizePolicy)
-        self.rb_jogos_duas.setMinimumSize(QtCore.QSize(220, 20))
-        self.rb_jogos_duas.setMaximumSize(QtCore.QSize(220, 20))
-        self.rb_jogos_duas.setStyleSheet("\n"
-"QRadioButton{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QRadioButton:pressed{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(0, 0, 0);\n"
-"}")
-        self.rb_jogos_duas.setObjectName("rb_jogos_duas")
-        self.horizontalLayout_10.addWidget(self.rb_jogos_duas)
         self.verticalLayout_11.addWidget(self.frame_options_games)
         self.frame_tb_games = QtWidgets.QFrame(self.page_view_games)
         self.frame_tb_games.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -454,14 +471,15 @@ class Ui_Main(object):
         self.tb_view_games = QtWidgets.QTableWidget(self.frame_tb_games)
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
         self.tb_view_games.setFont(font)
         self.tb_view_games.setToolTipDuration(-3)
-        self.tb_view_games.setStyleSheet("color: rgb(0, 0, 0);\n"
-"background-color: rgb(193, 193, 193);\n"
-"")
+        self.tb_view_games.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 0, 0);\n"
+"background-color: rgb(217, 217, 217);")
         self.tb_view_games.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tb_view_games.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.tb_view_games.setAutoScrollMargin(20)
@@ -573,6 +591,116 @@ class Ui_Main(object):
         self.verticalLayout_7.addWidget(self.lb_text_animation)
         self.gridLayout_2.addWidget(self.frame_4, 1, 0, 1, 1)
         self.pages.addWidget(self.page_home)
+        self.page_preview = QtWidgets.QWidget()
+        self.page_preview.setObjectName("page_preview")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page_preview)
+        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_9.setSpacing(0)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.frame_options_camp = QtWidgets.QFrame(self.page_preview)
+        self.frame_options_camp.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.frame_options_camp.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_options_camp.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_options_camp.setObjectName("frame_options_camp")
+        self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.frame_options_camp)
+        self.horizontalLayout_8.setObjectName("horizontalLayout_8")
+        self.groupBox = QtWidgets.QGroupBox(self.frame_options_camp)
+        self.groupBox.setTitle("")
+        self.groupBox.setObjectName("groupBox")
+        self.label_2 = QtWidgets.QLabel(self.groupBox)
+        self.label_2.setGeometry(QtCore.QRect(30, 10, 91, 16))
+        self.label_2.setObjectName("label_2")
+        self.comboBox_2 = QtWidgets.QComboBox(self.groupBox)
+        self.comboBox_2.setGeometry(QtCore.QRect(20, 30, 181, 32))
+        self.comboBox_2.setObjectName("comboBox_2")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("../src/list_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.comboBox_2.addItem(icon8, "")
+        self.lineEdit = QtWidgets.QLineEdit(self.groupBox)
+        self.lineEdit.setGeometry(QtCore.QRect(210, 30, 210, 32))
+        self.lineEdit.setObjectName("lineEdit")
+        self.pushButton = QtWidgets.QPushButton(self.groupBox)
+        self.pushButton.setGeometry(QtCore.QRect(430, 30, 100, 32))
+        self.pushButton.setStyleSheet("QPushButton{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #4195FF;\n"
+"    border-radius: 8px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #0954B2;\n"
+"    border-radius: 8px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:pressed{\n"
+"    border-style: insetset;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #4195FF;\n"
+"    border-radius: 8px;\n"
+"    border-top-color: rgb(4, 35, 38);\n"
+"    border-left-color:  rgb(4, 35, 38);\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout_8.addWidget(self.groupBox)
+        self.verticalLayout_9.addWidget(self.frame_options_camp)
+        self.frame_5 = QtWidgets.QFrame(self.page_preview)
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.verticalLayout_9.addWidget(self.frame_5)
+        self.pages.addWidget(self.page_preview)
         self.page_possibilities = QtWidgets.QWidget()
         self.page_possibilities.setMouseTracking(False)
         self.page_possibilities.setTabletTracking(False)
@@ -692,13 +820,15 @@ class Ui_Main(object):
         self.tb_view = QtWidgets.QTableWidget(self.frame_tb)
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
         self.tb_view.setFont(font)
         self.tb_view.setToolTipDuration(-3)
-        self.tb_view.setStyleSheet("color: rgb(0, 0, 0);\n"
-"background-color: rgb(193, 193, 193);\n"
+        self.tb_view.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 0, 0);\n"
+"background-color: rgb(217, 217, 217);\n"
 "")
         self.tb_view.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tb_view.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -794,11 +924,11 @@ class Ui_Main(object):
         self.verticalLayout_4.addWidget(self.lb_commom)
         self.verticalLayout_3.addWidget(self.frame_commom)
         self.horizontalLayout.addWidget(self.frame_content)
-        self.gridLayout.addWidget(self.fram_bot, 1, 0, 1, 1)
+        self.verticalLayout_10.addWidget(self.fram_bot)
         Main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Main)
-        self.pages.setCurrentIndex(0)
+        self.pages.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(Main)
 
     def retranslateUi(self, Main):
@@ -806,12 +936,12 @@ class Ui_Main(object):
         Main.setWindowTitle(_translate("Main", "Modulo Principal"))
         self.btn_menu.setText(_translate("Main", "Menu"))
         self.btn_visOdds.setText(_translate("Main", "Odds Coletadas"))
-        self.btn_visJogos.setText(_translate("Main", "Jogos Coletados"))
-        self.btn_visProbabilidades.setText(_translate("Main", "Probabilidades"))
+        self.btn_visJogos.setText(_translate("Main", "Visualizar Jogos"))
+        self.btn_visProbabilidades.setText(_translate("Main", "Possibilidaes"))
+        self.btn_previsoes.setText(_translate("Main", "Previsões"))
         self.btn_about.setText(_translate("Main", "Sobre"))
         self.rb_jogos_betano.setText(_translate("Main", "Jogos Betano"))
         self.rb_jogos_pixbet.setText(_translate("Main", "Jogos Pixbet"))
-        self.rb_jogos_duas.setText(_translate("Main", "Jogos nas Duas casas"))
         self.tb_view_games.setSortingEnabled(True)
         item = self.tb_view_games.horizontalHeaderItem(0)
         item.setText(_translate("Main", "New Column"))
@@ -843,6 +973,49 @@ class Ui_Main(object):
         item.setText(_translate("Main", "New Column"))
         item = self.tb_view_games.horizontalHeaderItem(14)
         item.setText(_translate("Main", "New Column"))
+        self.label_2.setText(_translate("Main", "Campeonato"))
+        self.comboBox_2.setItemText(0, _translate("Main", "Argentina Primera Division"))
+        self.comboBox_2.setItemText(1, _translate("Main", "Australian A-League"))
+        self.comboBox_2.setItemText(2, _translate("Main", "Austrian T-Mobile Bundesliga"))
+        self.comboBox_2.setItemText(3, _translate("Main", "Barclays Premier League"))
+        self.comboBox_2.setItemText(4, _translate("Main", "Belgian Jupiler League"))
+        self.comboBox_2.setItemText(5, _translate("Main", "Brasileiro Série A"))
+        self.comboBox_2.setItemText(6, _translate("Main", "Chinese Super League"))
+        self.comboBox_2.setItemText(7, _translate("Main", "Danish SAS-Ligaen"))
+        self.comboBox_2.setItemText(8, _translate("Main", "Dutch Eredivisie"))
+        self.comboBox_2.setItemText(9, _translate("Main", "English League Championship"))
+        self.comboBox_2.setItemText(10, _translate("Main", "English League One"))
+        self.comboBox_2.setItemText(11, _translate("Main", "English League Two"))
+        self.comboBox_2.setItemText(12, _translate("Main", "FA Women\'s Super League"))
+        self.comboBox_2.setItemText(13, _translate("Main", "French Ligue 1"))
+        self.comboBox_2.setItemText(14, _translate("Main", "French Ligue 2"))
+        self.comboBox_2.setItemText(15, _translate("Main", "German 2. Bundesliga"))
+        self.comboBox_2.setItemText(16, _translate("Main", "German Bundesliga"))
+        self.comboBox_2.setItemText(17, _translate("Main", "Greek Super League"))
+        self.comboBox_2.setItemText(18, _translate("Main", "Italy Serie A"))
+        self.comboBox_2.setItemText(19, _translate("Main", "Italy Serie B"))
+        self.comboBox_2.setItemText(20, _translate("Main", "Japanese J League"))
+        self.comboBox_2.setItemText(21, _translate("Main", "Major League Soccer"))
+        self.comboBox_2.setItemText(22, _translate("Main", "Mexican Primera Division Torneo Apertura"))
+        self.comboBox_2.setItemText(23, _translate("Main", "Mexican Primera Division Torneo Clausura"))
+        self.comboBox_2.setItemText(24, _translate("Main", "NWSL Challenge Cup"))
+        self.comboBox_2.setItemText(25, _translate("Main", "National Women\'s Soccer League"))
+        self.comboBox_2.setItemText(26, _translate("Main", "Norwegian Tippeligaen"))
+        self.comboBox_2.setItemText(27, _translate("Main", "Portuguese Liga"))
+        self.comboBox_2.setItemText(28, _translate("Main", "Russian Premier Liga"))
+        self.comboBox_2.setItemText(29, _translate("Main", "Scottish Premiership"))
+        self.comboBox_2.setItemText(30, _translate("Main", "South African ABSA Premier League"))
+        self.comboBox_2.setItemText(31, _translate("Main", "Spanish Primera Division"))
+        self.comboBox_2.setItemText(32, _translate("Main", "Spanish Segunda Division"))
+        self.comboBox_2.setItemText(33, _translate("Main", "Swedish Allsvenskan"))
+        self.comboBox_2.setItemText(34, _translate("Main", "Swiss Raiffeisen Super League"))
+        self.comboBox_2.setItemText(35, _translate("Main", "Turkish Turkcell Super Lig"))
+        self.comboBox_2.setItemText(36, _translate("Main", "UEFA Champions League"))
+        self.comboBox_2.setItemText(37, _translate("Main", "UEFA Europa Conference League"))
+        self.comboBox_2.setItemText(38, _translate("Main", "UEFA Europa League"))
+        self.comboBox_2.setItemText(39, _translate("Main", "United Soccer League"))
+        self.lineEdit.setPlaceholderText(_translate("Main", "Pesquise pelo Mandante"))
+        self.pushButton.setText(_translate("Main", "Pesquisar"))
         self.rb_DuplaChance.setText(_translate("Main", "Dupla Chance"))
         self.rb_matchOdds.setText(_translate("Main", "Match Odds"))
         self.rb_ambosMarcam.setText(_translate("Main", "Ambos Marcam"))

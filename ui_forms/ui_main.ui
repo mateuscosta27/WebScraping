@@ -27,7 +27,10 @@
    </size>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_10">
+    <property name="spacing">
+     <number>0</number>
+    </property>
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -40,10 +43,7 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <item row="0" column="0">
+    <item>
      <widget class="QFrame" name="frame_top">
       <property name="minimumSize">
        <size>
@@ -220,7 +220,7 @@ QPushButton:pressed{
       </layout>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item>
      <widget class="QFrame" name="fram_bot">
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -343,7 +343,7 @@ QPushButton:pressed{
 }</string>
             </property>
             <property name="text">
-             <string notr="true">Coletar Dados</string>
+             <string notr="true">Coletar Odds</string>
             </property>
             <property name="icon">
              <iconset>
@@ -469,7 +469,7 @@ QPushButton:pressed{
 }</string>
             </property>
             <property name="text">
-             <string>Jogos Coletados</string>
+             <string>Visualizar Jogos</string>
             </property>
             <property name="icon">
              <iconset>
@@ -532,7 +532,7 @@ QPushButton:pressed{
 }</string>
             </property>
             <property name="text">
-             <string>Probabilidades</string>
+             <string>Possibilidaes</string>
             </property>
             <property name="icon">
              <iconset>
@@ -543,6 +543,59 @@ QPushButton:pressed{
               <width>45</width>
               <height>45</height>
              </size>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="btn_previsoes">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #4195FF;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0954B2;
+	border-radius: 12px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #4195FF;
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+            </property>
+            <property name="text">
+             <string>Previsões</string>
             </property>
            </widget>
           </item>
@@ -592,7 +645,7 @@ QPushButton:pressed{
              <property name="bottomMargin">
               <number>0</number>
              </property>
-             <item alignment="Qt::AlignRight">
+             <item alignment="Qt::AlignHCenter">
               <widget class="QPushButton" name="btn_about">
                <property name="minimumSize">
                 <size>
@@ -741,7 +794,7 @@ QPushButton:pressed{
                 <number>0</number>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="page_view_games">
                 <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -852,43 +905,6 @@ QRadioButton:pressed{
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <widget class="QRadioButton" name="rb_jogos_duas">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>220</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>220</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">
-QRadioButton{
-	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(255, 255, 255);
-}
-
-QRadioButton:pressed{
-	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(0, 0, 0);
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>Jogos nas Duas casas</string>
-                      </property>
-                     </widget>
-                    </item>
                    </layout>
                   </widget>
                  </item>
@@ -906,18 +922,19 @@ QRadioButton:pressed{
                       <property name="font">
                        <font>
                         <family>MS Shell Dlg 2</family>
-                        <pointsize>12</pointsize>
-                        <weight>75</weight>
-                        <bold>true</bold>
+                        <pointsize>10</pointsize>
+                        <weight>9</weight>
+                        <italic>false</italic>
+                        <bold>false</bold>
                        </font>
                       </property>
                       <property name="toolTipDuration">
                        <number>-3</number>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(193, 193, 193);
-</string>
+                       <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);
+background-color: rgb(217, 217, 217);</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::NoFrame</enum>
@@ -1205,6 +1222,503 @@ background-color: rgb(193, 193, 193);
                  </item>
                 </layout>
                </widget>
+               <widget class="QWidget" name="page_preview">
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QFrame" name="frame_options_camp">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>100</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                    <item>
+                     <widget class="QGroupBox" name="groupBox">
+                      <property name="title">
+                       <string/>
+                      </property>
+                      <widget class="QLabel" name="label_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>30</x>
+                         <y>10</y>
+                         <width>91</width>
+                         <height>16</height>
+                        </rect>
+                       </property>
+                       <property name="text">
+                        <string>Campeonato</string>
+                       </property>
+                      </widget>
+                      <widget class="QComboBox" name="comboBox_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>20</x>
+                         <y>30</y>
+                         <width>181</width>
+                         <height>32</height>
+                        </rect>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string>Argentina Primera Division</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Australian A-League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Austrian T-Mobile Bundesliga</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Barclays Premier League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Belgian Jupiler League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Brasileiro Série A</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Chinese Super League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Danish SAS-Ligaen</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Dutch Eredivisie</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>English League Championship</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>English League One</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>English League Two</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>FA Women's Super League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>French Ligue 1</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>French Ligue 2</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>German 2. Bundesliga</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>German Bundesliga</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Greek Super League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Italy Serie A</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Italy Serie B</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Japanese J League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Major League Soccer</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Mexican Primera Division Torneo Apertura</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Mexican Primera Division Torneo Clausura</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>NWSL Challenge Cup</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>National Women's Soccer League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Norwegian Tippeligaen</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Portuguese Liga</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Russian Premier Liga</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Scottish Premiership</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>South African ABSA Premier League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Spanish Primera Division</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Spanish Segunda Division</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Swedish Allsvenskan</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Swiss Raiffeisen Super League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>Turkish Turkcell Super Lig</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>UEFA Champions League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>UEFA Europa Conference League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>UEFA Europa League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>United Soccer League</string>
+                        </property>
+                        <property name="icon">
+                         <iconset>
+                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                        </property>
+                       </item>
+                      </widget>
+                      <widget class="QLineEdit" name="lineEdit">
+                       <property name="geometry">
+                        <rect>
+                         <x>210</x>
+                         <y>30</y>
+                         <width>210</width>
+                         <height>32</height>
+                        </rect>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Pesquise pelo Mandante</string>
+                       </property>
+                      </widget>
+                      <widget class="QPushButton" name="pushButton">
+                       <property name="geometry">
+                        <rect>
+                         <x>430</x>
+                         <y>30</y>
+                         <width>100</width>
+                         <height>32</height>
+                        </rect>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #4195FF;
+	border-radius: 8px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0954B2;
+	border-radius: 8px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: insetset;
+	border-width: 2px;
+	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #4195FF;
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+                       </property>
+                       <property name="text">
+                        <string>Pesquisar</string>
+                       </property>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_5">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
                <widget class="QWidget" name="page_possibilities">
                 <property name="mouseTracking">
                  <bool>false</bool>
@@ -1480,17 +1994,19 @@ QRadioButton:pressed{
                          <property name="font">
                           <font>
                            <family>MS Shell Dlg 2</family>
-                           <pointsize>12</pointsize>
-                           <weight>75</weight>
-                           <bold>true</bold>
+                           <pointsize>10</pointsize>
+                           <weight>9</weight>
+                           <italic>false</italic>
+                           <bold>false</bold>
                           </font>
                          </property>
                          <property name="toolTipDuration">
                           <number>-3</number>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(193, 193, 193);
+                          <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);
+background-color: rgb(217, 217, 217);
 </string>
                          </property>
                          <property name="frameShape">
