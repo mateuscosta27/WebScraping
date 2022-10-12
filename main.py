@@ -139,7 +139,6 @@ class ModuloPrincipal(QMainWindow):
         self.stop_animations()
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
-
     def thred_process(self):
         """Trabalha com thread na coleta
            Works with thread in the collection
@@ -221,8 +220,7 @@ class ModuloPrincipal(QMainWindow):
         item = self.ui.tb_view.horizontalHeaderItem(8)
         item.setText('MenosGols_Pixbet')
         item = self.ui.tb_view.horizontalHeaderItem(9)
-        item.setText('Possibilidade2')
-        
+        item.setText('Possibilidade2')     
     def games_name(self):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
@@ -297,7 +295,6 @@ class ModuloPrincipal(QMainWindow):
             for j in range(0, 10):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()
-
     def list_match_odds(self):
         """Lista as probabilidades boas para apostas
            List good odds for betting
@@ -333,7 +330,6 @@ class ModuloPrincipal(QMainWindow):
             for j in range(0, 10):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()
-
     def lis_total_goals(self):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
@@ -365,8 +361,7 @@ class ModuloPrincipal(QMainWindow):
         for i in range(0, len(resultSet)):
             for j in range(0, 10):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()
-    
+        con_db.close()    
     def games_betano(self):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
@@ -396,8 +391,7 @@ class ModuloPrincipal(QMainWindow):
         for i in range(0, len(resultSet)):
             for j in range(0, 14):
                 self.ui.tb_view_games.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()
-        
+        con_db.close()        
     def games_pixbet(self):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
