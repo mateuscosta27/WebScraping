@@ -28,6 +28,7 @@ class ModuloPrincipal(QMainWindow):
         self.ui.pages.setCurrentWidget(self.ui.page_home)
         self.ui.btn_visProbabilidades.clicked.connect(self.double_odds)
         self.ui.btn_visJogos.clicked.connect(self.games_betano)
+        self.ui.btn_previsoes.clicked.connect(self.all_leagues)
         self.ui.rb_jogos_betano.setChecked(True)
         self.ui.rb_DuplaChance.setChecked(True)
         self.ui.lb_collect_animation.setVisible(False)
@@ -281,7 +282,33 @@ class ModuloPrincipal(QMainWindow):
         item = self.ui.tb_preview.horizontalHeaderItem(9)
         item.setText('GolsVisitante')
         
-    
+    def all_leagues_name(self):
+        """Renomeia as colunas de acordo com a seleção
+           Renaming the columns according to the selection
+        """
+        item = self.ui.tb_preview.horizontalHeaderItem(0)
+        item.setText('Data')
+        item = self.ui.tb_preview.horizontalHeaderItem(1)
+        item.setText('Campeonato')
+        item = self.ui.tb_preview.horizontalHeaderItem(2)
+        item.setText('Mandante')
+        item = self.ui.tb_preview.horizontalHeaderItem(3)
+        item.setText('Visitante')
+        item = self.ui.tb_preview.horizontalHeaderItem(4)
+        item.setText('spi1')
+        item = self.ui.tb_preview.horizontalHeaderItem(5)
+        item.setText('sp2')
+        item = self.ui.tb_preview.horizontalHeaderItem(6)
+        item.setText('VitoriaMandante')
+        item = self.ui.tb_preview.horizontalHeaderItem(7)
+        item.setText('Empate')
+        item = self.ui.tb_preview.horizontalHeaderItem(8)
+        item.setText('VitoriaVisitante')
+        item = self.ui.tb_preview.horizontalHeaderItem(9)
+        item.setText('GolsMandante')
+        item = self.ui.tb_preview.horizontalHeaderItem(10)
+        item.setText('GolsVisitante')
+
 
                    
     ################################################################################################   
@@ -482,6 +509,39 @@ class ModuloPrincipal(QMainWindow):
         self.search_name()  # função para renomear as colunas 
         for i in range(0, len(resultSet)):
             for j in range(0, 10):
+                self.ui.tb_preview.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
+        con_db.close()         
+    
+    def all_leagues(self):
+
+        directory_database = 'C:\\tmp\\Bancos'
+        con_db = sqlite3.connect(directory_database+'\\DADOS.db')
+        mycursor = con_db.cursor()
+        mycursor.execute(f"""
+                        select 
+                                date,
+                                league,
+                                team1,
+                                team2,
+                                spi1,
+                                spi2,
+                                prob1,
+                                probtie,
+                                prob2,
+                                proj_score1,
+                                proj_score2
+                from tb_matches_latest 
+                where
+                importance1 isnull and
+                importance2 isnull
+                            """)
+
+        resultSet = mycursor.fetchall()
+        self.ui.tb_preview.setRowCount(len(resultSet))
+        self.ui.tb_preview.setColumnCount(11)
+        self.all_leagues_name()  # função para renomear as colunas 
+        for i in range(0, len(resultSet)):
+            for j in range(0, 11):
                 self.ui.tb_preview.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()         
 
