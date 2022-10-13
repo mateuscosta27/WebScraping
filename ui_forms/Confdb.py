@@ -17,7 +17,7 @@ class Confdb:
     def download_driver(self):
         ###baixando driver do google###
         directory_driver = 'C:\\tmp\\Driver'
-        url = 'https://chromedriver.storage.googleapis.com/105.0.5195.52/chromedriver_win32.zip'
+        url = 'https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_win32.zip'
         filebyte = BytesIO(rq.get(url).content)
         myzip = zipfile.ZipFile(filebyte)
         myzip.extractall(directory_driver)

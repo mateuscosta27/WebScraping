@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 sys.path.insert(0,os.path.abspath(os.curdir))
 from selenium.webdriver.chrome.options import Options
+import undetected_chromedriver as uc
 
 
 class Betano:
@@ -73,23 +74,54 @@ class Betano:
         self.df['Data'] =  self.df['Data'].apply(lambda x: (x+ano).replace('/','-'))    
     def parser_data_double_chance(self):
         ###Obtendo dados da dupla chance##
-        sleep(5)
-        btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div/div/span') ##path do botão de dupla chance##
-        btn_dupla_chance.click()
-        sleep(3)
-        self.driver.refresh()
-        for page in range(2):
-            scroll = self.driver.execute_script("window.scrollBy(0,350)","")
-        sleep(2)
-        ##mesmo processo de tratamento dos dados com dicionario ##
-        dic_duplachance = {'Dupla':[]} 
-        soup_dupla = BeautifulSoup(self.driver.page_source, 'lxml')
-        table = soup_dupla.find('table', {'class': 'events-list__grid'})
-        tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
-        for jogo in tr_element:
-            jogos = jogo.get_text().strip()
-            dic_duplachance['Dupla'].append(jogos)
-        self.dic_duplachance = dic_duplachance
+        try:
+            sleep(5)
+            btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div/div/span') ##path do botão de dupla chance##
+           
+            btn_dupla_chance.click()
+            sleep(3)
+            self.driver.refresh()
+            for page in range(2):
+                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
+            sleep(2)
+            ##mesmo processo de tratamento dos dados com dicionario ##
+            dic_duplachance = {'Dupla':[]} 
+            soup_dupla = BeautifulSoup(self.driver.page_source, 'lxml')
+            table = soup_dupla.find('table', {'class': 'events-list__grid'})
+            tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
+            for jogo in tr_element:
+                jogos = jogo.get_text().strip()
+                dic_duplachance['Dupla'].append(jogos)
+            self.dic_duplachance = dic_duplachance
+        except Exception as e:
+            print(e)
+            self.except_button()
+            
+    def except_button(self):
+        try:
+            sleep(5)
+            btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div/div/span') ##path do botão de dupla chance##
+           
+            btn_dupla_chance.click()
+            sleep(3)
+            self.driver.refresh()
+            for page in range(2):
+                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
+            sleep(2)
+            ##mesmo processo de tratamento dos dados com dicionario ##
+            dic_duplachance = {'Dupla':[]} 
+            soup_dupla = BeautifulSoup(self.driver.page_source, 'lxml')
+            table = soup_dupla.find('table', {'class': 'events-list__grid'})
+            tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
+            for jogo in tr_element:
+                jogos = jogo.get_text().strip()
+                dic_duplachance['Dupla'].append(jogos)
+            self.dic_duplachance = dic_duplachance
+        except Exception as e:
+            print(e)
+            pass
+        
+                     
     def close_driver(self):    
         self.driver.close() ##fechando o driver##
         
@@ -170,78 +202,121 @@ class Pixbet:
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
-       
+        #self.driver = uc.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), options=self.options)
 
 
     def open_web_site(self):
-        self.driver.get(self.web_site)
-        self.driver.maximize_window()
-        sleep(2)
+        try:
+            self.driver.get(self.web_site)
+            self.driver.stop_client()
+            self.driver.maximize_window()
+            sleep(2)
+        except Exception as e:
+            print(e)
+            pass
 
     def parser_data(self):
-        self.soup = BeautifulSoup(self.driver.page_source, 'lxml')
-        self.partidas =self.soup.find_all('table',{'class':'odds_table'})
+        try:
+            self.soup = BeautifulSoup(self.driver.page_source, 'lxml')
+            self.partidas =self.soup.find_all('table',{'class':'odds_table'})
+        except Exception as e:
+            print(e)
+            pass
         
           
     def data_transform(self):
-        self.dic_jogos = {'Jogos':[]}
-        for sub in self.soup.find_all('tr', {'class': 'odds_tr'}):
-            jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
-            self.dic_jogos['Jogos'].append(jogos) 
-        self.driver.close()   
+        try:
+            self.dic_jogos = {'Jogos':[]}
+            for sub in self.soup.find_all('tr', {'class': 'odds_tr'}):
+                jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+                self.dic_jogos['Jogos'].append(jogos) 
+            self.driver.close()
+        except Exception as e:
+            print(e)
+            pass
+        
+               
     def export_data(self):
-        df = pd.DataFrame(self.dic_jogos)
-        df.to_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';', index=False)
-        
+        try:
+            df = pd.DataFrame(self.dic_jogos)
+            df.to_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';', index=False)
+        except Exception as e:
+            print(e)
+            pass
     def split_columns(self):
-        self.df = pd.read_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';')
-        self.df_split = self.df['Jogos'].str.split(';',expand= True)
-        self.df_split[['Data','Hora']] = self.df_split[0].str.split('|',expand=True)
-        self.df_split[['TimeCasa','TimeVisitante']] = self.df_split[1].str.split(' - ',expand=True)
-        self.df_split = self.df_split.drop(columns=[0,1,5,6,7,9,10,11,12,13,14,16,17,18,19,20,21,27])
-        
+        try:
+            self.df = pd.read_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';')
+            self.df_split = self.df['Jogos'].str.split(';',expand= True)
+            self.df_split[['Data','Hora']] = self.df_split[0].str.split('|',expand=True)
+            self.df_split[['TimeCasa','TimeVisitante']] = self.df_split[1].str.split(' - ',expand=True)
+            self.df_split = self.df_split.drop(columns=[0,1,5,6,7,9,10,11,12,13,14,16,17,18,19,20,21,27])
+        except Exception as e:
+            print(e)
+            pass    
         
     def rename_columns(self):
-        self.df_split.columns=['Odds1','OddsX','Odds2','MaisGols',
+        try:
+            self.df_split.columns=['Odds1','OddsX','Odds2','MaisGols',
                'MenosGols','Dupla1x','Dupla12','Dupla2x','AmbosMarcamSim',
                'AmbosMarcamNao','Data','Hora','TimeCasa','TimeVisitante']
-        
+        except Exception as e:
+            print(e)
+            pass 
     def order_columns(self):
-        self.df = pd.DataFrame(data=self.df_split)
-        self.df = self.df[['Hora','Data','TimeCasa','TimeVisitante','Odds1','OddsX','Odds2',
+        try:
+            self.df = pd.DataFrame(data=self.df_split)
+            self.df = self.df[['Hora','Data','TimeCasa','TimeVisitante','Odds1','OddsX','Odds2',
                            'MaisGols','MenosGols','AmbosMarcamSim','AmbosMarcamNao','Dupla1x','Dupla12','Dupla2x']]
+        except  Exception as e:
+            print(e)
+            pass
         
         
     def remove_space(self):
-        for column_remove in self.df.columns:
-            self.df[column_remove] = self.df[column_remove].apply(lambda x:str(x).strip())
-    
+        try:
+            for column_remove in self.df.columns:
+                self.df[column_remove] = self.df[column_remove].apply(lambda x:str(x).strip())
+        except Exception as e:
+            print(e)
+            pass
     def data_convert_types(self):
-        #self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
-        for column_float in self.df.columns[4:]:
-           self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
+        try:
+            #self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
+            for column_float in self.df.columns[4:]:
+                self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
+        except Exception as e:
+            print(e)
+            pass
         
     def export_dataframe(self):
-        self.df.to_csv(self.directory_file+'\\df_pixbet.csv',encoding='utf-8', sep=';', index=False)
+        try:
+            self.df.to_csv(self.directory_file+'\\df_pixbet.csv',encoding='utf-8', sep=';', index=False)
+        except Exception as e:
+            print(e)
+            pass
         
     def create_index_pixbet(self):
-        pixbet = pd.read_csv(self.directory_file+'\\df_pixbet.csv', encoding = 'utf-8', sep=';')
-        ind_pixbet={'Timec':[], 'Timev':[]}
-        df1 = pixbet['TimeCasa']
-        for nome in df1:
-            abrev = nome[0:3]
-            ind_pixbet['Timec'].append(abrev)
-                
-        df1 = pixbet['TimeVisitante']
-        for nome in df1:
-            abrev = nome[0:3]  
-            ind_pixbet['Timev'].append(abrev)
-                
-        df_pixbet = pd.DataFrame(ind_pixbet,columns=['Timec', 'Timev'])
-        df_pixbet['Index'] = df_pixbet['Timec'].map(str)+'x'+df_pixbet['Timev']
-        df_pixbet = df_pixbet.drop(['Timec', 'Timev'], axis=1)
-        pixbet.insert(0,'ind',df_pixbet)
-        pixbet.to_csv(self.directory_file+'\\DataFrame_pixbet.csv',encoding='utf-8', sep=';', index=False)
+        try:
+            pixbet = pd.read_csv(self.directory_file+'\\df_pixbet.csv', encoding = 'utf-8', sep=';')
+            ind_pixbet={'Timec':[], 'Timev':[]}
+            df1 = pixbet['TimeCasa']
+            for nome in df1:
+                abrev = nome[0:3]
+                ind_pixbet['Timec'].append(abrev)
+                    
+            df1 = pixbet['TimeVisitante']
+            for nome in df1:
+                abrev = nome[0:3]  
+                ind_pixbet['Timev'].append(abrev)
+                    
+            df_pixbet = pd.DataFrame(ind_pixbet,columns=['Timec', 'Timev'])
+            df_pixbet['Index'] = df_pixbet['Timec'].map(str)+'x'+df_pixbet['Timev']
+            df_pixbet = df_pixbet.drop(['Timec', 'Timev'], axis=1)
+            pixbet.insert(0,'ind',df_pixbet)
+            pixbet.to_csv(self.directory_file+'\\DataFrame_pixbet.csv',encoding='utf-8', sep=';', index=False)
+        except Exception as e:
+            print(e)
+            pass
         
     def remove_file(self):
         try:
