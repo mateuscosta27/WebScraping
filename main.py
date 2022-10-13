@@ -491,9 +491,9 @@ class ModuloPrincipal(QMainWindow):
                                 team2,
                                 spi1,
                                 spi2,
-                                prob1,
-                                probtie,
-                                prob2,
+                                prob1 * 100 ,
+                                probtie * 100,
+                                prob2 * 100,
                                 proj_score1,
                                 proj_score2
                 from tb_matches_latest 
@@ -525,9 +525,9 @@ class ModuloPrincipal(QMainWindow):
                                 team2,
                                 spi1,
                                 spi2,
-                                prob1,
-                                probtie,
-                                prob2,
+                                prob1 * 100,
+                                probtie * 100,
+                                prob2 * 100,
                                 proj_score1,
                                 proj_score2
                 from tb_matches_latest 
