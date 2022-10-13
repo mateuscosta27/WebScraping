@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 sys.path.insert(0,os.path.abspath(os.curdir))
 from selenium.webdriver.chrome.options import Options
-import undetected_chromedriver as uc
+
 
 
 class Betano:

@@ -43,6 +43,7 @@ class ModuloPrincipal(QMainWindow):
     ############################################################################################ 
         self.ui.btn_coletar.clicked.connect(self.thred_process)
         self.ui.btn_coletar.clicked.connect(self.animation)
+        self.ui.btn_search.clicked.connect(self.search)
     ################################################################################################   
     #Radio buttons 
     ################################################################################################
@@ -144,8 +145,8 @@ class ModuloPrincipal(QMainWindow):
            Works with thread in the collection
         """
         self.thread1 = threading.Thread(target=self.collect)
-        self.thread1.start()            
-    
+        self.thread1.start()    
+
     ################################################################################################   
     #Renomear colunas da tabela
     ################################################################################################
@@ -253,6 +254,33 @@ class ModuloPrincipal(QMainWindow):
         item.setText('Dupla2x')
         item = self.ui.tb_view_games.horizontalHeaderItem(13)
         item.setText('Dupla12')
+
+
+    def search_name(self):
+        """Renomeia as colunas de acordo com a seleção
+           Renaming the columns according to the selection
+        """
+        item = self.ui.tb_preview.horizontalHeaderItem(0)
+        item.setText('Data')
+        item = self.ui.tb_preview.horizontalHeaderItem(1)
+        item.setText('Mandante')
+        item = self.ui.tb_preview.horizontalHeaderItem(2)
+        item.setText('Visitante')
+        item = self.ui.tb_preview.horizontalHeaderItem(3)
+        item.setText('spi1')
+        item = self.ui.tb_preview.horizontalHeaderItem(4)
+        item.setText('sp2')
+        item = self.ui.tb_preview.horizontalHeaderItem(5)
+        item.setText('VitoriaMandante')
+        item = self.ui.tb_preview.horizontalHeaderItem(6)
+        item.setText('Empate')
+        item = self.ui.tb_preview.horizontalHeaderItem(7)
+        item.setText('VitoriaVisitante')
+        item = self.ui.tb_preview.horizontalHeaderItem(8)
+        item.setText('GolsMandante')
+        item = self.ui.tb_preview.horizontalHeaderItem(9)
+        item.setText('GolsVisitante')
+        
     
 
                    
@@ -421,7 +449,41 @@ class ModuloPrincipal(QMainWindow):
         for i in range(0, len(resultSet)):
             for j in range(0, 14):
                 self.ui.tb_view_games.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()        
+        con_db.close()
+
+
+
+    def search(self):
+        directory_database = 'C:\\tmp\\Bancos'
+        con_db = sqlite3.connect(directory_database+'\\DADOS.db')
+        mycursor = con_db.cursor()
+        mycursor.execute(f"""
+                        select 
+                                date,
+                                team1,
+                                team2,
+                                spi1,
+                                spi2,
+                                prob1,
+                                probtie,
+                                prob2,
+                                proj_score1,
+                                proj_score2
+                from tb_matches_latest 
+                where
+                importance1 isnull and
+                league = '{self.ui.cb_camp.currentText()}' and 
+                team1 LIKE "%{self.ui.le_search.text()}%"
+                            """)
+
+        resultSet = mycursor.fetchall()
+        self.ui.tb_preview.setRowCount(len(resultSet))
+        self.ui.tb_preview.setColumnCount(10)
+        self.search_name()  # função para renomear as colunas 
+        for i in range(0, len(resultSet)):
+            for j in range(0, 10):
+                self.ui.tb_preview.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
+        con_db.close()         
 
 
 if __name__ == "__main__":
