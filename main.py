@@ -15,6 +15,7 @@ import threading
 
 
 
+
     
 class ModuloPrincipal(QMainWindow):
     def __init__(self):
@@ -297,7 +298,7 @@ class ModuloPrincipal(QMainWindow):
         item = self.ui.tb_preview.horizontalHeaderItem(4)
         item.setText('spi1')
         item = self.ui.tb_preview.horizontalHeaderItem(5)
-        item.setText('sp2')
+        item.setText('spi2')
         item = self.ui.tb_preview.horizontalHeaderItem(6)
         item.setText('VitoriaMandante')
         item = self.ui.tb_preview.horizontalHeaderItem(7)
@@ -484,24 +485,45 @@ class ModuloPrincipal(QMainWindow):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
-        mycursor.execute(f"""
+        if self.ui.le_search.text() == "":
+            mycursor.execute(f"""
                         select 
                                 date,
                                 team1,
                                 team2,
                                 spi1,
                                 spi2,
-                                prob1 * 100 ,
-                                probtie * 100,
-                                prob2 * 100,
+                                prob1,
+                                probtie,
+                                prob2,
                                 proj_score1,
                                 proj_score2
                 from tb_matches_latest 
                 where
-                importance1 isnull and
-                league = '{self.ui.cb_camp.currentText()}' and 
-                team1 LIKE "%{self.ui.le_search.text()}%"
+                importance1 isnull AND
+                league = '{self.ui.cb_camp.currentText()}'
+                
                             """)
+        else:
+            
+            mycursor.execute(f"""
+                            select 
+                                    date,
+                                    team1,
+                                    team2,
+                                    spi1,
+                                    spi2,
+                                    prob1,
+                                    probtie,
+                                    prob2,
+                                    proj_score1,
+                                    proj_score2
+                    from tb_matches_latest 
+                    where
+                    importance1 isnull and
+                    league = '{self.ui.cb_camp.currentText()}' and 
+                    team1 LIKE "%{self.ui.le_search.text()}%"
+                                """)
 
         resultSet = mycursor.fetchall()
         self.ui.tb_preview.setRowCount(len(resultSet))
@@ -525,9 +547,9 @@ class ModuloPrincipal(QMainWindow):
                                 team2,
                                 spi1,
                                 spi2,
-                                prob1 * 100,
-                                probtie * 100,
-                                prob2 * 100,
+                                prob1,
+                                probtie,
+                                prob2,
                                 proj_score1,
                                 proj_score2
                 from tb_matches_latest 

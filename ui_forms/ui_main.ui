@@ -347,75 +347,12 @@ QPushButton:pressed{
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>src/collect_icon.svg</normaloff>src/collect_icon.svg</iconset>
+              <normaloff>../src/collect_icon.svg</normaloff>../src/collect_icon.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
               <width>45</width>
-              <height>45</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QPushButton" name="btn_visOdds">
-            <property name="minimumSize">
-             <size>
-              <width>190</width>
-              <height>45</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>45</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	border-style: none;
-	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(255, 255, 255);
-	background-color: #4195FF;
-	border-radius: 12px;
-	border-bottom-color: rgb(4, 35, 38);
-	border-right-color:  rgb(4, 35, 38);
-}
-QPushButton:hover{
-	border-style: none;
-	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(255, 255, 255);
-	background-color: #0954B2;
-	border-radius: 12px;
-	border-bottom-color: rgb(4, 35, 38);
-	border-right-color:  rgb(4, 35, 38);
-}
-
-
-QPushButton:pressed{
-	border-style: insetset;
-	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-	color: rgb(255, 255, 255);
-	background-color: #4195FF;
-	border-radius: 8px;
-	border-top-color: rgb(4, 35, 38);
-	border-left-color:  rgb(4, 35, 38);
-}</string>
-            </property>
-            <property name="text">
-             <string>Odds Coletadas</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>src/odds_icon.svg</normaloff>src/odds_icon.svg</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>45</width>
-              <height>45</height>
+              <height>40</height>
              </size>
             </property>
            </widget>
@@ -473,12 +410,12 @@ QPushButton:pressed{
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>src/games_icon.svg</normaloff>src/games_icon.svg</iconset>
+              <normaloff>../src/games_icon.svg</normaloff>../src/games_icon.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
               <width>45</width>
-              <height>45</height>
+              <height>40</height>
              </size>
             </property>
            </widget>
@@ -536,12 +473,12 @@ QPushButton:pressed{
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>src/possibility_icon.svg</normaloff>src/possibility_icon.svg</iconset>
+              <normaloff>../src/possibility_icon.svg</normaloff>../src/possibility_icon.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
               <width>45</width>
-              <height>45</height>
+              <height>40</height>
              </size>
             </property>
            </widget>
@@ -596,6 +533,16 @@ QPushButton:pressed{
             </property>
             <property name="text">
              <string>Previsões</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../src/odds_icon.svg</normaloff>../src/odds_icon.svg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>45</width>
+              <height>40</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -785,10 +732,10 @@ QPushButton:pressed{
                 <bool>false</bool>
                </property>
                <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
+                <enum>QFrame::StyledPanel</enum>
                </property>
                <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
+                <enum>QFrame::Sunken</enum>
                </property>
                <property name="lineWidth">
                 <number>0</number>
@@ -916,7 +863,22 @@ QRadioButton:pressed{
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <layout class="QVBoxLayout" name="verticalLayout_14">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
                     <item>
                      <widget class="QTableWidget" name="tb_view_games">
                       <property name="font">
@@ -934,10 +896,11 @@ QRadioButton:pressed{
                       <property name="styleSheet">
                        <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(0, 0, 0);
-background-color: rgb(217, 217, 217);</string>
+background-color:rgb(243, 243, 243);
+</string>
                       </property>
                       <property name="frameShape">
-                       <enum>QFrame::NoFrame</enum>
+                       <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Sunken</enum>
@@ -963,6 +926,15 @@ background-color: rgb(217, 217, 217);</string>
                         <height>0</height>
                        </size>
                       </property>
+                      <property name="textElideMode">
+                       <enum>Qt::ElideRight</enum>
+                      </property>
+                      <property name="verticalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerItem</enum>
+                      </property>
+                      <property name="horizontalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerItem</enum>
+                      </property>
                       <property name="sortingEnabled">
                        <bool>true</bool>
                       </property>
@@ -974,6 +946,9 @@ background-color: rgb(217, 217, 217);</string>
                       </attribute>
                       <attribute name="horizontalHeaderMinimumSectionSize">
                        <number>50</number>
+                      </attribute>
+                      <attribute name="verticalHeaderVisible">
+                       <bool>false</bool>
                       </attribute>
                       <attribute name="verticalHeaderDefaultSectionSize">
                        <number>50</number>
@@ -997,7 +972,7 @@ background-color: rgb(217, 217, 217);</string>
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
@@ -1016,7 +991,7 @@ background-color: rgb(217, 217, 217);</string>
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
@@ -1035,67 +1010,208 @@ background-color: rgb(217, 217, 217);</string>
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignLeading|AlignVCenter</set>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignLeading|AlignVCenter</set>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignLeading|AlignVCenter</set>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                      </widget>
@@ -1253,6 +1369,9 @@ background-color: rgb(217, 217, 217);</string>
                      <height>16777215</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: #4195FF;</string>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -1261,422 +1380,545 @@ background-color: rgb(217, 217, 217);</string>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_8">
                     <item>
-                     <widget class="QGroupBox" name="groupBox">
-                      <property name="title">
-                       <string/>
+                     <widget class="QFrame" name="frame_3">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
                       </property>
-                      <widget class="QLabel" name="lb_camp">
-                       <property name="geometry">
-                        <rect>
-                         <x>480</x>
-                         <y>0</y>
-                         <width>171</width>
-                         <height>31</height>
-                        </rect>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_13">
+                       <property name="spacing">
+                        <number>0</number>
                        </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Campeonato&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       <property name="leftMargin">
+                        <number>0</number>
                        </property>
-                      </widget>
-                      <widget class="QComboBox" name="cb_camp">
-                       <property name="geometry">
-                        <rect>
-                         <x>490</x>
-                         <y>30</y>
-                         <width>181</width>
-                         <height>32</height>
-                        </rect>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
                        </property>
                        <item>
-                        <property name="text">
-                         <string>Argentina Primera Division</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
+                        <widget class="QLabel" name="label">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
+                         </property>
+                         <property name="text">
+                          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Campeonato&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         </property>
+                        </widget>
                        </item>
                        <item>
-                        <property name="text">
-                         <string>Australian A-League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
+                        <widget class="QComboBox" name="cb_camp">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>300</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: rgb(255, 255, 255);</string>
+                         </property>
+                         <item>
+                          <property name="text">
+                           <string>Argentina Primera Division</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Australian A-League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Austrian T-Mobile Bundesliga</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Barclays Premier League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Belgian Jupiler League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Brasileiro Série A</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Chinese Super League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Danish SAS-Ligaen</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Dutch Eredivisie</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>English League Championship</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>English League One</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>English League Two</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>FA Women's Super League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>French Ligue 1</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>French Ligue 2</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>German 2. Bundesliga</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>German Bundesliga</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Greek Super League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Italy Serie A</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Italy Serie B</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Japanese J League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Major League Soccer</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Mexican Primera Division Torneo Apertura</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Mexican Primera Division Torneo Clausura</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>NWSL Challenge Cup</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>National Women's Soccer League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Norwegian Tippeligaen</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Portuguese Liga</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Russian Premier Liga</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Scottish Premiership</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>South African ABSA Premier League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Spanish Primera Division</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Spanish Segunda Division</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Swedish Allsvenskan</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Swiss Raiffeisen Super League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>Turkish Turkcell Super Lig</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>UEFA Champions League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>UEFA Europa Conference League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>UEFA Europa League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                         <item>
+                          <property name="text">
+                           <string>United Soccer League</string>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
+                          </property>
+                         </item>
+                        </widget>
                        </item>
-                       <item>
-                        <property name="text">
-                         <string>Austrian T-Mobile Bundesliga</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Barclays Premier League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Belgian Jupiler League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Brasileiro Série A</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Chinese Super League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Danish SAS-Ligaen</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Dutch Eredivisie</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>English League Championship</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>English League One</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>English League Two</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>FA Women's Super League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>French Ligue 1</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>French Ligue 2</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>German 2. Bundesliga</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>German Bundesliga</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Greek Super League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Italy Serie A</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Italy Serie B</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Japanese J League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Major League Soccer</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Mexican Primera Division Torneo Apertura</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Mexican Primera Division Torneo Clausura</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>NWSL Challenge Cup</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>National Women's Soccer League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Norwegian Tippeligaen</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Portuguese Liga</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Russian Premier Liga</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Scottish Premiership</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>South African ABSA Premier League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Spanish Primera Division</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Spanish Segunda Division</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Swedish Allsvenskan</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Swiss Raiffeisen Super League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Turkish Turkcell Super Lig</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>UEFA Champions League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>UEFA Europa Conference League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>UEFA Europa League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>United Soccer League</string>
-                        </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>../src/list_icon.svg</normaloff>../src/list_icon.svg</iconset>
-                        </property>
-                       </item>
-                      </widget>
-                      <widget class="QLineEdit" name="le_search">
-                       <property name="geometry">
-                        <rect>
-                         <x>760</x>
-                         <y>20</y>
-                         <width>210</width>
-                         <height>32</height>
-                        </rect>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_5">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_11">
+                       <property name="spacing">
+                        <number>3</number>
                        </property>
-                       <property name="placeholderText">
-                        <string>Pesquise pelo Mandante</string>
+                       <property name="leftMargin">
+                        <number>0</number>
                        </property>
-                      </widget>
-                      <widget class="QPushButton" name="btn_search">
-                       <property name="geometry">
-                        <rect>
-                         <x>980</x>
-                         <y>20</y>
-                         <width>100</width>
-                         <height>32</height>
-                        </rect>
+                       <property name="topMargin">
+                        <number>0</number>
                        </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <spacer name="horizontalSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Preferred</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>10</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item alignment="Qt::AlignBottom">
+                        <widget class="QLineEdit" name="le_search">
+                         <property name="minimumSize">
+                          <size>
+                           <width>150</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>150</width>
+                           <height>35</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);
+</string>
+                         </property>
+                         <property name="placeholderText">
+                          <string>Pesquise pelo Mandante</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_2">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeType">
+                          <enum>QSizePolicy::Preferred</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item alignment="Qt::AlignBottom">
+                        <widget class="QPushButton" name="btn_search">
+                         <property name="minimumSize">
+                          <size>
+                           <width>130</width>
+                           <height>30</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>130</width>
+                           <height>35</height>
+                          </size>
+                         </property>
+                         <property name="sizeIncrement">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>MS Shell Dlg 2</family>
+                           <pointsize>14</pointsize>
+                           <weight>9</weight>
+                           <italic>false</italic>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton{
 	border-style: none;
 	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #4195FF;
+	background-color: #0954B2;
 	border-radius: 8px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -1684,9 +1926,10 @@ background-color: rgb(217, 217, 217);</string>
 QPushButton:hover{
 	border-style: none;
 	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #0954B2;
+	
+	background-color: rgb(26, 60, 102);
 	border-radius: 8px;
 	border-bottom-color: rgb(4, 35, 38);
 	border-right-color:  rgb(4, 35, 38);
@@ -1694,27 +1937,74 @@ QPushButton:hover{
 
 
 QPushButton:pressed{
-	border-style: insetset;
+	border-style: none;
 	border-width: 2px;
-	font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
 	color: rgb(255, 255, 255);
-	background-color: #4195FF;
+	background-color:#0954B2;
 	border-radius: 8px;
 	border-top-color: rgb(4, 35, 38);
 	border-left-color:  rgb(4, 35, 38);
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>Pesquisar</string>
-                       </property>
-                      </widget>
+                         </property>
+                         <property name="text">
+                          <string>Pesquisar</string>
+                         </property>
+                         <property name="icon">
+                          <iconset>
+                           <normaloff>../src/search_icon.svg</normaloff>../src/search_icon.svg</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>20</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_3">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>115</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_6">
+                      <property name="minimumSize">
+                       <size>
+                        <width>400</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>700</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
                      </widget>
                     </item>
                    </layout>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QFrame" name="frame_5">
+                  <widget class="QFrame" name="frame_preview">
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -1722,6 +2012,21 @@ QPushButton:pressed{
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_12">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
                     <item>
                      <widget class="QTableWidget" name="tb_preview">
                       <property name="font">
@@ -1739,10 +2044,11 @@ QPushButton:pressed{
                       <property name="styleSheet">
                        <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(0, 0, 0);
-background-color: rgb(217, 217, 217);</string>
+background-color:rgb(243, 243, 243);
+</string>
                       </property>
                       <property name="frameShape">
-                       <enum>QFrame::NoFrame</enum>
+                       <enum>QFrame::StyledPanel</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Sunken</enum>
@@ -1768,6 +2074,15 @@ background-color: rgb(217, 217, 217);</string>
                         <height>0</height>
                        </size>
                       </property>
+                      <property name="textElideMode">
+                       <enum>Qt::ElideRight</enum>
+                      </property>
+                      <property name="verticalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerItem</enum>
+                      </property>
+                      <property name="horizontalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerItem</enum>
+                      </property>
                       <property name="sortingEnabled">
                        <bool>true</bool>
                       </property>
@@ -1779,6 +2094,9 @@ background-color: rgb(217, 217, 217);</string>
                       </attribute>
                       <attribute name="horizontalHeaderMinimumSectionSize">
                        <number>50</number>
+                      </attribute>
+                      <attribute name="verticalHeaderVisible">
+                       <bool>false</bool>
                       </attribute>
                       <attribute name="verticalHeaderDefaultSectionSize">
                        <number>50</number>
@@ -1802,7 +2120,7 @@ background-color: rgb(217, 217, 217);</string>
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
@@ -1821,7 +2139,7 @@ background-color: rgb(217, 217, 217);</string>
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
@@ -1840,67 +2158,208 @@ background-color: rgb(217, 217, 217);</string>
                        </property>
                        <property name="icon">
                         <iconset>
-                         <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignLeading|AlignVCenter</set>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignLeading|AlignVCenter</set>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignLeading|AlignVCenter</set>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
-                      </column>
-                      <column>
-                       <property name="text">
-                        <string>New Column</string>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
                        </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
                       </column>
                       <column>
                        <property name="text">
                         <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>New Column</string>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="icon">
+                        <iconset>
+                         <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                        </property>
                       </column>
                      </widget>
@@ -1935,6 +2394,9 @@ background-color: rgb(217, 217, 217);</string>
                  </property>
                  <item>
                   <widget class="QFrame" name="frame">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: #4195FF;</string>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -1962,7 +2424,7 @@ background-color: rgb(217, 217, 217);</string>
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
-                        <height>70</height>
+                        <height>100</height>
                        </size>
                       </property>
                       <property name="maximumSize">
@@ -2197,11 +2659,11 @@ QRadioButton:pressed{
                          <property name="styleSheet">
                           <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(0, 0, 0);
-background-color: rgb(217, 217, 217);
+background-color:rgb(243, 243, 243);
 </string>
                          </property>
                          <property name="frameShape">
-                          <enum>QFrame::NoFrame</enum>
+                          <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Sunken</enum>
@@ -2227,6 +2689,15 @@ background-color: rgb(217, 217, 217);
                            <height>0</height>
                           </size>
                          </property>
+                         <property name="textElideMode">
+                          <enum>Qt::ElideRight</enum>
+                         </property>
+                         <property name="verticalScrollMode">
+                          <enum>QAbstractItemView::ScrollPerItem</enum>
+                         </property>
+                         <property name="horizontalScrollMode">
+                          <enum>QAbstractItemView::ScrollPerItem</enum>
+                         </property>
                          <property name="sortingEnabled">
                           <bool>true</bool>
                          </property>
@@ -2238,6 +2709,9 @@ background-color: rgb(217, 217, 217);
                          </attribute>
                          <attribute name="horizontalHeaderMinimumSectionSize">
                           <number>50</number>
+                         </attribute>
+                         <attribute name="verticalHeaderVisible">
+                          <bool>false</bool>
                          </attribute>
                          <attribute name="verticalHeaderDefaultSectionSize">
                           <number>50</number>
@@ -2261,7 +2735,7 @@ background-color: rgb(217, 217, 217);
                           </property>
                           <property name="icon">
                            <iconset>
-                            <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
@@ -2280,7 +2754,7 @@ background-color: rgb(217, 217, 217);
                           </property>
                           <property name="icon">
                            <iconset>
-                            <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
@@ -2299,67 +2773,208 @@ background-color: rgb(217, 217, 217);
                           </property>
                           <property name="icon">
                            <iconset>
-                            <normaloff>src/order_icon.svg</normaloff>src/order_icon.svg</iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignLeading|AlignVCenter</set>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignLeading|AlignVCenter</set>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="textAlignment">
+                           <set>AlignLeading|AlignVCenter</set>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>New Column</string>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
                           </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                          </property>
                          </column>
                          <column>
                           <property name="text">
                            <string>New Column</string>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>New Column</string>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <pointsize>12</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <property name="icon">
+                           <iconset>
+                            <normaloff>../src/order_icon.svg</normaloff>../src/order_icon.svg</iconset>
                           </property>
                          </column>
                         </widget>
