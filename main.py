@@ -500,7 +500,6 @@ class ModuloPrincipal(QMainWindow):
                                 proj_score2
                 from tb_matches_latest 
                 where
-                importance1 isnull AND
                 league = '{self.ui.cb_camp.currentText()}'
                 
                             """)
@@ -520,7 +519,6 @@ class ModuloPrincipal(QMainWindow):
                                     proj_score2
                     from tb_matches_latest 
                     where
-                    importance1 isnull and
                     league = '{self.ui.cb_camp.currentText()}' and 
                     team1 LIKE "%{self.ui.le_search.text()}%"
                                 """)
