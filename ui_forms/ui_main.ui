@@ -747,7 +747,7 @@ QPushButton:pressed{
                 <number>0</number>
                </property>
                <property name="currentIndex">
-                <number>3</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="page_view_games">
                 <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -948,7 +948,7 @@ background-color:rgb(243, 243, 243);
                        <number>15</number>
                       </property>
                       <attribute name="horizontalHeaderDefaultSectionSize">
-                       <number>175</number>
+                       <number>150</number>
                       </attribute>
                       <attribute name="horizontalHeaderMinimumSectionSize">
                        <number>50</number>
@@ -2116,7 +2116,7 @@ background-color:rgb(243, 243, 243);
                        <number>15</number>
                       </property>
                       <attribute name="horizontalHeaderDefaultSectionSize">
-                       <number>175</number>
+                       <number>150</number>
                       </attribute>
                       <attribute name="horizontalHeaderMinimumSectionSize">
                        <number>50</number>
@@ -2731,7 +2731,7 @@ background-color:rgb(243, 243, 243);
                           <number>15</number>
                          </property>
                          <attribute name="horizontalHeaderDefaultSectionSize">
-                          <number>175</number>
+                          <number>150</number>
                          </attribute>
                          <attribute name="horizontalHeaderMinimumSectionSize">
                           <number>50</number>

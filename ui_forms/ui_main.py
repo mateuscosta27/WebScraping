@@ -589,7 +589,7 @@ class Ui_Main(object):
         item.setFont(font)
         item.setIcon(icon7)
         self.tb_view_games.setHorizontalHeaderItem(14, item)
-        self.tb_view_games.horizontalHeader().setDefaultSectionSize(175)
+        self.tb_view_games.horizontalHeader().setDefaultSectionSize(150)
         self.tb_view_games.horizontalHeader().setMinimumSectionSize(50)
         self.tb_view_games.verticalHeader().setVisible(False)
         self.tb_view_games.verticalHeader().setDefaultSectionSize(50)
@@ -964,7 +964,7 @@ class Ui_Main(object):
         item.setFont(font)
         item.setIcon(icon7)
         self.tb_preview.setHorizontalHeaderItem(14, item)
-        self.tb_preview.horizontalHeader().setDefaultSectionSize(175)
+        self.tb_preview.horizontalHeader().setDefaultSectionSize(150)
         self.tb_preview.horizontalHeader().setMinimumSectionSize(50)
         self.tb_preview.verticalHeader().setVisible(False)
         self.tb_preview.verticalHeader().setDefaultSectionSize(50)
@@ -1242,7 +1242,7 @@ class Ui_Main(object):
         item.setFont(font)
         item.setIcon(icon7)
         self.tb_view.setHorizontalHeaderItem(14, item)
-        self.tb_view.horizontalHeader().setDefaultSectionSize(175)
+        self.tb_view.horizontalHeader().setDefaultSectionSize(150)
         self.tb_view.horizontalHeader().setMinimumSectionSize(50)
         self.tb_view.verticalHeader().setVisible(False)
         self.tb_view.verticalHeader().setDefaultSectionSize(50)
@@ -1279,7 +1279,7 @@ class Ui_Main(object):
         Main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Main)
-        self.pages.setCurrentIndex(3)
+        self.pages.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(Main)
 
     def retranslateUi(self, Main):
