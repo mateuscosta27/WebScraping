@@ -28,56 +28,91 @@ class Betano:
                       
     def open_web_site(self):
         ###Abrindo website##
-        self.driver.get(self.web_site)
-        self.driver.maximize_window()
+        try:
+            self.driver.get(self.web_site)
+            self.driver.maximize_window()
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass    
         
     def close_banner(self):
         ###fechando o banner que é exibido###
-        btn_fechar = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[7]/div/div/div[1]/button') ##path do botão de fechar do banner que é exibido##
-        sleep(5)
-        btn_fechar.click()
+        try:
+            btn_fechar = self.driver.find_element(
+                'xpath', '/html/body/div[1]/div/section[2]/div[7]/div/div/div[1]/button') ##path do botão de fechar do banner que é exibido##
+            sleep(5)
+            btn_fechar.click()
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
         
     def scroll_page(self):
         ###Rolando a pagina para obtenção do html###
-        sleep(2)
-        for page in range(2):
-            scroll = self.driver.execute_script("window.scrollBy(0,350)","")
+        try:
             sleep(2)
+            for page in range(2):
+                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
+                sleep(2)
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass        
             
     def parser_data(self):
         ###Analisando o html e capturando as informações desejadas###
-        dic_jogos = {'Jogos':[]} ##Dicionario que armazenara as informações do parseamento do html##
-        soup = BeautifulSoup(self.driver.page_source, 'lxml')
-        table = soup.find('table', {'class': 'events-list__grid'}) ##classe onde se encontram as informações##
-        tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
-        for jogo in tr_element:
-            jogos = jogo.get_text().strip()
-            dic_jogos['Jogos'].append(jogos)
-        self.dic_jogos = dic_jogos
+        try:
+            self.dic_jogos = {'Jogos':[]} ##Dicionario que armazenara as informações do parseamento do html##
+            soup = BeautifulSoup(self.driver.page_source, 'lxml')
+            table = soup.find('table', {'class': 'events-list__grid'}) ##classe onde se encontram as informações##
+            self.tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+                
+    def insert_data_dic(self):
+        try:
+            for jogo in self.tr_element:
+                jogos = jogo.get_text().strip()
+                self.dic_jogos['Jogos'].append(jogos)
+            self.dic_jogos = self.dic_jogos
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
                
     def export_data(self):
-        df = pd.DataFrame(self.dic_jogos) ##transformando dicionario em dataframe##
-        df.to_csv(self.directory_file+'\\scraping_betano.csv',encoding='utf-8', sep=';', index=False) ##exportando arquivo CSV para o diretorio definido a cima##
+        try:
+            df = pd.DataFrame(self.dic_jogos) ##transformando dicionario em dataframe##
+            df.to_csv(
+                self.directory_file+'\\scraping_betano.csv',encoding='utf-8', sep=';', index=False) ##exportando arquivo CSV para o diretorio definido a cima##
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
         
     def data_transform(self):
         ###Limpeza dos dados###
-        df = pd.read_csv(self.directory_file+'\\scraping_betano.csv',encoding='utf-8', sep=';') ##importação do CSV###
-        df = df['Jogos'].str.split('\n ', expand= True)
-        df = df.drop(columns=[1,3,5,7,8,9,11,13,15,16,17,19,21,22,23,25,27]) ##Removendo as colunas desnecessárias##
-        df.columns = ['Data','Hora','TimeCasa','TimeVisitante','Odds1','OddsX','Odds2','MaisGols','MenosGols',
-                           'AmbosMarcamSim','AmbosMarcamNao'] ##Renomeando as colunas##
-        self.df = df
-        for column_remove in self.df.columns:
-            self.df[column_remove] = self.df[column_remove].apply(lambda x:str(x).strip()) ##Removendo espaços da direita e da esquerda das strings##
-        ##inserindo ano para formatar padrão a data
-        ano = '/2022'
-        self.df['Data'] =  self.df['Data'].apply(lambda x: (x+ano).replace('/','-'))    
+        try:
+            df = pd.read_csv(self.directory_file+'\\scraping_betano.csv',encoding='utf-8', sep=';') ##importação do CSV###
+            df = df['Jogos'].str.split('\n ', expand= True)
+            df = df.drop(columns=[1,3,5,7,8,9,11,13,15,16,17,19,21,22,23,25,27]) ##Removendo as colunas desnecessárias##
+            df.columns = ['Data','Hora','TimeCasa','TimeVisitante','Odds1','OddsX','Odds2','MaisGols','MenosGols',
+                            'AmbosMarcamSim','AmbosMarcamNao'] ##Renomeando as colunas##
+            self.df = df
+            for column_remove in self.df.columns:
+                self.df[column_remove] = self.df[column_remove].apply(lambda x:str(x).strip()) ##Removendo espaços da direita e da esquerda das strings##
+            ##inserindo ano para formatar padrão a data
+            ano = '/2022'
+            self.df['Data'] =  self.df['Data'].apply(lambda x: (x+ano).replace('/','-'))
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
     def parser_data_double_chance(self):
         ###Obtendo dados da dupla chance##
         try:
             sleep(5)
-            btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div/div/span') ##path do botão de dupla chance##
-           
+            btn_dupla_chance = self.driver.find_element(
+                'xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div/div/span') ##path do botão de dupla chance##
             btn_dupla_chance.click()
             sleep(3)
             self.driver.refresh()
@@ -100,7 +135,8 @@ class Betano:
     def except_button(self):
         try:
             sleep(5)
-            btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div/div/span') ##path do botão de dupla chance##
+            btn_dupla_chance = self.driver.find_element(
+                'xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div/div/span') ##path do botão de dupla chance##
            
             btn_dupla_chance.click()
             sleep(3)
@@ -122,62 +158,90 @@ class Betano:
             pass
         
                      
-    def close_driver(self):    
-        self.driver.close() ##fechando o driver##
-        
+    def close_driver(self):
+        try:    
+            self.driver.close() ##fechando o driver##
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
     def export_double_chance(self): 
         ###Exportando os dados coletados da dupla chance##
-        df_odds = pd.DataFrame(self.dic_duplachance)
-        df_odds.to_csv(self.directory_file+'\\scraping_betano_dupla.csv',encoding='utf-8', sep=';', index=False)
-        
+        try:
+            df_odds = pd.DataFrame(self.dic_duplachance)
+            df_odds.to_csv(self.directory_file+'\\scraping_betano_dupla.csv',encoding='utf-8', sep=';', index=False)
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
     def double_chance(self):
         ##limpando os dados##
-        self.DuplaChance = pd.read_csv(self.directory_file+'\\scraping_betano_dupla.csv',encoding='utf-8', sep=';')
-        self.DuplaChance = self.DuplaChance['Dupla'].str.split('\n ', expand= True)
-        self.DuplaChance = self.DuplaChance[[10,12,14]]
-        self.DuplaChance.columns = ['Dupla1x','Dupla2x','Dupla12'] ##renomenando as colunas
-        for convertion in self.DuplaChance:
-            self.DuplaChance[convertion] = pd.Series(self.DuplaChance[convertion], dtype=float)
-        self.df_dupla = self.DuplaChance
-        self.df_dupla.to_csv(self.directory_file+'\\DataFrame_betano_dupla.csv',encoding='utf-8', sep=';', index=False) ##exportando csv##
+        try:
+            self.DuplaChance = pd.read_csv(self.directory_file+'\\scraping_betano_dupla.csv',encoding='utf-8', sep=';')
+            self.DuplaChance = self.DuplaChance['Dupla'].str.split('\n ', expand= True)
+            self.DuplaChance = self.DuplaChance[[10,12,14]]
+            self.DuplaChance.columns = ['Dupla1x','Dupla2x','Dupla12'] ##renomenando as colunas
+            for convertion in self.DuplaChance:
+                self.DuplaChance[convertion] = pd.Series(self.DuplaChance[convertion], dtype=float)
+            self.df_dupla = self.DuplaChance
+            self.df_dupla.to_csv(self.directory_file+'\\DataFrame_betano_dupla.csv',encoding='utf-8', sep=';', index=False) ##exportando csv##
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass    
        
                
     def data_convert_types(self):
-        self.df['Data'] = self.df['Data'].apply(lambda x: pd.to_datetime(x, format='%d-%m-%Y')) 
-        for column_float in self.df.columns[4:]:
-           self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
-           
+        try:
+            self.df['Data'] = self.df['Data'].apply(lambda x: pd.to_datetime(x, format='%d-%m-%Y')) 
+            for column_float in self.df.columns[4:]:
+                self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
     def df_concat(self):
         ##concatenando dupla chance com os dados de odds
-        self.df_full = pd.concat([self.df, self.df_dupla], axis=1)   
-            
+        try:
+            self.df_full = pd.concat([self.df, self.df_dupla], axis=1)   
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
     def export_dataframe(self):
         ##exportando o datafreme com todos os dados###
-        self.df_full.to_csv(self.directory_file+'\\df_betano.csv',encoding='utf-8', sep=';', index=False)
-        
+        try:
+            self.df_full.to_csv(self.directory_file+'\\df_betano.csv',encoding='utf-8', sep=';', index=False)
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
         
     def creating_index_betano(self):
         
         ###criando indice no data frame devido aos nomes dos times estarem escritos diferentes nos sites###
-        betano = pd.read_csv(self.directory_file+'\\df_betano.csv', encoding = 'utf-8', sep=';')
-        ind_betano={'Timec':[], 'Timev':[]}
-        df1 = betano['TimeCasa']
-        for nome in df1:
-            abrev = nome[0:3]
-            ind_betano['Timec'].append(abrev)
-            
-        df1 = betano['TimeVisitante']
-        for nome in df1:
-            abrev = nome[0:3]  
-            ind_betano['Timev'].append(abrev)
-            
-        df_betano = pd.DataFrame(ind_betano,columns=['Timec', 'Timev'])
-        df_betano['Index'] = df_betano['Timec'].map(str)+'x'+df_betano['Timev']
+        try:
+            betano = pd.read_csv(self.directory_file+'\\df_betano.csv', encoding = 'utf-8', sep=';')
+            ind_betano={'Timec':[], 'Timev':[]}
+            df1 = betano['TimeCasa']
+            for nome in df1:
+                abrev = nome[0:3]
+                ind_betano['Timec'].append(abrev)
+                
+            df1 = betano['TimeVisitante']
+            for nome in df1:
+                abrev = nome[0:3]  
+                ind_betano['Timev'].append(abrev)
+                
+            df_betano = pd.DataFrame(ind_betano,columns=['Timec', 'Timev'])
+            df_betano['Index'] = df_betano['Timec'].map(str)+'x'+df_betano['Timev']
 
-        df_betano = df_betano.drop(['Timec', 'Timev'], axis=1)
-        betano.insert(0,'ind',df_betano)
-        betano.to_csv(self.directory_file+'\\DataFrame_betano.csv',encoding='utf-8', sep=';', index=False)  ##exportando dataframe final##
-             
+            df_betano = df_betano.drop(['Timec', 'Timev'], axis=1)
+            betano.insert(0,'ind',df_betano)
+            betano.to_csv(self.directory_file+'\\DataFrame_betano.csv',encoding='utf-8', sep=';', index=False)  ##exportando dataframe final##
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
+
+    def remove_files(self):         
         try:
             #os.remove(self.directory_file+'\\scraping_betano.csv')
             os.remove(self.directory_file+'\\df_betano.csv')
@@ -276,12 +340,14 @@ class Pixbet:
         try:
             for column_remove in self.df.columns:
                 self.df[column_remove] = self.df[column_remove].apply(lambda x:str(x).strip())
+            ano = '/2022'
+            self.df['Data'] =  self.df['Data'].apply(lambda x: (x+ano).replace('/','-'))
         except Exception as e:
             print(e)
             pass
     def data_convert_types(self):
         try:
-            #self.df['Data'] = pd.to_datetime(self.df['Data'],format="%d/%m")
+            self.df['Data'] = self.df['Data'].apply(lambda x: pd.to_datetime(x, format='%d-%m-%Y')) 
             for column_float in self.df.columns[4:]:
                 self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
         except Exception as e:
@@ -336,15 +402,27 @@ class Probabilidades:
         self.names = ['matches_latest.csv','global_rankings.csv','global_rankings_intl.csv']
 
     def check_exists(self):
-        for file in self.names:
-         if(os.path.exists(self.directory_file+'\\'+file)):
-                os.remove(self.directory_file+'\\'+file)
+        try:
+            for file in self.names:
+                if(os.path.exists(self.directory_file+'\\'+file)):
+                    os.remove(self.directory_file+'\\'+file)
+        except OSError as e:
+            print('Houve um erro inesperado:    '+ e)
+            pass            
 
     def download_dataBase(self):
-        request.urlretrieve(self.get1, 'matches_latest.csv') 
-        request.urlretrieve(self.get2, 'global_rankings.csv')
-        request.urlretrieve(self.get2, 'global_rankings_intl.csv')
+        try:
+            request.urlretrieve(self.get1, 'matches_latest.csv') 
+            request.urlretrieve(self.get2, 'global_rankings.csv')
+            request.urlretrieve(self.get2, 'global_rankings_intl.csv')
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass
         
     def move_files(self):
-        for file in self.names:       
-            shutil.move(file,self.directory_file)
+        try:
+            for file in self.names:       
+                shutil.move(file,self.directory_file)
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass        

@@ -287,28 +287,33 @@ class ModuloPrincipal(QMainWindow):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
         """
-        item = self.ui.tb_preview.horizontalHeaderItem(0)
-        item.setText('Data')
-        item = self.ui.tb_preview.horizontalHeaderItem(1)
-        item.setText('Campeonato')
-        item = self.ui.tb_preview.horizontalHeaderItem(2)
-        item.setText('Mandante')
-        item = self.ui.tb_preview.horizontalHeaderItem(3)
-        item.setText('Visitante')
-        item = self.ui.tb_preview.horizontalHeaderItem(4)
-        item.setText('spi1')
-        item = self.ui.tb_preview.horizontalHeaderItem(5)
-        item.setText('spi2')
-        item = self.ui.tb_preview.horizontalHeaderItem(6)
-        item.setText('VitoriaMandante')
-        item = self.ui.tb_preview.horizontalHeaderItem(7)
-        item.setText('Empate')
-        item = self.ui.tb_preview.horizontalHeaderItem(8)
-        item.setText('VitoriaVisitante')
-        item = self.ui.tb_preview.horizontalHeaderItem(9)
-        item.setText('GolsMandante')
-        item = self.ui.tb_preview.horizontalHeaderItem(10)
-        item.setText('GolsVisitante')
+        try:
+            item = self.ui.tb_preview.horizontalHeaderItem(0)
+            item.setText('Data')
+            item = self.ui.tb_preview.horizontalHeaderItem(1)
+            item.setText('Campeonato')
+            item = self.ui.tb_preview.horizontalHeaderItem(2)
+            item.setText('Mandante')
+            item = self.ui.tb_preview.horizontalHeaderItem(3)
+            item.setText('Visitante')
+            item = self.ui.tb_preview.horizontalHeaderItem(4)
+            item.setText('spi1')
+            item = self.ui.tb_preview.horizontalHeaderItem(5)
+            item.setText('spi2')
+            item = self.ui.tb_preview.horizontalHeaderItem(6)
+            item.setText('VitoriaMandante')
+            item = self.ui.tb_preview.horizontalHeaderItem(7)
+            item.setText('Empate')
+            item = self.ui.tb_preview.horizontalHeaderItem(8)
+            item.setText('VitoriaVisitante')
+            item = self.ui.tb_preview.horizontalHeaderItem(9)
+            item.setText('GolsMandante')
+            item = self.ui.tb_preview.horizontalHeaderItem(10)
+            item.setText('GolsVisitante')
+        except Exception as e:
+            print(f'Algo não esta correto:{e} ')
+            pass
+
 
 
                    

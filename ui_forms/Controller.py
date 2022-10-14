@@ -26,6 +26,7 @@ class Controller:
         betano.close_banner()
         betano.scroll_page()
         betano.parser_data()
+        betano.insert_data_dic()
         betano.export_data()
         betano.data_transform()
         betano.parser_data_double_chance()
@@ -36,6 +37,7 @@ class Controller:
         betano.df_concat()
         betano.export_dataframe()
         betano.creating_index_betano()
+        betano.remove_files()
     
     
     def controller_pixbet(self):
