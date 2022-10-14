@@ -558,8 +558,8 @@ class ModuloPrincipal(QMainWindow):
                                 proj_score2
                 from tb_matches_latest 
                 where
-                importance1 isnull and
-                importance2 isnull
+                score1 isnull and
+                score2 isnull
                             """)
 
         resultSet = mycursor.fetchall()
