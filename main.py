@@ -490,7 +490,7 @@ class ModuloPrincipal(QMainWindow):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
-        if self.ui.le_search.text() == "":
+        if self.ui.le_team1.text() == "":
             mycursor.execute(f"""
                         select 
                                 date,
@@ -525,7 +525,8 @@ class ModuloPrincipal(QMainWindow):
                     from tb_matches_latest 
                     where
                     league = '{self.ui.cb_camp.currentText()}' and 
-                    team1 LIKE "%{self.ui.le_search.text()}%"
+                    team1 LIKE "%{self.ui.le_team1.text()}%" and 
+                    team2 LIKE "%{self.ui.le_team2.text()}%"
                                 """)
 
         resultSet = mycursor.fetchall()
