@@ -27,8 +27,8 @@ class Ui_Main(object):
         self.verticalLayout_10.setSpacing(0)
         self.verticalLayout_10.setObjectName("verticalLayout_10")
         self.frame_top = QtWidgets.QFrame(self.centralwidget)
-        self.frame_top.setMinimumSize(QtCore.QSize(0, 45))
-        self.frame_top.setMaximumSize(QtCore.QSize(16777215, 45))
+        self.frame_top.setMinimumSize(QtCore.QSize(0, 60))
+        self.frame_top.setMaximumSize(QtCore.QSize(16777215, 60))
         self.frame_top.setStyleSheet("background-color: #0954B2;")
         self.frame_top.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_top.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -39,7 +39,7 @@ class Ui_Main(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.frame_btn_menu = QtWidgets.QFrame(self.frame_top)
         self.frame_btn_menu.setMinimumSize(QtCore.QSize(0, 35))
-        self.frame_btn_menu.setMaximumSize(QtCore.QSize(100, 35))
+        self.frame_btn_menu.setMaximumSize(QtCore.QSize(100, 60))
         self.frame_btn_menu.setStyleSheet("background-color:#0954B2;")
         self.frame_btn_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_btn_menu.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -49,8 +49,8 @@ class Ui_Main(object):
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.btn_menu = QtWidgets.QPushButton(self.frame_btn_menu)
-        self.btn_menu.setMinimumSize(QtCore.QSize(100, 35))
-        self.btn_menu.setMaximumSize(QtCore.QSize(0, 35))
+        self.btn_menu.setMinimumSize(QtCore.QSize(100, 80))
+        self.btn_menu.setMaximumSize(QtCore.QSize(80, 80))
         self.btn_menu.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -67,7 +67,7 @@ class Ui_Main(object):
 "    font: 75 14pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
 "    background-color: #4195FF;\n"
-"    border-radius: 12px;\n"
+"    border-radius: 25px;\n"
 "    border-bottom-color: rgb(4, 35, 38);\n"
 "    border-right-color:  rgb(4, 35, 38);\n"
 "}\n"
@@ -91,6 +91,7 @@ class Ui_Main(object):
         self.horizontalLayout_4.addWidget(self.btn_menu)
         self.horizontalLayout_2.addWidget(self.frame_btn_menu)
         self.frame_info = QtWidgets.QFrame(self.frame_top)
+        self.frame_info.setMinimumSize(QtCore.QSize(0, 0))
         self.frame_info.setStyleSheet("background-color: rgb(9, 84, 178);")
         self.frame_info.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_info.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -122,8 +123,8 @@ class Ui_Main(object):
         self.frame_side.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_side.setObjectName("frame_side")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_side)
-        self.verticalLayout.setContentsMargins(0, 5, 0, 0)
-        self.verticalLayout.setSpacing(10)
+        self.verticalLayout.setContentsMargins(0, 35, 0, 0)
+        self.verticalLayout.setSpacing(15)
         self.verticalLayout.setObjectName("verticalLayout")
         self.btn_coletar = QtWidgets.QPushButton(self.frame_side)
         self.btn_coletar.setMinimumSize(QtCore.QSize(200, 45))
@@ -666,9 +667,13 @@ class Ui_Main(object):
         self.label.setObjectName("label")
         self.verticalLayout_13.addWidget(self.label)
         self.cb_camp = QtWidgets.QComboBox(self.frame_3)
-        self.cb_camp.setMinimumSize(QtCore.QSize(0, 30))
-        self.cb_camp.setMaximumSize(QtCore.QSize(300, 30))
+        self.cb_camp.setMinimumSize(QtCore.QSize(0, 40))
+        self.cb_camp.setMaximumSize(QtCore.QSize(300, 40))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.cb_camp.setFont(font)
         self.cb_camp.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.cb_camp.setIconSize(QtCore.QSize(16, 16))
         self.cb_camp.setObjectName("cb_camp")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("./src/list_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -725,8 +730,8 @@ class Ui_Main(object):
         spacerItem1 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_11.addItem(spacerItem1)
         self.le_search = QtWidgets.QLineEdit(self.frame_5)
-        self.le_search.setMinimumSize(QtCore.QSize(150, 30))
-        self.le_search.setMaximumSize(QtCore.QSize(150, 35))
+        self.le_search.setMinimumSize(QtCore.QSize(200, 40))
+        self.le_search.setMaximumSize(QtCore.QSize(200, 40))
         self.le_search.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
 "color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);\n"
@@ -736,8 +741,8 @@ class Ui_Main(object):
         spacerItem2 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_11.addItem(spacerItem2)
         self.btn_search = QtWidgets.QPushButton(self.frame_5)
-        self.btn_search.setMinimumSize(QtCore.QSize(130, 30))
-        self.btn_search.setMaximumSize(QtCore.QSize(130, 35))
+        self.btn_search.setMinimumSize(QtCore.QSize(150, 40))
+        self.btn_search.setMaximumSize(QtCore.QSize(150, 35))
         self.btn_search.setSizeIncrement(QtCore.QSize(0, 0))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
@@ -746,6 +751,8 @@ class Ui_Main(object):
         font.setItalic(False)
         font.setWeight(9)
         self.btn_search.setFont(font)
+        self.btn_search.setWhatsThis("")
+        self.btn_search.setAccessibleDescription("")
         self.btn_search.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -785,7 +792,7 @@ class Ui_Main(object):
         self.btn_search.setIconSize(QtCore.QSize(20, 20))
         self.btn_search.setObjectName("btn_search")
         self.horizontalLayout_11.addWidget(self.btn_search, 0, QtCore.Qt.AlignBottom)
-        spacerItem3 = QtWidgets.QSpacerItem(115, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(100, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_11.addItem(spacerItem3)
         self.horizontalLayout_8.addWidget(self.frame_5)
         self.frame_6 = QtWidgets.QFrame(self.frame_options_camp)
@@ -1272,7 +1279,7 @@ class Ui_Main(object):
         Main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Main)
-        self.pages.setCurrentIndex(2)
+        self.pages.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(Main)
 
     def retranslateUi(self, Main):
