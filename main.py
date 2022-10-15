@@ -287,6 +287,9 @@ class ModuloPrincipal(QMainWindow):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
         """
+        names = ['Data','Campeonato','Mandante','Visitante','SPI1','SPI2','VitoriaMandante','Empate',
+        'VitoriaVisitante','GolsMandante', 'Golsvisitante']
+
         try:
             item = self.ui.tb_preview.horizontalHeaderItem(0)
             item.setText('Data')
@@ -308,7 +311,6 @@ class ModuloPrincipal(QMainWindow):
             item.setText('GolsMandante')
             item = self.ui.tb_preview.horizontalHeaderItem(9)
             item.setText('GolsVisitante')
-
         except Exception as e:
             print('Houve um erro inesperado:  '+ e)
             pass   
@@ -324,7 +326,6 @@ class ModuloPrincipal(QMainWindow):
         """Lista as probabilidades boas para apostas
            List good odds for betting
         """
-        
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
@@ -342,20 +343,18 @@ class ModuloPrincipal(QMainWindow):
                                     when b.Odds2 = 'None' then 'Sem dados'
                                     ELSE "Sem Oportunidades"
                                     END as Aportunidade2
-                                    
-                                    
                                             from tb_pixbet p
                                                 inner join tb_betano b
                                                 on instr(p.ind ,b.ind)>0;""")
-
         resultSet = mycursor.fetchall()
         self.ui.tb_view.setRowCount(len(resultSet))
         self.ui.tb_view.setColumnCount(10)
-        self.double_odds_name()  # função para renomear as colunas
+        self.match_odds_name()  # função para renomear as colunas
         for i in range(0, len(resultSet)):
             for j in range(0, 10):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()
+            
     def list_match_odds(self):
         """Lista as probabilidades boas para apostas
            List good odds for betting
