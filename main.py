@@ -291,28 +291,28 @@ class ModuloPrincipal(QMainWindow):
             item = self.ui.tb_preview.horizontalHeaderItem(0)
             item.setText('Data')
             item = self.ui.tb_preview.horizontalHeaderItem(1)
-            item.setText('Campeonato')
-            item = self.ui.tb_preview.horizontalHeaderItem(2)
             item.setText('Mandante')
-            item = self.ui.tb_preview.horizontalHeaderItem(3)
+            item = self.ui.tb_preview.horizontalHeaderItem(2)
             item.setText('Visitante')
-            item = self.ui.tb_preview.horizontalHeaderItem(4)
+            item = self.ui.tb_preview.horizontalHeaderItem(3)
             item.setText('spi1')
+            item = self.ui.tb_preview.horizontalHeaderItem(4)
+            item.setText('sp2')
             item = self.ui.tb_preview.horizontalHeaderItem(5)
-            item.setText('spi2')
-            item = self.ui.tb_preview.horizontalHeaderItem(6)
             item.setText('VitoriaMandante')
-            item = self.ui.tb_preview.horizontalHeaderItem(7)
+            item = self.ui.tb_preview.horizontalHeaderItem(6)
             item.setText('Empate')
-            item = self.ui.tb_preview.horizontalHeaderItem(8)
+            item = self.ui.tb_preview.horizontalHeaderItem(7)
             item.setText('VitoriaVisitante')
-            item = self.ui.tb_preview.horizontalHeaderItem(9)
+            item = self.ui.tb_preview.horizontalHeaderItem(8)
             item.setText('GolsMandante')
-            item = self.ui.tb_preview.horizontalHeaderItem(10)
+            item = self.ui.tb_preview.horizontalHeaderItem(9)
             item.setText('GolsVisitante')
+
         except Exception as e:
-            print(f'Algo não esta correto:{e} ')
-            pass
+            print('Houve um erro inesperado:  '+ e)
+            pass   
+
 
 
 
@@ -490,7 +490,7 @@ class ModuloPrincipal(QMainWindow):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
-        if self.ui.le_team1.text() == "":
+        if (self.ui.le_team1.text() == "") and (self.ui.le_team2.text() == ""):
             mycursor.execute(f"""
                         select 
                                 date,
@@ -508,6 +508,7 @@ class ModuloPrincipal(QMainWindow):
                 league = '{self.ui.cb_camp.currentText()}'
                 
                             """)
+                
         else:
             
             mycursor.execute(f"""
@@ -543,10 +544,9 @@ class ModuloPrincipal(QMainWindow):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
-        mycursor.execute(f"""
+        mycursor.execute("""
                         select 
                                 date,
-                                league,
                                 team1,
                                 team2,
                                 spi1,
@@ -564,13 +564,12 @@ class ModuloPrincipal(QMainWindow):
 
         resultSet = mycursor.fetchall()
         self.ui.tb_preview.setRowCount(len(resultSet))
-        self.ui.tb_preview.setColumnCount(11)
+        self.ui.tb_preview.setColumnCount(10)
         self.all_leagues_name()  # função para renomear as colunas 
         for i in range(0, len(resultSet)):
-            for j in range(0, 11):
+            for j in range(0, 10):
                 self.ui.tb_preview.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()         
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
