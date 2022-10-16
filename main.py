@@ -300,7 +300,7 @@ class ModuloPrincipal(QMainWindow):
             item = self.ui.tb_preview.horizontalHeaderItem(3)
             item.setText('spi1')
             item = self.ui.tb_preview.horizontalHeaderItem(4)
-            item.setText('sp2')
+            item.setText('spi2')
             item = self.ui.tb_preview.horizontalHeaderItem(5)
             item.setText('VitoriaMandante')
             item = self.ui.tb_preview.horizontalHeaderItem(6)
