@@ -733,36 +733,21 @@ class Ui_Main(object):
         self.frame_season.setObjectName("frame_season")
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.frame_season)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
-        self.rb_games_future = QtWidgets.QRadioButton(self.frame_season)
-        self.rb_games_future.setStyleSheet("\n"
-"QRadioButton{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QRadioButton:pressed{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(0, 0, 0);\n"
-"}")
-        self.rb_games_future.setObjectName("rb_games_future")
-        self.horizontalLayout_11.addWidget(self.rb_games_future)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.cb_games = QtWidgets.QComboBox(self.frame_season)
+        self.cb_games.setMinimumSize(QtCore.QSize(0, 40))
+        self.cb_games.setMaximumSize(QtCore.QSize(300, 40))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.cb_games.setFont(font)
+        self.cb_games.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.cb_games.setIconSize(QtCore.QSize(16, 16))
+        self.cb_games.setObjectName("cb_games")
+        self.cb_games.addItem(icon8, "")
+        self.cb_games.addItem(icon8, "")
+        self.cb_games.addItem(icon8, "")
+        self.horizontalLayout_11.addWidget(self.cb_games)
+        spacerItem1 = QtWidgets.QSpacerItem(463, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_11.addItem(spacerItem1)
-        self.rb_games_past = QtWidgets.QRadioButton(self.frame_season)
-        self.rb_games_past.setStyleSheet("\n"
-"QRadioButton{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QRadioButton:pressed{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(0, 0, 0);\n"
-"}")
-        self.rb_games_past.setObjectName("rb_games_past")
-        self.horizontalLayout_11.addWidget(self.rb_games_past)
-        spacerItem2 = QtWidgets.QSpacerItem(463, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_11.addItem(spacerItem2)
         self.verticalLayout_16.addWidget(self.frame_season)
         self.frame_6 = QtWidgets.QFrame(self.frame_5)
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -781,8 +766,8 @@ class Ui_Main(object):
 "")
         self.le_team1.setObjectName("le_team1")
         self.horizontalLayout_9.addWidget(self.le_team1, 0, QtCore.Qt.AlignBottom)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem3)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem2)
         self.le_team2 = QtWidgets.QLineEdit(self.frame_6)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -797,8 +782,8 @@ class Ui_Main(object):
 "")
         self.le_team2.setObjectName("le_team2")
         self.horizontalLayout_9.addWidget(self.le_team2, 0, QtCore.Qt.AlignBottom)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem4)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem3)
         self.btn_search = QtWidgets.QPushButton(self.frame_6)
         self.btn_search.setMinimumSize(QtCore.QSize(150, 40))
         self.btn_search.setMaximumSize(QtCore.QSize(150, 35))
@@ -851,8 +836,8 @@ class Ui_Main(object):
         self.btn_search.setIconSize(QtCore.QSize(35, 35))
         self.btn_search.setObjectName("btn_search")
         self.horizontalLayout_9.addWidget(self.btn_search)
-        spacerItem5 = QtWidgets.QSpacerItem(156, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem5)
+        spacerItem4 = QtWidgets.QSpacerItem(156, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem4)
         self.verticalLayout_16.addWidget(self.frame_6)
         self.horizontalLayout_8.addWidget(self.frame_5)
         self.verticalLayout_9.addWidget(self.frame_options_camp)
@@ -1417,8 +1402,9 @@ class Ui_Main(object):
         self.cb_camp.setItemText(37, _translate("Main", "UEFA Europa Conference League"))
         self.cb_camp.setItemText(38, _translate("Main", "UEFA Europa League"))
         self.cb_camp.setItemText(39, _translate("Main", "United Soccer League"))
-        self.rb_games_future.setText(_translate("Main", "Jogos Futuros"))
-        self.rb_games_past.setText(_translate("Main", "Jogos Passados"))
+        self.cb_games.setItemText(0, _translate("Main", "Todos"))
+        self.cb_games.setItemText(1, _translate("Main", "Jogos Futuros"))
+        self.cb_games.setItemText(2, _translate("Main", "Jogos Passados"))
         self.le_team1.setPlaceholderText(_translate("Main", "Mandante"))
         self.le_team2.setPlaceholderText(_translate("Main", "Visitante"))
         self.btn_search.setText(_translate("Main", "Pesquisar"))

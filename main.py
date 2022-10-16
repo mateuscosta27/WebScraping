@@ -32,7 +32,6 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_previsoes.clicked.connect(self.all_leagues)
         self.ui.rb_jogos_betano.setChecked(True)
         self.ui.rb_DuplaChance.setChecked(True)
-        self.ui.rb_games_future.setChecked(True)
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
         
@@ -491,7 +490,7 @@ class ModuloPrincipal(QMainWindow):
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
         
-        if (self.ui.le_team1.text() == "") and (self.ui.le_team2.text() == ""):
+        if (self.ui.le_team1.text() == "") and (self.ui.le_team2.text() == "") and (self.ui.cb_games.currentText() == 'Todos'):
             mycursor.execute(f"""
                         select 
                                 date,
@@ -509,7 +508,31 @@ class ModuloPrincipal(QMainWindow):
                 league = '{self.ui.cb_camp.currentText()}'
                 
                             """)
+
+            
+        if (self.ui.cb_games.currentText() == 'Jogos Futuros'):
+            mycursor.execute(f"""
+                        select 
+                                date,
+                                team1,
+                                team2,
+                                spi1,
+                                spi2,
+                                prob1,
+                                probtie,
+                                prob2,
+                                proj_score1,
+                                proj_score2
+                from tb_matches_latest 
+                where
+                score1 ISNULL AND
+                score2 ISNULL AND
+                league = '{self.ui.cb_camp.currentText()}' AND 
+                team1 LIKE "%{self.ui.le_team1.text()}%" AND 
+                team2 LIKE "%{self.ui.le_team2.text()}%"
                 
+                            """)
+
                 
         else:
             
@@ -527,6 +550,8 @@ class ModuloPrincipal(QMainWindow):
                                     proj_score2
                     from tb_matches_latest 
                     where
+                     score1 NOTNULL AND
+                    score2 NOTNULL AND
                     league = '{self.ui.cb_camp.currentText()}' and 
                     team1 LIKE "%{self.ui.le_team1.text()}%" and 
                     team2 LIKE "%{self.ui.le_team2.text()}%"
