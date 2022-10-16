@@ -1828,28 +1828,96 @@ color: rgb(255, 255, 255);</string>
                        <enum>QFrame::Raised</enum>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_16">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
                        <item>
-                        <widget class="QFrame" name="frame_7">
+                        <widget class="QFrame" name="frame_season">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_15">
+                         <layout class="QHBoxLayout" name="horizontalLayout_11">
                           <item>
-                           <widget class="QRadioButton" name="radioButton_2">
+                           <widget class="QRadioButton" name="rb_games_future">
+                            <property name="styleSheet">
+                             <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+                            </property>
                             <property name="text">
-                             <string>RadioButton</string>
+                             <string>Jogos Futuros</string>
                             </property>
                            </widget>
                           </item>
                           <item>
-                           <widget class="QRadioButton" name="radioButton">
+                           <spacer name="horizontalSpacer_4">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                             <enum>QSizePolicy::Preferred</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QRadioButton" name="rb_games_past">
+                            <property name="styleSheet">
+                             <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+                            </property>
                             <property name="text">
-                             <string>RadioButton</string>
+                             <string>Jogos Passados</string>
                             </property>
                            </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer_5">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>463</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
                           </item>
                          </layout>
                         </widget>
@@ -1862,8 +1930,23 @@ color: rgb(255, 255, 255);</string>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_11">
-                          <item>
+                         <layout class="QHBoxLayout" name="horizontalLayout_9">
+                          <property name="spacing">
+                           <number>5</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item alignment="Qt::AlignBottom">
                            <widget class="QLineEdit" name="le_team1">
                             <property name="minimumSize">
                              <size>
@@ -1889,6 +1972,22 @@ background-color: rgb(255, 255, 255);
                            </widget>
                           </item>
                           <item>
+                           <spacer name="horizontalSpacer_2">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                             <enum>QSizePolicy::Preferred</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>40</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item alignment="Qt::AlignBottom">
                            <widget class="QLineEdit" name="le_team2">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -1918,6 +2017,22 @@ background-color: rgb(255, 255, 255);
                              <string>Visitante</string>
                             </property>
                            </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeType">
+                             <enum>QSizePolicy::Preferred</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
                           </item>
                           <item>
                            <widget class="QPushButton" name="btn_search">
@@ -2003,6 +2118,19 @@ QPushButton:pressed{
                              </size>
                             </property>
                            </widget>
+                          </item>
+                          <item>
+                           <spacer name="horizontalSpacer_3">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>156</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
                           </item>
                          </layout>
                         </widget>

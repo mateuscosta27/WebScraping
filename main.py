@@ -32,6 +32,7 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_previsoes.clicked.connect(self.all_leagues)
         self.ui.rb_jogos_betano.setChecked(True)
         self.ui.rb_DuplaChance.setChecked(True)
+        self.ui.rb_games_future.setChecked(True)
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
         
@@ -489,6 +490,7 @@ class ModuloPrincipal(QMainWindow):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
+        
         if (self.ui.le_team1.text() == "") and (self.ui.le_team2.text() == ""):
             mycursor.execute(f"""
                         select 
@@ -507,6 +509,7 @@ class ModuloPrincipal(QMainWindow):
                 league = '{self.ui.cb_camp.currentText()}'
                 
                             """)
+                
                 
         else:
             
