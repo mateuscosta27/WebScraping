@@ -169,6 +169,43 @@ class Ui_Main(object):
         self.btn_coletar.setIconSize(QtCore.QSize(45, 40))
         self.btn_coletar.setObjectName("btn_coletar")
         self.verticalLayout.addWidget(self.btn_coletar, 0, QtCore.Qt.AlignHCenter)
+        self.btn_forecast = QtWidgets.QPushButton(self.frame_side)
+        self.btn_forecast.setMinimumSize(QtCore.QSize(200, 45))
+        self.btn_forecast.setMaximumSize(QtCore.QSize(200, 45))
+        self.btn_forecast.setStyleSheet("QPushButton{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #4195FF;\n"
+"    border-radius: 12px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #0954B2;\n"
+"    border-radius: 12px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:pressed{\n"
+"    border-style: insetset;\n"
+"    border-width: 2px;\n"
+"    font: 75 11pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #4195FF;\n"
+"    border-radius: 8px;\n"
+"    border-top-color: rgb(4, 35, 38);\n"
+"    border-left-color:  rgb(4, 35, 38);\n"
+"}")
+        self.btn_forecast.setObjectName("btn_forecast")
+        self.verticalLayout.addWidget(self.btn_forecast, 0, QtCore.Qt.AlignHCenter)
         self.btn_visJogos = QtWidgets.QPushButton(self.frame_side)
         self.btn_visJogos.setMinimumSize(QtCore.QSize(200, 45))
         self.btn_visJogos.setMaximumSize(QtCore.QSize(200, 45))
@@ -1317,13 +1354,14 @@ class Ui_Main(object):
         Main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Main)
-        self.pages.setCurrentIndex(2)
+        self.pages.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Main)
 
     def retranslateUi(self, Main):
         _translate = QtCore.QCoreApplication.translate
         Main.setWindowTitle(_translate("Main", "Modulo Principal"))
         self.btn_menu.setText(_translate("Main", "Menu"))
+        self.btn_forecast.setText(_translate("Main", "Coletar Previsões"))
         self.btn_visJogos.setText(_translate("Main", "Visualizar Jogos"))
         self.btn_visProbabilidades.setText(_translate("Main", "Possibilidaes"))
         self.btn_previsoes.setText(_translate("Main", "Previsões"))

@@ -45,7 +45,10 @@ class ModuloPrincipal(QMainWindow):
     ############################################################################################ 
         self.ui.btn_coletar.clicked.connect(self.thred_process)
         self.ui.btn_coletar.clicked.connect(self.animation)
+        self.ui.btn_forecast.clicked.connect(self.thread_forecasts)
+        self.ui.btn_forecast.clicked.connect(self.animation)
         self.ui.btn_search.clicked.connect(self.search)
+
     ################################################################################################   
     #Radio buttons 
     ################################################################################################
@@ -133,7 +136,7 @@ class ModuloPrincipal(QMainWindow):
     ################################################################################################   
     #realizar o webscraping nos sites
     ################################################################################################
-    def collect(self):
+    def collect_odds(self):
         controller = Controller()
         controller.controller_probabilidades()
         controller.controller_pixbet()
@@ -142,16 +145,31 @@ class ModuloPrincipal(QMainWindow):
         self.stop_animations()
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
+
+
+    def collect_forecasts(self):
+        controller = Controller()
+        controller.controller_probabilidades()
+        controller.create_table_matches()
+        self.ui.lb_collect_animation.setVisible(False)
+        self.ui.lb_text_animation.setVisible(False)
+
     def thred_process(self):
         """Trabalha com thread na coleta
            Works with thread in the collection
         """
-        self.thread1 = threading.Thread(target=self.collect)
-        self.thread1.start()    
+        self.thread1 = threading.Thread(target=self.collect_odds)
+        self.thread1.start()
+
+    def thread_forecasts(self):
+        self.thread2 = threading.Thread(target=self.collect_forecasts)
+        self.thread2.start()
+
 
     ################################################################################################   
     #Renomear colunas da tabela
     ################################################################################################
+
     def double_odds_name(self):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
@@ -504,10 +522,12 @@ class ModuloPrincipal(QMainWindow):
                                 proj_score1,
                                 proj_score2
                 from tb_matches_latest 
-                where
-                league = '{self.ui.cb_camp.currentText()}'
-                
+                where league = "{self.ui.cb_camp.currentText()}"
+        
                             """)
+            print(self.ui.cb_games.currentText())
+            print(self.ui.cb_camp.currentText())
+
 
             
         if (self.ui.cb_games.currentText() == 'Jogos Futuros'):
@@ -549,12 +569,7 @@ class ModuloPrincipal(QMainWindow):
                                     proj_score1,
                                     proj_score2
                     from tb_matches_latest 
-                    where
-                     score1 NOTNULL AND
-                    score2 NOTNULL AND
-                    league = '{self.ui.cb_camp.currentText()}' and 
-                    team1 LIKE "%{self.ui.le_team1.text()}%" and 
-                    team2 LIKE "%{self.ui.le_team2.text()}%"
+
                                 """)
 
         resultSet = mycursor.fetchall()
