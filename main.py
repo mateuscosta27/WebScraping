@@ -530,7 +530,7 @@ class ModuloPrincipal(QMainWindow):
 
 
             
-        if (self.ui.cb_games.currentText() == 'Jogos Futuros'):
+        elif (self.ui.cb_games.currentText() == 'Jogos Futuros'):
             mycursor.execute(f"""
                         select 
                                 date,
@@ -554,7 +554,7 @@ class ModuloPrincipal(QMainWindow):
                             """)
 
                 
-        else:
+        elif (self.ui.cb_games.currentText() == 'Jogos Passados'):
             
             mycursor.execute(f"""
                             select 
@@ -568,9 +568,15 @@ class ModuloPrincipal(QMainWindow):
                                     prob2,
                                     proj_score1,
                                     proj_score2
-                    from tb_matches_latest 
-
+                    from tb_matches_latest
+                    WHERE
+                        score1 NOTNULL AND
+                        league = '{self.ui.cb_camp.currentText()}' AND
+                        team1 LIKE "%{self.ui.le_team1.text()}%" AND 
+                        team2 LIKE "%{self.ui.le_team2.text()}%"
                                 """)
+        else:
+            pass                        
 
         resultSet = mycursor.fetchall()
         self.ui.tb_preview.setRowCount(len(resultSet))
