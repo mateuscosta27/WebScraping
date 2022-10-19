@@ -1,0 +1,13 @@
+def teste(self):
+        
+
+        invest = float(self.le_value.text())
+        odds1 = float(self.le_odds1.text())
+        odds2 = float(self.le_odds2.text())
+        prob = ((1/odds1) + (1/odds2))
+        calc_odds1 = round(((1/odds1)/prob)*invest,2)
+        calc_odds2 = round(((1/odds2)/prob)*invest,2)
+        print(prob)
+        print(calc_odds1)
+        print(calc_odds2)
+        self.label_5.setText(str(calc_odds1))
