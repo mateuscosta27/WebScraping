@@ -45,8 +45,6 @@ class ModuloPrincipal(QMainWindow):
     ############################################################################################ 
         self.ui.btn_coletar.clicked.connect(self.thred_process)
         self.ui.btn_coletar.clicked.connect(self.animation)
-        self.ui.btn_forecast.clicked.connect(self.thread_forecasts)
-        self.ui.btn_forecast.clicked.connect(self.animation)
         self.ui.btn_search.clicked.connect(self.search)
 
     ################################################################################################   
@@ -99,31 +97,26 @@ class ModuloPrincipal(QMainWindow):
         else:
             new_width = 0 
         self.animation_side_menu = QtCore.QPropertyAnimation(self.ui.frame_side,b"maximumWidth")
-        self.animation_side_menu.setDuration(250)
+        self.animation_side_menu.setDuration(400)
         self.animation_side_menu.setStartValue(width)
         self.animation_side_menu.setEndValue(new_width)
-   
         self.animation_side_menu.setEasingCurve(QtCore.QEasingCurve.Type(5))
         self.animation_side_menu.start()
         
     def side_btn_menu(self):
         width = self.ui.btn_menu.width()
         if width == 75 :
-            new_width = 220
-            self.ui.btn_menu.setText("Menu")
             
-    
+            self.ui.btn_menu.setText("      Menu        ")
+            new_width = 220
         else:
             new_width = 75
             self.ui.btn_menu.setText("")
-            
-
-            
         self.animation_btn_menu = QtCore.QPropertyAnimation(self.ui.btn_menu,b"minimumWidth")
         self.animation_btn_menu.setDuration(350)
         self.animation_btn_menu.setStartValue(width)
         self.animation_btn_menu.setEndValue(new_width)
-        self.animation_btn_menu.setEasingCurve(QtCore.QEasingCurve.Type(2))
+        self.animation_btn_menu.setEasingCurve(QtCore.QEasingCurve.Type(5))
         self.animation_btn_menu.start()
         
     
@@ -144,6 +137,10 @@ class ModuloPrincipal(QMainWindow):
     ################################################################################################   
     #realizar o webscraping nos sites
     ################################################################################################
+    
+        ################################################################################################   
+        #Coletando os dados da Pixbet e Betano
+        ################################################################################################
     def collect_odds(self):
         controller = Controller()
         controller.controller_probabilidades()
@@ -154,14 +151,17 @@ class ModuloPrincipal(QMainWindow):
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
 
-
+        ################################################################################################   
+        #Coletando dados do five
+        ################################################################################################
     def collect_forecasts(self):
         controller = Controller()
         controller.controller_probabilidades()
         controller.create_table_matches()
-        self.ui.lb_collect_animation.setVisible(False)
-        self.ui.lb_text_animation.setVisible(False)
-
+        
+        ################################################################################################   
+        #Thread da aplicação
+        ################################################################################################    
     def thred_process(self):
         """Trabalha com thread na coleta
            Works with thread in the collection
