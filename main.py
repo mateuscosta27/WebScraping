@@ -92,7 +92,7 @@ class ModuloPrincipal(QMainWindow):
     def side_menu(self):
         width = self.ui.frame_side.width() 
         if width == 0:
-            new_width = 230
+            new_width = 185
         else:
             new_width = 0 
         self.animation_side_menu = QtCore.QPropertyAnimation(self.ui.frame_side,b"maximumWidth")
@@ -104,17 +104,25 @@ class ModuloPrincipal(QMainWindow):
         self.animation_side_menu.start()
         
     def side_btn_menu(self):
-        width = self.ui.frame_btn_menu.width()
-        if width == 100:
-            new_width = 230
+        width = self.ui.btn_menu.width()
+        if width == 75 :
+            new_width = 220
+            self.ui.btn_menu.setText("Menu")
+            
+    
         else:
-            new_width = 100
-        self.animation_btn_menu = QtCore.QPropertyAnimation(self.ui.frame_btn_menu,b"maximumWidth")
+            new_width = 75
+            self.ui.btn_menu.setText("")
+            
+
+            
+        self.animation_btn_menu = QtCore.QPropertyAnimation(self.ui.btn_menu,b"minimumWidth")
         self.animation_btn_menu.setDuration(350)
         self.animation_btn_menu.setStartValue(width)
         self.animation_btn_menu.setEndValue(new_width)
         self.animation_btn_menu.setEasingCurve(QtCore.QEasingCurve.Type(2))
         self.animation_btn_menu.start()
+        
     
     ################################################################################################   
     #Paginas do sistema
