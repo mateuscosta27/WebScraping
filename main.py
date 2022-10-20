@@ -164,6 +164,7 @@ class ModuloPrincipal(QMainWindow):
     def showCalculator(self):
        
         self.calculator.show()
+        self.hide()
            
         
     ################################################################################################   
