@@ -1,10 +1,20 @@
 
+from asyncio.base_futures import _FINISHED
 import sys
 import os
 import sqlite3
-from PyQt5.QtCore import QPropertyAnimation
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
 from PyQt5 import Qt
+from PyQt5.QtCore import ( 
+    pyqtSignal, 
+    QObject,
+    QThread
+    )
+
+from PyQt5.QtWidgets import(
+    QApplication, 
+    QMainWindow,
+    )
+
 from PyQt5.QtGui import *
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
@@ -13,24 +23,38 @@ from ui_forms.Controller import *
 import threading
 from ui_forms.ui_calculator import *
 
+class Worker(QObject):
+    finished = pyqtSignal()
+    progress = pyqtSignal(int)
 
-class Calculator(QMainWindow):
+    def showCalculator(self):
+        self.calculator = Calculator()
+        self.calculator.show()
+          
+global finish
+
+finish = True
+
+class Calculator(QMainWindow,QObject):
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainCalculator()
         self.ui.setupUi(self)
-        
+
     ############################################################################################
     #Qpush Buton
     ############################################################################################
-    
+   
+
+
+
         self.ui.btn_calc.clicked.connect(self.results)
         self.ui.btn_back.clicked.connect(self.closeEvent)   
         
     ############################################################################################
     #Chamando a main Window
     ############################################################################################
-    
+
     def closeEvent(self, event):
         self.return_main = ModuloPrincipal()
         self.return_main.show()
@@ -80,7 +104,7 @@ class ModuloPrincipal(QMainWindow):
         self.ui = Ui_Main()
         self.ui.setupUi(self)
     
-   
+        
              
     ############################################################################################
     #Instanciando calculadora
@@ -108,7 +132,7 @@ class ModuloPrincipal(QMainWindow):
     ############################################################################################
     #Qpush Buton
     ############################################################################################ 
-        self.ui.btn_coletar.clicked.connect(self.thred_process)
+        self.ui.btn_coletar.clicked.connect(self.thread_process)
         self.ui.btn_coletar.clicked.connect(self.animation)
         self.ui.btn_search.clicked.connect(self.search)
         self.ui.btn_calculator.clicked.connect(self.showCalculator)
@@ -133,10 +157,13 @@ class ModuloPrincipal(QMainWindow):
     ################################################################################################   
     #Chamando outra tela
     ################################################################################################
+    def createThread(self):
+        cr_thread = threading.Thread(target=self.showCalculator, name='Calculator', daemon=True)
+        cr_thread.start()
+        
     def showCalculator(self):
+       
         self.calculator.show()
-        self.hide()    
-    
            
         
     ################################################################################################   
@@ -225,6 +252,7 @@ class ModuloPrincipal(QMainWindow):
         self.stop_animations()
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
+        Finish = False
 
         ################################################################################################   
         #Coletando dados do five
@@ -237,15 +265,16 @@ class ModuloPrincipal(QMainWindow):
         ################################################################################################   
         #Thread da aplicação
         ################################################################################################    
-    def thred_process(self):
+    def thread_process(self):
         """Trabalha com thread na coleta
            Works with thread in the collection
         """
-        self.thread1 = threading.Thread(target=self.collect_odds)
+        self.thread1 = threading.Thread(target=self.collect_odds, name= 'ScrapingSites')
         self.thread1.start()
+       
 
     def thread_forecasts(self):
-        self.thread2 = threading.Thread(target=self.collect_forecasts)
+        self.thread2 = threading.Thread(target=self.collect_forecasts, name= 'DownloadCSV')
         self.thread2.start()
 
 
