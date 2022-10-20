@@ -74,4 +74,4 @@ class Controller:
         controller = Database()
         controller.create_table_matches_latest()
 
-        
+     

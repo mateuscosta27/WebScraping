@@ -11,10 +11,67 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 from ui_forms.ui_main import *
 from ui_forms.Controller import *
 import threading
-from ui_forms.ui_calculadora import *
+from ui_forms.ui_calculator import *
 
 
-
+class Calculator(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainCalculator()
+        self.ui.setupUi(self)
+        
+    ############################################################################################
+    #Qpush Buton
+    ############################################################################################
+    
+        self.ui.btn_calc.clicked.connect(self.results)
+        self.ui.btn_back.clicked.connect(self.closeEvent)   
+        
+    ############################################################################################
+    #Chamando a main Window
+    ############################################################################################
+    
+    def closeEvent(self, event):
+        self.return_main = ModuloPrincipal()
+        self.return_main.show()
+        self.close()
+        
+    
+    
+    def calculate_investment(self):
+        
+        self.invest = float(self.ui.le_value_invest.text())
+        self.odds1 = float(self.ui.le_odds1.text())
+        self.odds2 = float(self.ui.le_odds2.text())
+        prob = ((1/self.odds1) + (1/self.odds2))
+        self.calc_odds1 = round(((1/self.odds1)/prob)*self.invest,2)
+        self.calc_odds2 = round(((1/self.odds2)/prob)*self.invest,2)
+        
+    def calculate_return(self):
+        self.return_odds1 = round(self.calc_odds1 * self.odds1,2)
+        self.return_odds2 = round(self.calc_odds2 * self.odds2,2)
+    
+    def calculate_tot_return(self):
+        self.tot_return = round((self.return_odds1 + self.return_odds2)/2,2)
+    
+    
+    def calculate_profit(self):
+        self.profit = round(self.tot_return - self.invest,2)    
+        
+    def results(self):
+        self.calculate_investment()
+        self.calculate_return()
+        self.calculate_tot_return()
+        self.calculate_profit()
+        self.ui.le_invest1.setText(str(f'R$ {self.calc_odds1}'))
+        self.ui.le_invest2.setText(str(f'R$ {self.calc_odds2}'))
+        self.ui.le_return1.setText(str(f'R$ {self.return_odds1}'))
+        self.ui.le_return2.setText(str(f'R$ {self.return_odds2}'))
+        self.ui.le_tot_return.setText(str(f'R$ {self.tot_return}'))
+        self.ui.le_profit.setText(str(f'R$ {self.profit}'))
+        
+            
+         
 
     
 class ModuloPrincipal(QMainWindow):
@@ -22,6 +79,14 @@ class ModuloPrincipal(QMainWindow):
         super().__init__()
         self.ui = Ui_Main()
         self.ui.setupUi(self)
+    
+   
+             
+    ############################################################################################
+    #Instanciando calculadora
+    ############################################################################################ 
+    
+        self.calculator = Calculator()    
     
     ############################################################################################
     #Setando a paginas iniciais
@@ -46,6 +111,7 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_coletar.clicked.connect(self.thred_process)
         self.ui.btn_coletar.clicked.connect(self.animation)
         self.ui.btn_search.clicked.connect(self.search)
+        self.ui.btn_calculator.clicked.connect(self.showCalculator)
 
     ################################################################################################   
     #Radio buttons 
@@ -63,6 +129,15 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_coletar.clicked.connect(self.showHome)
         self.ui.btn_visJogos.clicked.connect(self.showGames)
         self.ui.btn_previsoes.clicked.connect(self.showPreviews)
+        
+    ################################################################################################   
+    #Chamando outra tela
+    ################################################################################################
+    def showCalculator(self):
+        self.calculator.show()
+        self.hide()    
+    
+           
         
     ################################################################################################   
     #Animações
@@ -625,7 +700,12 @@ class ModuloPrincipal(QMainWindow):
         for i in range(0, len(resultSet)):
             for j in range(0, 10):
                 self.ui.tb_preview.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()         
+        con_db.close()
+        
+        
+        
+        
+      
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

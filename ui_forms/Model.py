@@ -19,9 +19,9 @@ class Betano:
         self.path = self.directory_driver +'\\chromedriver.exe'
         self.web_site = 'https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=0' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
-        self.options.add_argument('--window-size=1920,1080')
-        self.options.add_argument('--start-maximized')
-        self.options.add_argument('--headless')
+        #self.options.add_argument('--window-size=1920,1080')
+        #self.options.add_argument('--start-maximized')
+        #self.options.add_argument('--headless')
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
     
@@ -110,10 +110,11 @@ class Betano:
     def parser_data_double_chance(self):
         ###Obtendo dados da dupla chance##
         try:
+            self.driver.refresh()
+            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=2')")
             sleep(5)
-            btn_dupla_chance = self.driver.find_element(
-                'xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div/div/span') ##path do botão de dupla chance##
-            btn_dupla_chance.click()
+            #btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div') ##path do botão de dupla chance##
+            #btn_dupla_chance.click()
             sleep(3)
             self.driver.refresh()
             for page in range(2):
@@ -130,17 +131,18 @@ class Betano:
             self.dic_duplachance = dic_duplachance
         except Exception as e:
             print(e)
+            print('passou')
             self.except_button()
+            pass
             
     def except_button(self):
         try:
+            self.driver.refresh()
             sleep(5)
-            btn_dupla_chance = self.driver.find_element(
-                'xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div/div/span') ##path do botão de dupla chance##
-           
+            btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div/div/span') ##path do botão de dupla chance##
             btn_dupla_chance.click()
             sleep(3)
-            self.driver.refresh()
+            
             for page in range(2):
                 scroll = self.driver.execute_script("window.scrollBy(0,350)","")
             sleep(2)
@@ -155,6 +157,7 @@ class Betano:
             self.dic_duplachance = dic_duplachance
         except Exception as e:
             print(e)
+            print('passou')
             pass
         
                      
