@@ -149,11 +149,7 @@ class Ui_Main(object):
         font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
-        font.setUnderline(False)
         font.setWeight(9)
-        font.setStrikeOut(False)
-        font.setKerning(True)
-        font.setStyleStrategy(QtGui.QFont.PreferDefault)
         self.btn_coletar.setFont(font)
         self.btn_coletar.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
@@ -1318,11 +1314,11 @@ class Ui_Main(object):
     def retranslateUi(self, Main):
         _translate = QtCore.QCoreApplication.translate
         Main.setWindowTitle(_translate("Main", "Modulo Principal"))
-        self.btn_coletar.setText(_translate("Main", "Coletar Odds           "))
-        self.btn_visJogos.setText(_translate("Main", "Visualizar Jogos          "))
-        self.btn_visProbabilidades.setText(_translate("Main", "Possibilidaes              "))
-        self.btn_previsoes.setText(_translate("Main", "Previsões                "))
-        self.btn_calculator.setText(_translate("Main", "Calculadora                "))
+        self.btn_coletar.setText(_translate("Main", "Coletar Odds       "))
+        self.btn_visJogos.setText(_translate("Main", "Visualizar Jogos    "))
+        self.btn_visProbabilidades.setText(_translate("Main", "Possibilidaes         "))
+        self.btn_previsoes.setText(_translate("Main", "Previsões              "))
+        self.btn_calculator.setText(_translate("Main", "Calculadora           "))
         self.btn_about.setText(_translate("Main", "Sobre"))
         self.rb_jogos_betano.setText(_translate("Main", "Jogos Betano"))
         self.rb_jogos_pixbet.setText(_translate("Main", "Jogos Pixbet"))

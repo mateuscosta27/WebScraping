@@ -373,10 +373,6 @@ border-right-color: #0954B2;</string>
                  <weight>9</weight>
                  <italic>false</italic>
                  <bold>false</bold>
-                 <underline>false</underline>
-                 <strikeout>false</strikeout>
-                 <stylestrategy>PreferDefault</stylestrategy>
-                 <kerning>true</kerning>
                 </font>
                </property>
                <property name="styleSheet">
@@ -417,7 +413,7 @@ QPushButton:pressed{
                 <set>Qt::ImhNone</set>
                </property>
                <property name="text">
-                <string>Coletar Odds           </string>
+                <string>Coletar Odds       </string>
                </property>
                <property name="icon">
                 <iconset>
@@ -480,7 +476,7 @@ QPushButton:pressed{
 }</string>
                </property>
                <property name="text">
-                <string>Visualizar Jogos          </string>
+                <string>Visualizar Jogos    </string>
                </property>
                <property name="icon">
                 <iconset>
@@ -543,7 +539,7 @@ QPushButton:pressed{
 }</string>
                </property>
                <property name="text">
-                <string>Possibilidaes              </string>
+                <string>Possibilidaes         </string>
                </property>
                <property name="icon">
                 <iconset>
@@ -606,7 +602,7 @@ QPushButton:pressed{
 }</string>
                </property>
                <property name="text">
-                <string>Previsões                </string>
+                <string>Previsões              </string>
                </property>
                <property name="icon">
                 <iconset>
@@ -669,7 +665,7 @@ QPushButton:pressed{
 }</string>
                </property>
                <property name="text">
-                <string>Calculadora                </string>
+                <string>Calculadora           </string>
                </property>
                <property name="icon">
                 <iconset>
