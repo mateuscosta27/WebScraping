@@ -469,8 +469,10 @@ class ModuloPrincipal(QMainWindow):
         for i in range(0, len(resultSet)):
             for j in range(0, 12):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-                        
+                    
         con_db.close()
+        teste = self.ui.tb_view.verticalHeaderItem(1)
+        print(teste) 
       
     def games_betano(self):
         directory_database = 'C:\\tmp\\Bancos'

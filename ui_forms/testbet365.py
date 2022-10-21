@@ -19,7 +19,7 @@ class Bet365:
         self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
         self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
         self.path = self.directory_driver +'\\chromedriver.exe'
-        self.web_site = 'https://www.bet365.com/#/HO/' ##Site onde estamos buscando as informações###
+        self.web_site = 'https://www.esporte365.com/home/events-area' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
         #self.options.add_argument('--window-size=1920,1080')
         #self.options.add_argument('--start-maximized')
@@ -33,8 +33,7 @@ class Bet365:
         try:
             self.driver.get(self.web_site)
             self.driver.maximize_window()
-            self.driver.execute_script("window.open('https://www.bet365.com/#/AC/B1/C1/D1002/E71022033/G40/')")
-            self.driver._switch_to.window(self.driver.window_handles[1])
+            sleep(5)
         except Exception as e:
             print('Houve um erro inesperado:  '+ e)
             pass    
