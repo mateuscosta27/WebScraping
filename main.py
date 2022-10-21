@@ -109,13 +109,13 @@ class Calculator(QMainWindow,QObject):
             
         else:
             self.ui.le_profit.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(231, 231, 231);")
+"background-color: #03A688;")
             self.ui.le_return1.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(231, 231, 231);")
+"background-color: #03A688;")
             self.ui.le_return2.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(231, 231, 231);")
+"background-color: #03A688;")
             self.ui.le_tot_return.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(231, 231, 231);")
+"background-color: #03A688;")
             
          
 
@@ -316,13 +316,21 @@ class ModuloPrincipal(QMainWindow):
             item = self.ui.tb_view.horizontalHeaderItem(3)
             item.setText('Visitante')
             item = self.ui.tb_view.horizontalHeaderItem(4)
-            item.setText('Odds1_Pixbet')
+            item.setText('Odds1_PIXBET')
             item = self.ui.tb_view.horizontalHeaderItem(5)
-            item.setText('X2_pixbet')
+            item.setText('X2_PIXBET')
             item = self.ui.tb_view.horizontalHeaderItem(6)
-            item.setText('Odds1_betano')
+            item.setText('Odds2_PIXBET')
             item = self.ui.tb_view.horizontalHeaderItem(7)
-            item.setText('X2_betano')
+            item.setText('X1_PIXBET')
+            item = self.ui.tb_view.horizontalHeaderItem(8)
+            item.setText('Odds1_BETANO')
+            item = self.ui.tb_view.horizontalHeaderItem(9)
+            item.setText('X2_BETNAO')
+            item = self.ui.tb_view.horizontalHeaderItem(10)
+            item.setText('Odds2_BETANO')
+            item = self.ui.tb_view.horizontalHeaderItem(11)
+            item.setText('X1_BETANO')
         except Exception as e:
             print(e)  
             pass  
@@ -436,27 +444,32 @@ class ModuloPrincipal(QMainWindow):
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
         mycursor.execute("""
-                         SELECT  p.data,
-                                    p.hora,
-                                    p.TimeCasa as Mandante,
-                                    p.TimeVisitante  as Visitante,
-                                    p.Odds1  as odds1_pixbet,
-                                    p.Dupla2x as X2_pixbet,
-                                    b.Odds1 as odds1_betano,
-                                    b.Dupla2x as X2_betano
+                         SELECT p.data,
+                                p.hora,
+                                p.TimeCasa as Mandante,
+                                p.TimeVisitante  as Visitante,
+                                p.Odds1  as odds1_pixbet,
+                                p.Dupla2x as X2_pixbet,
+                                p.Odds2  as odds2_pixbet,
+                                p.Dupla1x as X1_pixbet,
+                                b.Odds1 as odds1_betano,
+                                b.Dupla2x as X2_betano,
+                                b.Odds2 as odds2_betano,
+                                b.Dupla1x as X1_betano
 	
-                            from tb_pixbet p		
-                            inner join tb_betano b
-                            on instr(p.ind, b.ind)>0;
+                        from tb_pixbet p		
+                        inner join tb_betano b
+                        on instr(p.ind, b.ind)>0;
                         """)
 
         resultSet = mycursor.fetchall()
         self.ui.tb_view.setRowCount(len(resultSet))
-        self.ui.tb_view.setColumnCount(8)
+        self.ui.tb_view.setColumnCount(12)
         self.match_odds_name()  # função para renomear as colunas
         for i in range(0, len(resultSet)):
-            for j in range(0, 8):
+            for j in range(0, 12):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
+                        
         con_db.close()
       
     def games_betano(self):
