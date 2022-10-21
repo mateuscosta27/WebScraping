@@ -111,7 +111,9 @@ class Betano:
         ###Obtendo dados da dupla chance##
         try:
             self.driver.refresh()
-            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=2')")
+           
+            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=1')")
+            self.driver._switch_to.window(self.driver.window_handles[1])
             sleep(5)
             #btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div') ##path do botão de dupla chance##
             #btn_dupla_chance.click()
@@ -138,6 +140,9 @@ class Betano:
     def except_button(self):
         try:
             self.driver.refresh()
+            
+            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=2')")
+            self.driver._switch_to.window(self.driver.window_handles[1])
             sleep(5)
             btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[2]/div/div/span') ##path do botão de dupla chance##
             btn_dupla_chance.click()
@@ -316,7 +321,7 @@ class Pixbet:
             self.df_split = self.df['Jogos'].str.split(';',expand= True)
             self.df_split[['Data','Hora']] = self.df_split[0].str.split('|',expand=True)
             self.df_split[['TimeCasa','TimeVisitante']] = self.df_split[1].str.split(' - ',expand=True)
-            self.df_split = self.df_split.drop(columns=[0,1,5,6,7,9,10,11,12,13,14,16,17,18,19,20,21,27])
+            self.df_split = self.df_split.drop(columns=[0,1,5,6,7,9,10,11,12,13,14,16,17,18,19,23,24,27])
         except Exception as e:
             print(e)
             pass    

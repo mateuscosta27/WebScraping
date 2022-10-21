@@ -144,6 +144,17 @@ class Ui_Main(object):
         self.btn_coletar.setMinimumSize(QtCore.QSize(200, 45))
         self.btn_coletar.setMaximumSize(QtCore.QSize(200, 45))
         self.btn_coletar.setBaseSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(9)
+        font.setStrikeOut(False)
+        font.setKerning(True)
+        font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        self.btn_coletar.setFont(font)
         self.btn_coletar.setStyleSheet("QPushButton{\n"
 "    border-style: none;\n"
 "    border-width: 2px;\n"
@@ -176,11 +187,11 @@ class Ui_Main(object):
 "    border-top-color: rgb(4, 35, 38);\n"
 "    border-left-color:  rgb(4, 35, 38);\n"
 "}")
-        self.btn_coletar.setText("Coletar Odds")
+        self.btn_coletar.setInputMethodHints(QtCore.Qt.ImhNone)
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("./src/collect_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_coletar.setIcon(icon2)
-        self.btn_coletar.setIconSize(QtCore.QSize(45, 40))
+        self.btn_coletar.setIconSize(QtCore.QSize(45, 30))
         self.btn_coletar.setObjectName("btn_coletar")
         self.verticalLayout.addWidget(self.btn_coletar)
         self.btn_visJogos = QtWidgets.QPushButton(self.frame_buttons)
@@ -221,7 +232,7 @@ class Ui_Main(object):
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("./src/games_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_visJogos.setIcon(icon3)
-        self.btn_visJogos.setIconSize(QtCore.QSize(45, 40))
+        self.btn_visJogos.setIconSize(QtCore.QSize(45, 30))
         self.btn_visJogos.setObjectName("btn_visJogos")
         self.verticalLayout.addWidget(self.btn_visJogos)
         self.btn_visProbabilidades = QtWidgets.QPushButton(self.frame_buttons)
@@ -262,7 +273,7 @@ class Ui_Main(object):
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("./src/possibility_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_visProbabilidades.setIcon(icon4)
-        self.btn_visProbabilidades.setIconSize(QtCore.QSize(45, 40))
+        self.btn_visProbabilidades.setIconSize(QtCore.QSize(45, 30))
         self.btn_visProbabilidades.setObjectName("btn_visProbabilidades")
         self.verticalLayout.addWidget(self.btn_visProbabilidades)
         self.btn_previsoes = QtWidgets.QPushButton(self.frame_buttons)
@@ -303,7 +314,7 @@ class Ui_Main(object):
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("./src/odds_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_previsoes.setIcon(icon5)
-        self.btn_previsoes.setIconSize(QtCore.QSize(45, 40))
+        self.btn_previsoes.setIconSize(QtCore.QSize(45, 30))
         self.btn_previsoes.setObjectName("btn_previsoes")
         self.verticalLayout.addWidget(self.btn_previsoes)
         self.btn_calculator = QtWidgets.QPushButton(self.frame_buttons)
@@ -344,7 +355,7 @@ class Ui_Main(object):
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("./src/calculator_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_calculator.setIcon(icon6)
-        self.btn_calculator.setIconSize(QtCore.QSize(45, 35))
+        self.btn_calculator.setIconSize(QtCore.QSize(45, 30))
         self.btn_calculator.setObjectName("btn_calculator")
         self.verticalLayout.addWidget(self.btn_calculator)
         self.verticalLayout_2.addWidget(self.frame_buttons)
@@ -1101,85 +1112,6 @@ class Ui_Main(object):
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.rb_DuplaChance = QtWidgets.QRadioButton(self.frame_options)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.rb_DuplaChance.sizePolicy().hasHeightForWidth())
-        self.rb_DuplaChance.setSizePolicy(sizePolicy)
-        self.rb_DuplaChance.setMinimumSize(QtCore.QSize(220, 20))
-        self.rb_DuplaChance.setMaximumSize(QtCore.QSize(220, 20))
-        self.rb_DuplaChance.setStyleSheet("\n"
-"QRadioButton{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QRadioButton:pressed{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(0, 0, 0);\n"
-"}")
-        self.rb_DuplaChance.setAutoRepeatDelay(300)
-        self.rb_DuplaChance.setAutoRepeatInterval(100)
-        self.rb_DuplaChance.setObjectName("rb_DuplaChance")
-        self.horizontalLayout_6.addWidget(self.rb_DuplaChance)
-        self.rb_matchOdds = QtWidgets.QRadioButton(self.frame_options)
-        self.rb_matchOdds.setMinimumSize(QtCore.QSize(220, 20))
-        self.rb_matchOdds.setMaximumSize(QtCore.QSize(220, 20))
-        self.rb_matchOdds.setStyleSheet("\n"
-"QRadioButton{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QRadioButton:pressed{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(0, 0, 0);\n"
-"}")
-        self.rb_matchOdds.setObjectName("rb_matchOdds")
-        self.horizontalLayout_6.addWidget(self.rb_matchOdds)
-        self.rb_ambosMarcam = QtWidgets.QRadioButton(self.frame_options)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.rb_ambosMarcam.sizePolicy().hasHeightForWidth())
-        self.rb_ambosMarcam.setSizePolicy(sizePolicy)
-        self.rb_ambosMarcam.setMinimumSize(QtCore.QSize(220, 20))
-        self.rb_ambosMarcam.setMaximumSize(QtCore.QSize(220, 20))
-        self.rb_ambosMarcam.setStyleSheet("\n"
-"QRadioButton{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QRadioButton:pressed{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(0, 0, 0);\n"
-"}")
-        self.rb_ambosMarcam.setObjectName("rb_ambosMarcam")
-        self.horizontalLayout_6.addWidget(self.rb_ambosMarcam)
-        self.rb_totalGols = QtWidgets.QRadioButton(self.frame_options)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.rb_totalGols.sizePolicy().hasHeightForWidth())
-        self.rb_totalGols.setSizePolicy(sizePolicy)
-        self.rb_totalGols.setMinimumSize(QtCore.QSize(220, 20))
-        self.rb_totalGols.setMaximumSize(QtCore.QSize(220, 20))
-        self.rb_totalGols.setStyleSheet("\n"
-"QRadioButton{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"\n"
-"QRadioButton:pressed{\n"
-"    font: 75 12pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(0, 0, 0);\n"
-"}")
-        self.rb_totalGols.setChecked(True)
-        self.rb_totalGols.setAutoRepeat(True)
-        self.rb_totalGols.setObjectName("rb_totalGols")
-        self.horizontalLayout_6.addWidget(self.rb_totalGols)
         self.verticalLayout_5.addWidget(self.frame_options)
         self.frame_tb = QtWidgets.QFrame(self.frame)
         self.frame_tb.setStyleSheet("background-color: rgb(255, 255, 255);")
@@ -1386,10 +1318,11 @@ class Ui_Main(object):
     def retranslateUi(self, Main):
         _translate = QtCore.QCoreApplication.translate
         Main.setWindowTitle(_translate("Main", "Modulo Principal"))
-        self.btn_visJogos.setText(_translate("Main", "Visualizar Jogos"))
-        self.btn_visProbabilidades.setText(_translate("Main", "Possibilidaes"))
-        self.btn_previsoes.setText(_translate("Main", "Previsões"))
-        self.btn_calculator.setText(_translate("Main", "Calculadora"))
+        self.btn_coletar.setText(_translate("Main", "Coletar Odds           "))
+        self.btn_visJogos.setText(_translate("Main", "Visualizar Jogos          "))
+        self.btn_visProbabilidades.setText(_translate("Main", "Possibilidaes              "))
+        self.btn_previsoes.setText(_translate("Main", "Previsões                "))
+        self.btn_calculator.setText(_translate("Main", "Calculadora                "))
         self.btn_about.setText(_translate("Main", "Sobre"))
         self.rb_jogos_betano.setText(_translate("Main", "Jogos Betano"))
         self.rb_jogos_pixbet.setText(_translate("Main", "Jogos Pixbet"))
@@ -1502,10 +1435,6 @@ class Ui_Main(object):
         item.setText(_translate("Main", "New Column"))
         item = self.tb_preview.horizontalHeaderItem(14)
         item.setText(_translate("Main", "New Column"))
-        self.rb_DuplaChance.setText(_translate("Main", "Dupla Chance"))
-        self.rb_matchOdds.setText(_translate("Main", "Match Odds"))
-        self.rb_ambosMarcam.setText(_translate("Main", "Ambos Marcam"))
-        self.rb_totalGols.setText(_translate("Main", "Total de Gols"))
         self.tb_view.setSortingEnabled(True)
         item = self.tb_view.horizontalHeaderItem(0)
         item.setText(_translate("Main", "New Column"))

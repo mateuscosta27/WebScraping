@@ -93,7 +93,29 @@ class Calculator(QMainWindow,QObject):
         self.ui.le_return2.setText(str(f'R$ {self.return_odds2}'))
         self.ui.le_tot_return.setText(str(f'R$ {self.tot_return}'))
         self.ui.le_profit.setText(str(f'R$ {self.profit}'))
-        
+        self.comparet()
+    
+    def comparet(self):
+        if self.profit < 0:
+            
+            self.ui.le_profit.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color:  rgb(217, 7, 45);")
+            self.ui.le_return1.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color:  rgb(217, 7, 45);")
+            self.ui.le_return2.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color:  rgb(217, 7, 45);")
+            self.ui.le_tot_return.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color:  rgb(217, 7, 45);")
+            
+        else:
+            self.ui.le_profit.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(231, 231, 231);")
+            self.ui.le_return1.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(231, 231, 231);")
+            self.ui.le_return2.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(231, 231, 231);")
+            self.ui.le_tot_return.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(231, 231, 231);")
             
          
 
@@ -116,11 +138,10 @@ class ModuloPrincipal(QMainWindow):
     #Setando a paginas iniciais
     ############################################################################################    
         self.ui.pages.setCurrentWidget(self.ui.page_home)
-        self.ui.btn_visProbabilidades.clicked.connect(self.double_odds)
+        
         self.ui.btn_visJogos.clicked.connect(self.games_betano)
         self.ui.btn_previsoes.clicked.connect(self.all_leagues)
         self.ui.rb_jogos_betano.setChecked(True)
-        self.ui.rb_DuplaChance.setChecked(True)
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
         
@@ -136,13 +157,11 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_coletar.clicked.connect(self.animation)
         self.ui.btn_search.clicked.connect(self.search)
         self.ui.btn_calculator.clicked.connect(self.showCalculator)
+        self.ui.btn_visProbabilidades.clicked.connect(self.list_match_odds)
 
     ################################################################################################   
     #Radio buttons 
     ################################################################################################
-        self.ui.rb_DuplaChance.clicked.connect(self.double_odds)
-        self.ui.rb_matchOdds.clicked.connect(self.list_match_odds)
-        self.ui.rb_totalGols.clicked.connect(self.lis_total_goals)
         self.ui.rb_jogos_betano.clicked.connect(self.games_betano)
         self.ui.rb_jogos_pixbet.clicked.connect(self.games_pixbet)
 
@@ -282,79 +301,34 @@ class ModuloPrincipal(QMainWindow):
     ################################################################################################   
     #Renomear colunas da tabela
     ################################################################################################
-
-    def double_odds_name(self):
-        """Renomeia as colunas de acordo com a seleção
-           Renaming the columns according to the selection
-        """
-        item = self.ui.tb_view.horizontalHeaderItem(0)
-        item.setText('Data')
-        item = self.ui.tb_view.horizontalHeaderItem(1)
-        item.setText('Hora')
-        item = self.ui.tb_view.horizontalHeaderItem(2)
-        item.setText('Mandante')
-        item = self.ui.tb_view.horizontalHeaderItem(3)
-        item.setText('Visitante')
-        item = self.ui.tb_view.horizontalHeaderItem(4)
-        item.setText('Dupla1x_Pixbet')
-        item = self.ui.tb_view.horizontalHeaderItem(5)
-        item.setText('Dupla2x_Betano')
-        item = self.ui.tb_view.horizontalHeaderItem(6)
-        item.setText('Possibilidade1')
-        item = self.ui.tb_view.horizontalHeaderItem(7)
-        item.setText('Dupla1x_Betano')
-        item = self.ui.tb_view.horizontalHeaderItem(8)
-        item.setText('Dupla2x_Pixbet')
-        item = self.ui.tb_view.horizontalHeaderItem(9)
-        item.setText('Possibilidade2')       
+ 
     def match_odds_name(self):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
         """
-        item = self.ui.tb_view.horizontalHeaderItem(0)
-        item.setText('Data')
-        item = self.ui.tb_view.horizontalHeaderItem(1)
-        item.setText('Hora')
-        item = self.ui.tb_view.horizontalHeaderItem(2)
-        item.setText('Mandante')
-        item = self.ui.tb_view.horizontalHeaderItem(3)
-        item.setText('Visitante')
-        item = self.ui.tb_view.horizontalHeaderItem(4)
-        item.setText('Odds1_Pixbet')
-        item = self.ui.tb_view.horizontalHeaderItem(5)
-        item.setText('Odds2_Betano')
-        item = self.ui.tb_view.horizontalHeaderItem(6)
-        item.setText('Possibilidade1')
-        item = self.ui.tb_view.horizontalHeaderItem(7)
-        item.setText('Odds1_Betano')
-        item = self.ui.tb_view.horizontalHeaderItem(8)
-        item.setText('Odds2_Pixbet')
-        item = self.ui.tb_view.horizontalHeaderItem(9)
-        item.setText('Possibilidade2')
-    def total_goals_name(self):
-        """Renomeia as colunas de acordo com a seleção
-           Renaming the columns according to the selection
-        """
-        item = self.ui.tb_view.horizontalHeaderItem(0)
-        item.setText('Data')
-        item = self.ui.tb_view.horizontalHeaderItem(1)
-        item.setText('Hora')
-        item = self.ui.tb_view.horizontalHeaderItem(2)
-        item.setText('Mandante')
-        item = self.ui.tb_view.horizontalHeaderItem(3)
-        item.setText('Visitante')
-        item = self.ui.tb_view.horizontalHeaderItem(4)
-        item.setText('MaisGols_Pixbet')
-        item = self.ui.tb_view.horizontalHeaderItem(5)
-        item.setText('MenosGols_Betano')
-        item = self.ui.tb_view.horizontalHeaderItem(6)
-        item.setText('Possibilidade1')
-        item = self.ui.tb_view.horizontalHeaderItem(7)
-        item.setText('MaisGols_Betano')
-        item = self.ui.tb_view.horizontalHeaderItem(8)
-        item.setText('MenosGols_Pixbet')
-        item = self.ui.tb_view.horizontalHeaderItem(9)
-        item.setText('Possibilidade2')     
+        try:
+            item = self.ui.tb_view.horizontalHeaderItem(0)
+            item.setText('Data')
+            item = self.ui.tb_view.horizontalHeaderItem(1)
+            item.setText('Hora')
+            item = self.ui.tb_view.horizontalHeaderItem(2)
+            item.setText('Mandante')
+            item = self.ui.tb_view.horizontalHeaderItem(3)
+            item.setText('Visitante')
+            item = self.ui.tb_view.horizontalHeaderItem(4)
+            item.setText('Odds1_Pixbet')
+            item = self.ui.tb_view.horizontalHeaderItem(5)
+            item.setText('X2_pixbet')
+            item = self.ui.tb_view.horizontalHeaderItem(6)
+            item.setText('Odds1_betano')
+            item = self.ui.tb_view.horizontalHeaderItem(7)
+            item.setText('X2_betano')
+        except Exception as e:
+            print(e)  
+            pass  
+        
+        
+  
     def games_name(self):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
@@ -453,38 +427,6 @@ class ModuloPrincipal(QMainWindow):
     ################################################################################################   
     #Exibir tabelas do sistema
     ################################################################################################
-    def double_odds(self):
-        """Lista as probabilidades boas para apostas
-           List good odds for betting
-        """
-        directory_database = 'C:\\tmp\\Bancos'
-        con_db = sqlite3.connect(directory_database+'\\DADOS.db')
-        mycursor = con_db.cursor()
-        mycursor.execute("""select p.Data, p.Hora ,p.timecasa as TimeCasa_pixbet, p.timevisitante as TimeVisitante_pixbet ,p.Dupla1x  as Dupla1x_pixbet, b.Dupla2X  as Dupla2X_betano,
-                                CASE 
-                                    when ((1/p.Dupla1x) + (1/b.Dupla2x)) < 1 then 'PixbetXBetano'
-                                    when b.Odds1 = 'None' then 'Sem dados'
-                                    when p.Odds2 = 'None' then 'Sem dados'
-                                    ELSE "Sem Oportunidades"
-                                    END as Aportunidade1,
-                                    b.Odds1 as Odds1_betano, p.Odds2 as Odds2_pixbet,	
-                                Case
-                                    when ((1/b.Dupla1x) + (1/p.Dupla2x)) < 1 then 'BetanoXPixbet'
-                                    when p.Odds1 = 'None' then 'Sem dados'
-                                    when b.Odds2 = 'None' then 'Sem dados'
-                                    ELSE "Sem Oportunidades"
-                                    END as Aportunidade2
-                                            from tb_pixbet p
-                                                inner join tb_betano b
-                                                on instr(p.ind ,b.ind)>0;""")
-        resultSet = mycursor.fetchall()
-        self.ui.tb_view.setRowCount(len(resultSet))
-        self.ui.tb_view.setColumnCount(10)
-        self.match_odds_name()  # função para renomear as colunas
-        for i in range(0, len(resultSet)):
-            for j in range(0, 10):
-                self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()
             
     def list_match_odds(self):
         """Lista as probabilidades boas para apostas
@@ -493,66 +435,30 @@ class ModuloPrincipal(QMainWindow):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
         mycursor = con_db.cursor()
-        mycursor.execute("""select p.Data, p.Hora ,p.timecasa as TimeCasa_pixbet, p.timevisitante as TimeVisitante_pixbet ,p.Odds1  as Odds1_pixbet, b.Odds2  as Odds2_betano,
-                                CASE 
-                                        when ((1/p.Odds1) + (1/b.Odds2)) < 1 then 'PixbetXBetano'
-                                        when p.Odds1 = 'None' then 'Sem dados'
-	                                when b.Odds2 = 'None' then 'Sem dados'
-                                        ELSE "Sem Possibilidades"
-                                        END as Possibilidade1,
-                                        b.Odds1 as Odds1_betano, p.Odds2 as Odds2_pixbet,	
-                                Case
-                                        when ((1/b.Odds1) + (1/p.Odds2)) < 1 then 'BetanoXPixbet'
-                                        when b.Odds1 = 'None' then 'Sem dados'
-	                                when p.Odds2 = 'None' then 'Sem dados'
-                                        ELSE "Sem Possibilidades"
-                                        END as 'Possibilidade2'
-                                        
-                                        
-                                        from tb_pixbet p
-                                                inner join tb_betano b
-                                                on instr(p.ind ,b.ind)>0;""")
+        mycursor.execute("""
+                         SELECT  p.data,
+                                    p.hora,
+                                    p.TimeCasa as Mandante,
+                                    p.TimeVisitante  as Visitante,
+                                    p.Odds1  as odds1_pixbet,
+                                    p.Dupla2x as X2_pixbet,
+                                    b.Odds1 as odds1_betano,
+                                    b.Dupla2x as X2_betano
+	
+                            from tb_pixbet p		
+                            inner join tb_betano b
+                            on instr(p.ind, b.ind)>0;
+                        """)
 
         resultSet = mycursor.fetchall()
         self.ui.tb_view.setRowCount(len(resultSet))
-        self.ui.tb_view.setColumnCount(10)
+        self.ui.tb_view.setColumnCount(8)
         self.match_odds_name()  # função para renomear as colunas
         for i in range(0, len(resultSet)):
-            for j in range(0, 10):
+            for j in range(0, 8):
                 self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
         con_db.close()
-    def lis_total_goals(self):
-        directory_database = 'C:\\tmp\\Bancos'
-        con_db = sqlite3.connect(directory_database+'\\DADOS.db')
-        mycursor = con_db.cursor()
-        mycursor.execute("""select p.Data, p.Hora ,p.timecasa as TimeCasa_pixbet, p.timevisitante as TimeVisitante_pixbet ,p.MaisGols  as MaisGols_pixbet, b.MenosGols  as MenosGols_betano,
-                                CASE 
-                                        when ((1/p.MaisGols) + (1/b.MenosGols)) < 1 then 'PixbetXBetano'
-                                        when p.MaisGols = 'None' then 'Sem dados'
-	                                when b.MenosGols = 'None' then 'Sem dados'
-                                        ELSE "Sem Possibilidades"
-                                        END as Aportunidade1,
-                                        b.Odds1 as Odds1_betano, p.Odds2 as Odds2_pixbet,	
-                                Case
-                                        when ((1/b.MaisGols) + (1/p.MenosGols)) < 1 then 'BetanoXPixbet'
-                                        when b.MaisGols = 'None' then 'Sem dados'
-	                                when p.MenosGols = 'None' then 'Sem dados'
-                                        ELSE "Sem Possibilidades"
-                                        END as Aportunidade2
-                                        
-                                        
-                                        from tb_pixbet p
-                                                inner join tb_betano b
-                                                on instr(p.ind ,b.ind)>0;""")
-
-        resultSet = mycursor.fetchall()
-        self.ui.tb_view.setRowCount(len(resultSet))
-        self.ui.tb_view.setColumnCount(10)
-        self.total_goals_name()  # função para renomear as colunas 
-        for i in range(0, len(resultSet)):
-            for j in range(0, 10):
-                self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()    
+      
     def games_betano(self):
         directory_database = 'C:\\tmp\\Bancos'
         con_db = sqlite3.connect(directory_database+'\\DADOS.db')
