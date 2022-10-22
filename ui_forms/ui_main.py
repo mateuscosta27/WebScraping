@@ -15,7 +15,7 @@ class Ui_Main(object):
     def setupUi(self, Main):
         Main.setObjectName("Main")
         Main.setWindowModality(QtCore.Qt.ApplicationModal)
-        Main.resize(1136, 685)
+        Main.resize(904, 685)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../src/main_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Main.setWindowIcon(icon)
@@ -1097,17 +1097,153 @@ class Ui_Main(object):
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.frame_options = QtWidgets.QFrame(self.frame)
-        self.frame_options.setMinimumSize(QtCore.QSize(0, 35))
-        self.frame_options.setMaximumSize(QtCore.QSize(16777215, 70))
-        self.frame_options.setStyleSheet("")
+        self.frame_options.setMinimumSize(QtCore.QSize(0, 120))
+        self.frame_options.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.frame_options.setStyleSheet("background-color: #4195FF;")
         self.frame_options.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_options.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.frame_options.setLineWidth(1)
         self.frame_options.setObjectName("frame_options")
-        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame_options)
-        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_6.setSpacing(0)
-        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.frame_options)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.frame_2 = QtWidgets.QFrame(self.frame_options)
+        self.frame_2.setMinimumSize(QtCore.QSize(0, 25))
+        self.frame_2.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.frame_2.setStyleSheet("background-color: #4195FF;")
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.gridLayout = QtWidgets.QGridLayout(self.frame_2)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout.setSpacing(0)
+        self.gridLayout.setObjectName("gridLayout")
+        self.btn_side_options = QtWidgets.QToolButton(self.frame_2)
+        self.btn_side_options.setMinimumSize(QtCore.QSize(250, 20))
+        self.btn_side_options.setMaximumSize(QtCore.QSize(250, 20))
+        self.btn_side_options.setStyleSheet("QToolButton{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 14pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #0954B2;\n"
+"    border-radius: 2px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"QToolButton:hover{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 14pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    \n"
+"    background-color: rgb(26, 60, 102);\n"
+"    border-radius: 2px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"\n"
+"\n"
+"QToolButton:pressed{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color:#0954B2;\n"
+"    border-radius: 2px;\n"
+"    border-top-color: rgb(4, 35, 38);\n"
+"    border-left-color:  rgb(4, 35, 38);\n"
+"}")
+        self.btn_side_options.setIconSize(QtCore.QSize(16, 16))
+        self.btn_side_options.setPopupMode(QtWidgets.QToolButton.DelayedPopup)
+        self.btn_side_options.setToolButtonStyle(QtCore.Qt.ToolButtonFollowStyle)
+        self.btn_side_options.setAutoRaise(True)
+        self.btn_side_options.setObjectName("btn_side_options")
+        self.gridLayout.addWidget(self.btn_side_options, 0, 0, 1, 1, QtCore.Qt.AlignTop)
+        self.verticalLayout_15.addWidget(self.frame_2)
+        self.frame_3 = QtWidgets.QFrame(self.frame_options)
+        self.frame_3.setMinimumSize(QtCore.QSize(0, 80))
+        self.frame_3.setMaximumSize(QtCore.QSize(16777215, 80))
+        self.frame_3.setStyleSheet("background-color: #4195FF;")
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_3)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.lb_comb_double = QtWidgets.QLabel(self.frame_3)
+        self.lb_comb_double.setMinimumSize(QtCore.QSize(0, 30))
+        self.lb_comb_double.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.lb_comb_double.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);")
+        self.lb_comb_double.setObjectName("lb_comb_double")
+        self.gridLayout_3.addWidget(self.lb_comb_double, 0, 0, 2, 2)
+        self.lb_comb_oods = QtWidgets.QLabel(self.frame_3)
+        self.lb_comb_oods.setMinimumSize(QtCore.QSize(0, 30))
+        self.lb_comb_oods.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.lb_comb_oods.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);")
+        self.lb_comb_oods.setObjectName("lb_comb_oods")
+        self.gridLayout_3.addWidget(self.lb_comb_oods, 0, 2, 2, 1)
+        self.spin_odds = QtWidgets.QDoubleSpinBox(self.frame_3)
+        self.spin_odds.setMinimumSize(QtCore.QSize(70, 30))
+        self.spin_odds.setMaximumSize(QtCore.QSize(70, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.spin_odds.setFont(font)
+        self.spin_odds.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.spin_odds.setObjectName("spin_odds")
+        self.gridLayout_3.addWidget(self.spin_odds, 0, 3, 2, 1)
+        self.btn_filter = QtWidgets.QPushButton(self.frame_3)
+        self.btn_filter.setMinimumSize(QtCore.QSize(100, 45))
+        self.btn_filter.setStyleSheet("QPushButton{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 14pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #0954B2;\n"
+"    border-radius: 8px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 14pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    \n"
+"    background-color: rgb(26, 60, 102);\n"
+"    border-radius: 8px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:pressed{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 14pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color:#0954B2;\n"
+"    border-radius: 8px;\n"
+"    border-top-color: rgb(4, 35, 38);\n"
+"    border-left-color:  rgb(4, 35, 38);\n"
+"}")
+        self.btn_filter.setObjectName("btn_filter")
+        self.gridLayout_3.addWidget(self.btn_filter, 0, 4, 2, 1)
+        self.spin_double = QtWidgets.QDoubleSpinBox(self.frame_3)
+        self.spin_double.setMinimumSize(QtCore.QSize(70, 30))
+        self.spin_double.setMaximumSize(QtCore.QSize(70, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.spin_double.setFont(font)
+        self.spin_double.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.spin_double.setObjectName("spin_double")
+        self.gridLayout_3.addWidget(self.spin_double, 1, 1, 1, 1)
+        self.verticalLayout_15.addWidget(self.frame_3)
         self.verticalLayout_5.addWidget(self.frame_options)
         self.frame_tb = QtWidgets.QFrame(self.frame)
         self.frame_tb.setStyleSheet("background-color: rgb(255, 255, 255);")
@@ -1431,6 +1567,10 @@ class Ui_Main(object):
         item.setText(_translate("Main", "New Column"))
         item = self.tb_preview.horizontalHeaderItem(14)
         item.setText(_translate("Main", "New Column"))
+        self.btn_side_options.setText(_translate("Main", "..."))
+        self.lb_comb_double.setText(_translate("Main", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Dupla chance maior que:</span></p></body></html>"))
+        self.lb_comb_oods.setText(_translate("Main", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Odds mair que:</span></p></body></html>"))
+        self.btn_filter.setText(_translate("Main", "Filtrar"))
         self.tb_view.setSortingEnabled(True)
         item = self.tb_view.horizontalHeaderItem(0)
         item.setText(_translate("Main", "New Column"))

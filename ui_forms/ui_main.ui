@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1136</width>
+    <width>904</width>
     <height>685</height>
    </rect>
   </property>
@@ -817,7 +817,7 @@ QPushButton:pressed{
           <string notr="true">background-color:#0954B2;</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+          <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
@@ -2734,17 +2734,17 @@ background-color:rgb(243, 243, 243);
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
-                        <height>35</height>
+                        <height>120</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
                         <width>16777215</width>
-                        <height>70</height>
+                        <height>16777215</height>
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true"/>
+                       <string notr="true">background-color: #4195FF;</string>
                       </property>
                       <property name="frameShape">
                        <enum>QFrame::NoFrame</enum>
@@ -2755,7 +2755,7 @@ background-color:rgb(243, 243, 243);
                       <property name="lineWidth">
                        <number>1</number>
                       </property>
-                      <layout class="QHBoxLayout" name="horizontalLayout_6">
+                      <layout class="QVBoxLayout" name="verticalLayout_15">
                        <property name="spacing">
                         <number>0</number>
                        </property>
@@ -2771,6 +2771,302 @@ background-color:rgb(243, 243, 243);
                        <property name="bottomMargin">
                         <number>0</number>
                        </property>
+                       <item>
+                        <widget class="QFrame" name="frame_2">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>25</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>25</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: #4195FF;</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::NoFrame</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Plain</enum>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout">
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <item row="0" column="0" alignment="Qt::AlignTop">
+                           <widget class="QToolButton" name="btn_side_options">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>16777215</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QToolButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0954B2;
+	border-radius: 2px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QToolButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(26, 60, 102);
+	border-radius: 2px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QToolButton:pressed{
+	border-style: none;
+	border-width: 2px;
+	color: rgb(255, 255, 255);
+	background-color:#0954B2;
+	border-radius: 2px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>...</string>
+                            </property>
+                            <property name="iconSize">
+                             <size>
+                              <width>16</width>
+                              <height>16</height>
+                             </size>
+                            </property>
+                            <property name="popupMode">
+                             <enum>QToolButton::DelayedPopup</enum>
+                            </property>
+                            <property name="toolButtonStyle">
+                             <enum>Qt::ToolButtonFollowStyle</enum>
+                            </property>
+                            <property name="autoRaise">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="1">
+                           <spacer name="horizontalSpacer_4">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>864</width>
+                              <height>20</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="frame_3">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>80</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>80</height>
+                          </size>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">background-color: #4195FF;</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QGridLayout" name="gridLayout_3">
+                          <item row="0" column="0" rowspan="2" colspan="2">
+                           <widget class="QLabel" name="lb_comb_double">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dupla chance maior que:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="2" rowspan="2">
+                           <widget class="QLabel" name="lb_comb_oods">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="text">
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Odds mair que:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="3" rowspan="2">
+                           <widget class="QDoubleSpinBox" name="spin_odds">
+                            <property name="minimumSize">
+                             <size>
+                              <width>70</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>70</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(255, 255, 255);</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="4" rowspan="2">
+                           <widget class="QPushButton" name="btn_filter">
+                            <property name="minimumSize">
+                             <size>
+                              <width>100</width>
+                              <height>45</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0954B2;
+	border-radius: 8px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(26, 60, 102);
+	border-radius: 8px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: none;
+	border-width: 2px;
+	font: 75 14pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color:#0954B2;
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>Filtrar</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="1" column="1">
+                           <widget class="QDoubleSpinBox" name="spin_double">
+                            <property name="minimumSize">
+                             <size>
+                              <width>70</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>70</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(255, 255, 255);</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
                       </layout>
                      </widget>
                     </item>
