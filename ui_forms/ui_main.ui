@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>904</width>
+    <width>1132</width>
     <height>685</height>
    </rect>
   </property>
@@ -2899,7 +2899,7 @@ QToolButton:pressed{
                          <property name="minimumSize">
                           <size>
                            <width>0</width>
-                           <height>80</height>
+                           <height>0</height>
                           </size>
                          </property>
                          <property name="maximumSize">
@@ -2918,7 +2918,7 @@ QToolButton:pressed{
                           <enum>QFrame::Raised</enum>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_3">
-                          <item row="0" column="0" rowspan="2" colspan="2">
+                          <item row="0" column="0">
                            <widget class="QLabel" name="lb_comb_double">
                             <property name="minimumSize">
                              <size>
@@ -2941,7 +2941,33 @@ color: rgb(255, 255, 255);</string>
                             </property>
                            </widget>
                           </item>
-                          <item row="0" column="2" rowspan="2">
+                          <item row="0" column="1">
+                           <widget class="QDoubleSpinBox" name="spin_double">
+                            <property name="minimumSize">
+                             <size>
+                              <width>70</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>70</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">background-color: rgb(255, 255, 255);</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="0" column="2">
                            <widget class="QLabel" name="lb_comb_oods">
                             <property name="minimumSize">
                              <size>
@@ -2964,7 +2990,7 @@ color: rgb(255, 255, 255);</string>
                             </property>
                            </widget>
                           </item>
-                          <item row="0" column="3" rowspan="2">
+                          <item row="0" column="3">
                            <widget class="QDoubleSpinBox" name="spin_odds">
                             <property name="minimumSize">
                              <size>
@@ -2990,7 +3016,7 @@ color: rgb(255, 255, 255);</string>
                             </property>
                            </widget>
                           </item>
-                          <item row="0" column="4" rowspan="2">
+                          <item row="0" column="4">
                            <widget class="QPushButton" name="btn_filter">
                             <property name="minimumSize">
                              <size>
@@ -3038,31 +3064,18 @@ QPushButton:pressed{
                             </property>
                            </widget>
                           </item>
-                          <item row="1" column="1">
-                           <widget class="QDoubleSpinBox" name="spin_double">
-                            <property name="minimumSize">
+                          <item row="0" column="5">
+                           <spacer name="horizontalSpacer_6">
+                            <property name="orientation">
+                             <enum>Qt::Horizontal</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
                              <size>
-                              <width>70</width>
-                              <height>30</height>
+                              <width>420</width>
+                              <height>20</height>
                              </size>
                             </property>
-                            <property name="maximumSize">
-                             <size>
-                              <width>70</width>
-                              <height>30</height>
-                             </size>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <pointsize>12</pointsize>
-                              <weight>50</weight>
-                              <bold>false</bold>
-                             </font>
-                            </property>
-                            <property name="styleSheet">
-                             <string notr="true">background-color: rgb(255, 255, 255);</string>
-                            </property>
-                           </widget>
+                           </spacer>
                           </item>
                          </layout>
                         </widget>
