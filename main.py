@@ -3,6 +3,7 @@ from asyncio.base_futures import _FINISHED
 import sys
 import os
 import sqlite3
+from urllib import response
 from PyQt5 import Qt
 from PyQt5.QtCore import ( 
     pyqtSignal, 
@@ -158,6 +159,9 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_search.clicked.connect(self.search)
         self.ui.btn_calculator.clicked.connect(self.showCalculator)
         self.ui.btn_visProbabilidades.clicked.connect(self.list_match_odds)
+        self.ui.btn_side_options_pssib.clicked.connect(self.side_frame_options)
+        self.ui.btn_side_options_season.clicked.connect(self.side_frame_search)
+        self.ui.btn_filter.clicked.connect(self.filter_match_odds)
 
     ################################################################################################   
     #Radio buttons 
@@ -190,29 +194,35 @@ class ModuloPrincipal(QMainWindow):
     #Animações
     ################################################################################################
     def create_animation_icon(self):
+        ##Animação de coleta de dados
         self.ui.lb_collect_animation.setVisible(True)
         self.loading_animation_icon = QMovie("src/collect_icon.gif")
         self.ui.lb_collect_animation.setMovie(self.loading_animation_icon)
         
     def create_animation_text(self):
+        ##Animação de coleta de dados
         self.ui.lb_text_animation.setVisible(True)
         self.loading_animation_text = QMovie("src/text_icon.gif")
         self.ui.lb_text_animation.setMovie(self.loading_animation_text)
                
     def star_animations(self):
+        ##Aniciando a animação de coleta de dados
         self.loading_animation_icon.start()
         self.loading_animation_text.start()
         
     def stop_animations(self):
+        ##Parando a animação de coleta de dados
         self.loading_animation_icon.stop()
         self.loading_animation_text.stop()
          
     def animation(self):
+        ##Função para executar a animação
         self.create_animation_icon()
         self.create_animation_text()
         self.star_animations()
                      
     def side_menu(self):
+        ##Animação do menu lateral
         width = self.ui.frame_side.width() 
         if width == 0:
             new_width = 185
@@ -226,6 +236,7 @@ class ModuloPrincipal(QMainWindow):
         self.animation_side_menu.start()
         
     def side_btn_menu(self):
+        ##Animação do botão do menu lateral
         width = self.ui.btn_menu.width()
         if width == 75 :
             
@@ -240,6 +251,36 @@ class ModuloPrincipal(QMainWindow):
         self.animation_btn_menu.setEndValue(new_width)
         self.animation_btn_menu.setEasingCurve(QtCore.QEasingCurve.Type(5))
         self.animation_btn_menu.start()
+        
+        
+    def side_frame_options(self):
+        ##Animação do menu de opções
+        height = self.ui.frame_side_options.height()
+        if height == 0 :
+            new_height = 80
+        else:
+            new_height = 0
+        self.animation_frame_option = QtCore.QPropertyAnimation(self.ui.frame_side_options,b"maximumHeight")
+        self.animation_frame_option.setDuration(350)
+        self.animation_frame_option.setStartValue(height)
+        self.animation_frame_option.setEndValue(new_height)
+        self.animation_frame_option.setEasingCurve(QtCore.QEasingCurve.Type(5))
+        self.animation_frame_option.start()
+        
+        
+    def side_frame_search(self):
+        ##Animação do menu de opções
+        height = self.ui.frame_side_season.height()
+        if height == 0 :
+            new_height = 80
+        else:
+            new_height = 0
+        self.animation_frame_search = QtCore.QPropertyAnimation(self.ui.frame_side_season,b"maximumHeight")
+        self.animation_frame_search.setDuration(200)
+        self.animation_frame_search.setStartValue(height)
+        self.animation_frame_search.setEndValue(new_height)
+        self.animation_frame_search.setEasingCurve(QtCore.QEasingCurve.Type(1))
+        self.animation_frame_search.start()         
         
     
     ################################################################################################   
@@ -318,19 +359,19 @@ class ModuloPrincipal(QMainWindow):
             item = self.ui.tb_view.horizontalHeaderItem(4)
             item.setText('Odds1_PIXBET')
             item = self.ui.tb_view.horizontalHeaderItem(5)
-            item.setText('X2_PIXBET')
+            item.setText('X2_BETANO')
             item = self.ui.tb_view.horizontalHeaderItem(6)
-            item.setText('Odds2_PIXBET')
-            item = self.ui.tb_view.horizontalHeaderItem(7)
-            item.setText('X1_PIXBET')
-            item = self.ui.tb_view.horizontalHeaderItem(8)
             item.setText('Odds1_BETANO')
+            item = self.ui.tb_view.horizontalHeaderItem(7)
+            item.setText('X2_PIXBET')
+            item = self.ui.tb_view.horizontalHeaderItem(8)
+            item.setText('Odds2_PIXBET')
             item = self.ui.tb_view.horizontalHeaderItem(9)
-            item.setText('X2_BETNAO')
+            item.setText('X1_BETNAO')
             item = self.ui.tb_view.horizontalHeaderItem(10)
             item.setText('Odds2_BETANO')
             item = self.ui.tb_view.horizontalHeaderItem(11)
-            item.setText('X1_BETANO')
+            item.setText('X1_PIXBET')
         except Exception as e:
             print(e)  
             pass  
@@ -400,8 +441,6 @@ class ModuloPrincipal(QMainWindow):
         """Renomeia as colunas de acordo com a seleção
            Renaming the columns according to the selection
         """
-        names = ['Data','Campeonato','Mandante','Visitante','SPI1','SPI2','VitoriaMandante','Empate',
-        'VitoriaVisitante','GolsMandante', 'Golsvisitante']
 
         try:
             item = self.ui.tb_preview.horizontalHeaderItem(0)
@@ -472,6 +511,71 @@ class ModuloPrincipal(QMainWindow):
                     
         con_db.close()
         
+    def filter_match_odds(self):
+        """Lista as probabilidades boas para apostas
+           List good odds for betting
+        """
+        directory_database = 'C:\\tmp\\Bancos'
+        con_db = sqlite3.connect(directory_database+'\\DADOS.db')
+        mycursor = con_db.cursor()
+        if self.ui.cb_filter_odds.currentText() == 'Todos': 
+            mycursor.execute(f"""
+                                SELECT p.data,
+                                        p.hora,
+                                        p.TimeCasa as Mandante,
+                                        p.TimeVisitante  as Visitante,
+                                        p.Odds1  as odds1_pixbet,
+                                        b.Dupla2x as X2_betano,
+                                        b.Odds1 as odds1_betano,
+                                        p.Dupla2x as X2_pixbet,
+                                        p.Odds2  as odds2_pixbet,
+                                        b.Dupla1x as X1_betano,
+                                        b.Odds2 as odds2_betano,
+                                        p.Dupla1x as X1_pixbet
+                                from tb_pixbet p		
+                                inner join tb_betano b
+                                on instr(p.ind, b.ind)>0
+                                WHERE   p.Odds1 >=   {self.ui.spin_odds.value()}
+                                    AND p.Odds2 >=   {self.ui.spin_odds.value()}
+                                    AND b.Odds1 >=   {self.ui.spin_odds.value()}
+                                    AND b.Odds2 >=   {self.ui.spin_odds.value()};
+                                """)
+        else:
+            mycursor.execute("""
+                                SELECT p.data,
+                                p.hora,
+                                p.TimeCasa as Mandante,
+                                p.TimeVisitante  as Visitante,
+                                p.Odds1  as odds1_pixbet,
+                                p.Dupla2x as X2_pixbet,
+                                p.Odds2  as odds2_pixbet,
+                                p.Dupla1x as X1_pixbet,
+                                b.Odds1 as odds1_betano,
+                                b.Dupla2x as X2_betano,
+                                b.Odds2 as odds2_betano,
+                                b.Dupla1x as X1_betano
+                        from tb_pixbet p		
+                        inner join tb_betano b
+                        on instr(p.ind, b.ind)>0
+                       WHERE
+                       		((1/p.Odds1) + (1/b.Dupla2x)) < 1
+                       		OR ((1/p.Odds2) + (1/b.Dupla1x)) < 1
+                       		OR ((1/b.Odds1) + (1/p.Dupla2x)) < 1
+                       		OR ((1/p.Odds2) + (1/b.Dupla1x)) < 1
+                                """)    
+       
+
+        resultSet = mycursor.fetchall()
+        self.ui.tb_view.setRowCount(len(resultSet))
+        self.ui.tb_view.setColumnCount(12)
+        self.match_odds_name()  # função para renomear as colunas
+        for i in range(0, len(resultSet)):
+            for j in range(0, 12):
+                self.ui.tb_view.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
+                    
+        con_db.close()
+        
+
       
     def games_betano(self):
         directory_database = 'C:\\tmp\\Bancos'
