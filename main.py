@@ -1,5 +1,6 @@
 
 from asyncio.base_futures import _FINISHED
+from ctypes.wintypes import POINT
 import sys
 import os
 import sqlite3
@@ -12,7 +13,7 @@ from PyQt5.QtCore import (
     )
 
 from PyQt5.QtWidgets import(
-    QApplication, 
+    QApplication,  
     QMainWindow,
     )
 
@@ -361,13 +362,13 @@ class ModuloPrincipal(QMainWindow):
             item = self.ui.tb_view.horizontalHeaderItem(5)
             item.setText('X2_BETANO')
             item = self.ui.tb_view.horizontalHeaderItem(6)
-            item.setText('Odds1_BETANO')
-            item = self.ui.tb_view.horizontalHeaderItem(7)
-            item.setText('X2_PIXBET')
-            item = self.ui.tb_view.horizontalHeaderItem(8)
             item.setText('Odds2_PIXBET')
+            item = self.ui.tb_view.horizontalHeaderItem(7)
+            item.setText('X1_BETANO')
+            item = self.ui.tb_view.horizontalHeaderItem(8)
+            item.setText('Odds1_BETANO')
             item = self.ui.tb_view.horizontalHeaderItem(9)
-            item.setText('X1_BETNAO')
+            item.setText('X2_PIXBET')
             item = self.ui.tb_view.horizontalHeaderItem(10)
             item.setText('Odds2_BETANO')
             item = self.ui.tb_view.horizontalHeaderItem(11)
@@ -542,26 +543,26 @@ class ModuloPrincipal(QMainWindow):
                                 """)
         else:
             mycursor.execute("""
-                                SELECT p.data,
+                        SELECT p.data,
                                 p.hora,
                                 p.TimeCasa as Mandante,
                                 p.TimeVisitante  as Visitante,
                                 p.Odds1  as odds1_pixbet,
-                                p.Dupla2x as X2_pixbet,
+                                b.Dupla2x as X2_Betano,
                                 p.Odds2  as odds2_pixbet,
-                                p.Dupla1x as X1_pixbet,
+                                b.Dupla1x as X1_Betano,
                                 b.Odds1 as odds1_betano,
-                                b.Dupla2x as X2_betano,
+                                p.Dupla2x as X2_pixbet,
                                 b.Odds2 as odds2_betano,
-                                b.Dupla1x as X1_betano
+                                p.Dupla1x as X1_pixbet
                         from tb_pixbet p		
                         inner join tb_betano b
                         on instr(p.ind, b.ind)>0
-                       WHERE
-                       		((1/p.Odds1) + (1/b.Dupla2x)) < 1
-                       		OR ((1/p.Odds2) + (1/b.Dupla1x)) < 1
-                       		OR ((1/b.Odds1) + (1/p.Dupla2x)) < 1
-                       		OR ((1/p.Odds2) + (1/b.Dupla1x)) < 1
+                      	WHERE
+                       		    ((1/p.Odds1) + (1/b.Dupla2x)) < 1
+                       		OR  ((1/p.Odds2) + (1/b.Dupla1x)) < 1
+                       		OR  ((1/b.Odds1) + (1/p.Dupla2x)) < 1
+                       		OR  ((1/p.Odds2) + (1/b.Dupla1x)) < 1
                                 """)    
        
 
@@ -754,7 +755,10 @@ class ModuloPrincipal(QMainWindow):
         for i in range(0, len(resultSet)):
             for j in range(0, 10):
                 self.ui.tb_preview.setItem(i, j, QtWidgets.QTableWidgetItem(str(resultSet[i][j])))
-        con_db.close()
+        con_db.close()                                                  
+                                                                         
+        
+        
         
         
         

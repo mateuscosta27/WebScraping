@@ -1,9 +1,5 @@
-names = ['Data','Campeonato','Mandante','Visitante','SPI1','SPI2','VitoriaMandante','Empate',
-        'VitoriaVisitante','GolsMandante', 'Golsvisitante']             
+import io, re, string, os
 
 
-item =lambda x: x in names
-
-
-
-print(item)
+path =  os.path.abspath('c:\\tmp\\chromedriver.exe')
+replacement = 'akl_roepstdlwoeproslPOweos'.encode()

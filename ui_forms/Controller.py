@@ -53,7 +53,7 @@ class Controller:
         pixbet.data_convert_types()
         pixbet.export_dataframe()
         pixbet.create_index_pixbet()
-        #pixbet.remove_file()
+        pixbet.remove_file()
         
     def controller_probabilidades(self):
         controller = Probabilidades()
@@ -74,4 +74,5 @@ class Controller:
         controller = Database()
         controller.create_table_matches_latest()
 
-    
+teste  = Controller()
+teste.controller_pixbet()   
