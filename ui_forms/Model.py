@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 sys.path.insert(0,os.path.abspath(os.curdir))
 from selenium.webdriver.chrome.options import Options
-import undetected_chromedriver as uc
 
 
 
@@ -269,8 +268,8 @@ class Pixbet:
         self.web_site = 'https://pixbet.com/prejogo/#league/2417-undefined' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
-        #self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
-        self.driver = uc.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), options=self.options)
+        self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
+        #self.driver = uc.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), options=self.options)
 
 
     def open_web_site(self):

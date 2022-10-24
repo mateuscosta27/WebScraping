@@ -73,6 +73,3 @@ class Controller:
     def create_table_matches(self):
         controller = Database()
         controller.create_table_matches_latest()
-
-teste  = Controller()
-teste.controller_pixbet()   
