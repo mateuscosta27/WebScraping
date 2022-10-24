@@ -14,7 +14,7 @@ from selenium.webdriver.chrome.options import Options
 
 
 
-class Bet365:
+class Esporte365:
     def __init__(self):
         ###Carregando driver, recebendo o web site, definindo diretorio###
         self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
@@ -78,29 +78,34 @@ class Bet365:
             print('Houve um erro inesperado:  '+ e)
             pass  
 
-    # teste      
-    def teste(self):
-        
-        try:
-            mandantes = self.driver.find_elements('xpath',  '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[1]/div[1]/div[2]/div[1]/span')
-            visitantes = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[1]/div[1]/div[2]/div[2]/span')
-            odds1 = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[1]/div/div/button/div')
-            oddsX = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[2]/div/div/button/div')
-            odds2 = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[3]/div/div/button/div')
-            for i in range(len(mandantes)):
-                team1 = mandantes[i].text
-                self.dic_jogos['Mandante'].append(team1)
-            for j in range(len(visitantes)):
-                team2 = visitantes[j].text
-                self.dic_jogos['Visitante'].append(team2)               
-            self.driver.close()
-        except Exception as e:
-            self.driver.close()
+    def capture_teams(self):
+        team1 = self.driver.find_elements('xpath',  '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[1]/div[1]/div[2]/div[1]/span')
+        team2 = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[1]/div[1]/div[2]/div[2]/span')
+        for i in range(len(team1)):
+            t1 = team1[i].text
+            self.dic_jogos['Mandante'].append(t1)
+        for j in range(len(team1)):
+            t2 = team2[j].text
+            self.dic_jogos['Visitante'].append(t2)    
             
-            print(e)
-            pass    
-
-              
+    def capture_odds(self):
+        odds1 = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[1]/div/div/button/div')
+        oddsX = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[2]/div/div/button/div')
+        odds2 = self.driver.find_elements('xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[3]/div/div/button/div')
+        for i in range(len(odds1)):
+            odd1 = odds1[i].text
+            self.dic_jogos['Odds1'].append(odd1)
+        print('funcionou')    
+            
+        for j in range(len(oddsX)):
+            oddx = oddsX[j].text
+            self.dic_jogos['OddsX'].append(oddx)
+        print('funcionou')                    
+        for k in range(len(odds2)):
+            odd2 = odds2[k].text
+            self.dic_jogos['Odds2'].append(odd2)
+        print('funcionou')                    
+            
     def export_data(self):
         try:
             df = pd.DataFrame(self.dic_jogos) ##transformando dicionario em dataframe##
@@ -108,15 +113,15 @@ class Bet365:
                 self.directory_file+'\\teste.csv',encoding='utf-8', sep=';', index=False) ##exportando arquivo CSV para o diretorio definido a cima##
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
-            pass
-                
+            pass      
 
-teste = Bet365()
+teste = Esporte365()
 teste.open_web_site()
 sleep(10)
 teste.select_futebol()
 sleep(5)
 teste.select_all()
 sleep(5)
-teste.teste()
+teste.capture_teams()
+teste.capture_odds()
 teste.export_data()
