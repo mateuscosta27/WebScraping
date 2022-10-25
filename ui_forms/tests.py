@@ -1,8 +1,9 @@
 
-from time import sleep
+from xml.dom.minidom import Element
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 
 
@@ -13,7 +14,7 @@ class Betano:
         self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
         self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
         self.path = self.directory_driver +'\\chromedriver.exe'
-        self.web_site = 'https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=0' ##Site onde estamos buscando as informações###
+        self.web_site = 'www.google.com' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
         #self.options.add_argument('--window-size=1920,1080')
         #self.options.add_argument('--start-maximized')
@@ -27,7 +28,11 @@ class Betano:
         ###Abrindo website##
         try:
             self.driver.get(self.web_site)
+            action = ActionChains(self.driver)
+            action.key_down(Keys.CONTROL).send_keys('F').key_up(Keys.CONTROL).perform()
+                
             print('executou')
+
             self.driver.maximize_window()
             print('executou')
             #self.driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
@@ -35,37 +40,7 @@ class Betano:
         except Exception as e:
             print('Houve um erro inesperado:  '+ e)
             pass    
-    
-    def close_banner(self):
-        ###fechando o banner que é exibido###
-        try:
-            btn_fechar = self.driver.find_element(
-                'xpath', '/html/body/div[1]/div/section[2]/div[7]/div/div/div[1]/button') ##path do botão de fechar do banner que é exibido##
-            sleep(5)
-            btn_fechar.click()
-        except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
-            pass           
-    
-    def scroll_page(self):
-        ###Rolando a pagina para obtenção do html###
-        try:
-            sleep(2)
-            for page in range(2):
-                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
-                sleep(2)
-        except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
-            pass  
-
-    def parser_data(self):
-        teste = self.driver.find_element(
-            By.XPATH, '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[4]/div/div[1]/div[2]/table/tr[2]/th/a/div/div[1]/div[1]/span')
-        print('executou')
-        print(teste)
    
 
 teste = Betano()
 teste.open_web_site()
-teste.close_banner()
-teste.parser_data()

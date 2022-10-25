@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 sys.path.insert(0,os.path.abspath(os.curdir))
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class Pixbet:
@@ -28,14 +29,9 @@ class Pixbet:
         
     def open_web_site(self):
         try:
-           
-            
-            self.driver.get(self.web_site)
-            self.driver.delete_all_cookies()
-            self.driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
-            
+            self.driver.get(self.web_site)           
             self.driver.maximize_window()
-            
+            sleep(10)   
         except Exception as e:
             print(e)
             pass

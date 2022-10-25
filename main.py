@@ -1,6 +1,7 @@
 
 from asyncio.base_futures import _FINISHED
 from ctypes.wintypes import POINT
+from fnmatch import translate
 import sys
 import os
 import sqlite3
@@ -32,10 +33,7 @@ class Worker(QObject):
     def showCalculator(self):
         self.calculator = Calculator()
         self.calculator.show()
-          
-global finish
 
-finish = True
 
 class Calculator(QMainWindow,QObject):
     def __init__(self):
@@ -49,6 +47,7 @@ class Calculator(QMainWindow,QObject):
    
 
 
+       
 
         self.ui.btn_calc.clicked.connect(self.results)
         self.ui.btn_back.clicked.connect(self.closeEvent)   
@@ -85,21 +84,41 @@ class Calculator(QMainWindow,QObject):
         self.profit = round(self.tot_return - self.invest,2)    
         
     def results(self):
-        self.calculate_investment()
-        self.calculate_return()
-        self.calculate_tot_return()
-        self.calculate_profit()
-        self.ui.le_invest1.setText(str(f'R$ {self.calc_odds1}'))
-        self.ui.le_invest2.setText(str(f'R$ {self.calc_odds2}'))
-        self.ui.le_return1.setText(str(f'R$ {self.return_odds1}'))
-        self.ui.le_return2.setText(str(f'R$ {self.return_odds2}'))
-        self.ui.le_tot_return.setText(str(f'R$ {self.tot_return}'))
-        self.ui.le_profit.setText(str(f'R$ {self.profit}'))
-        self.comparet()
+        try:
+           
+            if(self.ui.le_value_invest.text() != '') and (self.le_value_invest.text() != str):
+                self.calculate_investment()
+                self.calculate_return()
+                self.calculate_tot_return()
+                self.calculate_profit()
+                self.ui.le_invest1.setText(str(f'R$ {self.calc_odds1}'))
+                self.ui.le_invest2.setText(str(f'R$ {self.calc_odds2}'))
+                self.ui.le_return1.setText(str(f'R$ {self.return_odds1}'))
+                self.ui.le_return2.setText(str(f'R$ {self.return_odds2}'))
+                self.ui.le_tot_return.setText(str(f'R$ {self.tot_return}'))
+                self.ui.le_profit.setText(str(f'R$ {self.profit}'))
+                self.ui.le_value_invest.setText(str(f'R$ {self.invest}'))
+                self.comparet()
+            else:
+                self.ui.le_value_invest.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
+                    "background-color:  rgb(217, 7, 45);\n"
+                         "color: rgb(255, 255, 255);")
+                self.ui.le_value_invest.setAlignment(QtCore.Qt.AlignCenter)
+                self.ui.le_value_invest.setPlaceholderText("Valor Inválido")
+
+
+        except:
+            self.ui.le_value_invest.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
+            "background-color:  rgb(217, 7, 45);\n"
+            "color: rgb(255, 255, 255);")
+            self.ui.le_value_invest.setAlignment(QtCore.Qt.AlignCenter)
+            self.ui.le_value_invest.setPlaceholderText("Valor Inválido")
+                    
     
     def comparet(self):
         if self.profit < 0:
-            
+            self.ui.le_value_invest.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color:  rgb(217, 7, 45);")
             self.ui.le_profit.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
 "background-color:  rgb(217, 7, 45);")
             self.ui.le_return1.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
@@ -118,7 +137,8 @@ class Calculator(QMainWindow,QObject):
 "background-color: #03A688;")
             self.ui.le_tot_return.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
 "background-color: #03A688;")
-            
+
+     
          
 
     
@@ -559,7 +579,8 @@ class ModuloPrincipal(QMainWindow):
                         inner join tb_betano b
                         on instr(p.ind, b.ind)>0
                       	WHERE
-                       		    ((1/p.Odds1) + (1/b.Dupla2x)) < 1
+                                p."Data"  = b."Data"  
+                       		AND ((1/p.Odds1) + (1/b.Dupla2x)) < 1
                        		OR  ((1/p.Odds2) + (1/b.Dupla1x)) < 1
                        		OR  ((1/b.Odds1) + (1/p.Dupla2x)) < 1
                        		OR  ((1/p.Odds2) + (1/b.Dupla1x)) < 1
