@@ -28,10 +28,3 @@ class Confdb:
         directory_database = 'C:\\tmp\\Bancos'
         con = sqlite3.connect(directory_database+'\\DADOS.db')
         con.close()           
-
-
-
-
-conf = Confdb()
-conf.download_driver()
-              

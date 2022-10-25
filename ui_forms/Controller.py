@@ -4,9 +4,14 @@ import os
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 sys.path.insert(0,os.path.abspath(os.curdir))
-from ui_forms.Model import *
 from ui_forms.Confdb import *
 from ui_forms.database import *
+from ui_forms.model_betano import *
+from ui_forms.model_pixbet import *
+from ui_forms.model_esport365 import *
+from ui_forms.model_probability import *
+
+
 
 
 
@@ -56,7 +61,7 @@ class Controller:
         pixbet.remove_file()
         
     def controller_probabilidades(self):
-        controller = Probabilidades()
+        controller = Probability()
         controller.check_exists()
         controller.download_dataBase()
         controller.move_files()    

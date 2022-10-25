@@ -886,7 +886,7 @@ QPushButton:pressed{
                 <number>0</number>
                </property>
                <property name="currentIndex">
-                <number>3</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="page_view_games">
                 <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -924,7 +924,7 @@ QPushButton:pressed{
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_10">
                     <item>
-                     <widget class="QRadioButton" name="rb_jogos_betano">
+                     <widget class="QRadioButton" name="rb_games_betano">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -963,6 +963,37 @@ QRadioButton:pressed{
                       </property>
                       <property name="autoRepeatInterval">
                        <number>100</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QRadioButton" name="rb_games_esporte365">
+                      <property name="minimumSize">
+                       <size>
+                        <width>200</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>200</width>
+                        <height>20</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">
+QRadioButton{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+}
+
+QRadioButton:pressed{
+	font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(0, 0, 0);
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Esporte365</string>
                       </property>
                      </widget>
                     </item>

@@ -314,7 +314,7 @@ class ModuloPrincipal(QMainWindow):
         self.stop_animations()
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
-        Finish = False
+        
 
         ################################################################################################   
         #Coletando dados do five
