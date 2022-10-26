@@ -886,7 +886,7 @@ QPushButton:pressed{
                 <number>0</number>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="page_view_games">
                 <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -998,7 +998,7 @@ QRadioButton:pressed{
                      </widget>
                     </item>
                     <item>
-                     <widget class="QRadioButton" name="rb_jogos_pixbet">
+                     <widget class="QRadioButton" name="rb_games_pixbet">
                       <property name="minimumSize">
                        <size>
                         <width>220</width>
@@ -1515,6 +1515,12 @@ background-color:rgb(243, 243, 243);
                 </layout>
                </widget>
                <widget class="QWidget" name="page_preview">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_9">
                  <property name="spacing">
                   <number>0</number>
@@ -1536,7 +1542,7 @@ background-color:rgb(243, 243, 243);
                    <property name="minimumSize">
                     <size>
                      <width>0</width>
-                     <height>100</height>
+                     <height>0</height>
                     </size>
                    </property>
                    <property name="maximumSize">
@@ -1572,6 +1578,18 @@ background-color:rgb(243, 243, 243);
                     </property>
                     <item>
                      <widget class="QFrame" name="frame_search_teams">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>30</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
@@ -1599,7 +1617,7 @@ background-color:rgb(243, 243, 243);
                          <property name="maximumSize">
                           <size>
                            <width>16777215</width>
-                           <height>30</height>
+                           <height>80</height>
                           </size>
                          </property>
                          <property name="frameShape">
@@ -1608,7 +1626,7 @@ background-color:rgb(243, 243, 243);
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QGridLayout" name="gridLayout_6">
+                         <layout class="QGridLayout" name="gridLayout_4">
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -1705,11 +1723,77 @@ QToolButton:pressed{
                             </property>
                            </spacer>
                           </item>
+                          <item row="0" column="2">
+                           <widget class="QPushButton" name="btn_update_base">
+                            <property name="minimumSize">
+                             <size>
+                              <width>100</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>100</width>
+                              <height>30</height>
+                             </size>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton{
+	border-style: none;
+	border-width: 2px;
+	font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color: #0954B2;
+	border-radius: 8px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+QPushButton:hover{
+	border-style: none;
+	border-width: 2px;
+	font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	
+	background-color: rgb(26, 60, 102);
+	border-radius: 8px;
+	border-bottom-color: rgb(4, 35, 38);
+	border-right-color:  rgb(4, 35, 38);
+}
+
+
+QPushButton:pressed{
+	border-style: none;
+	border-width: 2px;
+	font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+	color: rgb(255, 255, 255);
+	background-color:#0954B2;
+	border-radius: 8px;
+	border-top-color: rgb(4, 35, 38);
+	border-left-color:  rgb(4, 35, 38);
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>Atualizar Base</string>
+                            </property>
+                           </widget>
+                          </item>
                          </layout>
                         </widget>
                        </item>
                        <item>
                         <widget class="QFrame" name="frame_teams_bottom">
+                         <property name="minimumSize">
+                          <size>
+                           <width>0</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>16777215</width>
+                           <height>200</height>
+                          </size>
+                         </property>
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
@@ -1734,6 +1818,12 @@ QToolButton:pressed{
                           </property>
                           <item>
                            <widget class="QFrame" name="frame_side_season">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>0</height>
+                             </size>
+                            </property>
                             <property name="maximumSize">
                              <size>
                               <width>16777215</width>
@@ -1746,7 +1836,7 @@ QToolButton:pressed{
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QGridLayout" name="gridLayout_4">
+                            <layout class="QGridLayout" name="gridLayout_6">
                              <property name="leftMargin">
                               <number>0</number>
                              </property>
@@ -2805,7 +2895,7 @@ background-color:rgb(243, 243, 243);
                       <property name="maximumSize">
                        <size>
                         <width>16777215</width>
-                        <height>16777215</height>
+                        <height>100</height>
                        </size>
                       </property>
                       <property name="styleSheet">
@@ -2841,7 +2931,7 @@ background-color:rgb(243, 243, 243);
                          <property name="minimumSize">
                           <size>
                            <width>0</width>
-                           <height>25</height>
+                           <height>30</height>
                           </size>
                          </property>
                          <property name="maximumSize">

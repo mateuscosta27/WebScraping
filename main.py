@@ -50,12 +50,17 @@ class Calculator(QMainWindow,QObject):
        
 
         self.ui.btn_calc.clicked.connect(self.results)
-        self.ui.btn_back.clicked.connect(self.closeEvent)   
+        self.ui.btn_back.clicked.connect(self.closeEvent)
+        self.ui.btn_calc.clicked.connect(self.logical_test)
         
+   
     ############################################################################################
     #Chamando a main Window
     ############################################################################################
-
+    
+    def logical_test(self):
+        self.my_while = True
+        
     def closeEvent(self, event):
         self.return_main = ModuloPrincipal()
         self.return_main.show()
@@ -85,40 +90,36 @@ class Calculator(QMainWindow,QObject):
         
     def results(self):
         try:
-           
-            if(self.ui.le_value_invest.text() != '') and (self.le_value_invest.text() != str):
-                self.calculate_investment()
-                self.calculate_return()
-                self.calculate_tot_return()
-                self.calculate_profit()
-                self.ui.le_invest1.setText(str(f'R$ {self.calc_odds1}'))
-                self.ui.le_invest2.setText(str(f'R$ {self.calc_odds2}'))
-                self.ui.le_return1.setText(str(f'R$ {self.return_odds1}'))
-                self.ui.le_return2.setText(str(f'R$ {self.return_odds2}'))
-                self.ui.le_tot_return.setText(str(f'R$ {self.tot_return}'))
-                self.ui.le_profit.setText(str(f'R$ {self.profit}'))
-                self.ui.le_value_invest.setText(str(f'R$ {self.invest}'))
-                self.comparet()
+            self.my_while = True
+            while self.my_while == True:
+                
+                if(self.ui.le_value_invest.text() != '') and (self.ui.le_value_invest.text() != str):
+                    self.calculate_investment()
+                    self.calculate_return()
+                    self.calculate_tot_return()
+                    self.calculate_profit()
+                    self.ui.le_invest1.setText(str(f'R$ {self.calc_odds1}'))
+                    self.ui.le_invest2.setText(str(f'R$ {self.calc_odds2}'))
+                    self.ui.le_return1.setText(str(f'R$ {self.return_odds1}'))
+                    self.ui.le_return2.setText(str(f'R$ {self.return_odds2}'))
+                    self.ui.le_tot_return.setText(str(f'R$ {self.tot_return}'))
+                    self.ui.le_profit.setText(str(f'R$ {self.profit}'))
+                    self.comparet()  
+                else:
+                    self.ui.le_value_invest.setPlaceholderText("Valor Inválido")  
+                self.my_while = False
             else:
-                self.ui.le_value_invest.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
-                    "background-color:  rgb(217, 7, 45);\n"
-                         "color: rgb(255, 255, 255);")
-                self.ui.le_value_invest.setAlignment(QtCore.Qt.AlignCenter)
-                self.ui.le_value_invest.setPlaceholderText("Valor Inválido")
-
-
+                pass
         except:
-            self.ui.le_value_invest.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
-            "background-color:  rgb(217, 7, 45);\n"
-            "color: rgb(255, 255, 255);")
-            self.ui.le_value_invest.setAlignment(QtCore.Qt.AlignCenter)
+           
             self.ui.le_value_invest.setPlaceholderText("Valor Inválido")
-                    
+            pass        
     
     def comparet(self):
         if self.profit < 0:
+            
             self.ui.le_value_invest.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
-"background-color:  rgb(217, 7, 45);")
+"background-color:  rgb(217, 7, 45);")                                            
             self.ui.le_profit.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
 "background-color:  rgb(217, 7, 45);")
             self.ui.le_return1.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
@@ -126,9 +127,10 @@ class Calculator(QMainWindow,QObject):
             self.ui.le_return2.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
 "background-color:  rgb(217, 7, 45);")
             self.ui.le_tot_return.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
-"background-color:  rgb(217, 7, 45);")
-            
+"background-color:  rgb(217, 7, 45);")   
         else:
+            self.ui.le_value_invest.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
+"background-color: #03A688;")
             self.ui.le_profit.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
 "background-color: #03A688;")
             self.ui.le_return1.setStyleSheet("font: 75 18pt \"MS Shell Dlg 2\";\n"
@@ -163,7 +165,7 @@ class ModuloPrincipal(QMainWindow):
         
         self.ui.btn_visJogos.clicked.connect(self.games_betano)
         self.ui.btn_previsoes.clicked.connect(self.all_leagues)
-        self.ui.rb_jogos_betano.setChecked(True)
+        self.ui.rb_games_betano.setChecked(True)
         self.ui.lb_collect_animation.setVisible(False)
         self.ui.lb_text_animation.setVisible(False)
         
@@ -183,12 +185,13 @@ class ModuloPrincipal(QMainWindow):
         self.ui.btn_side_options_pssib.clicked.connect(self.side_frame_options)
         self.ui.btn_side_options_season.clicked.connect(self.side_frame_search)
         self.ui.btn_filter.clicked.connect(self.filter_match_odds)
+        self.ui.btn_update_base.clicked.connect(self.collect_forecasts)
 
     ################################################################################################   
     #Radio buttons 
     ################################################################################################
-        self.ui.rb_jogos_betano.clicked.connect(self.games_betano)
-        self.ui.rb_jogos_pixbet.clicked.connect(self.games_pixbet)
+        self.ui.rb_games_betano.clicked.connect(self.games_betano)
+        self.ui.rb_games_pixbet.clicked.connect(self.games_pixbet)
 
     ################################################################################################   
     #Paginas do sistema  Botões
@@ -327,7 +330,6 @@ class ModuloPrincipal(QMainWindow):
         ################################################################################################
     def collect_odds(self):
         controller = Controller()
-        controller.controller_probabilidades()
         controller.controller_pixbet()
         controller.controller_betano()
         controller.create_tables()
@@ -343,6 +345,9 @@ class ModuloPrincipal(QMainWindow):
         controller = Controller()
         controller.controller_probabilidades()
         controller.create_table_matches()
+        self.side_frame_search()
+    
+       
         
         ################################################################################################   
         #Thread da aplicação

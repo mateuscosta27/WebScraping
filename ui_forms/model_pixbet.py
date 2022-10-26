@@ -31,7 +31,8 @@ class Pixbet:
         try:
             self.driver.get(self.web_site)           
             self.driver.maximize_window()
-            sleep(10)   
+            self.driver.stop_client()
+          
         except Exception as e:
             print(e)
             pass

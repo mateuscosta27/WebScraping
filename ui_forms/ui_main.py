@@ -453,15 +453,15 @@ class Ui_Main(object):
         self.frame_options_games.setObjectName("frame_options_games")
         self.horizontalLayout_10 = QtWidgets.QHBoxLayout(self.frame_options_games)
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
-        self.rb_jogos_betano = QtWidgets.QRadioButton(self.frame_options_games)
+        self.rb_games_betano = QtWidgets.QRadioButton(self.frame_options_games)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.rb_jogos_betano.sizePolicy().hasHeightForWidth())
-        self.rb_jogos_betano.setSizePolicy(sizePolicy)
-        self.rb_jogos_betano.setMinimumSize(QtCore.QSize(220, 20))
-        self.rb_jogos_betano.setMaximumSize(QtCore.QSize(220, 20))
-        self.rb_jogos_betano.setStyleSheet("\n"
+        sizePolicy.setHeightForWidth(self.rb_games_betano.sizePolicy().hasHeightForWidth())
+        self.rb_games_betano.setSizePolicy(sizePolicy)
+        self.rb_games_betano.setMinimumSize(QtCore.QSize(220, 20))
+        self.rb_games_betano.setMaximumSize(QtCore.QSize(220, 20))
+        self.rb_games_betano.setStyleSheet("\n"
 "QRadioButton{\n"
 "    font: 75 12pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
@@ -471,14 +471,14 @@ class Ui_Main(object):
 "    font: 75 12pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(0, 0, 0);\n"
 "}")
-        self.rb_jogos_betano.setAutoRepeatDelay(300)
-        self.rb_jogos_betano.setAutoRepeatInterval(100)
-        self.rb_jogos_betano.setObjectName("rb_jogos_betano")
-        self.horizontalLayout_10.addWidget(self.rb_jogos_betano)
-        self.rb_jogos_pixbet = QtWidgets.QRadioButton(self.frame_options_games)
-        self.rb_jogos_pixbet.setMinimumSize(QtCore.QSize(220, 20))
-        self.rb_jogos_pixbet.setMaximumSize(QtCore.QSize(220, 20))
-        self.rb_jogos_pixbet.setStyleSheet("\n"
+        self.rb_games_betano.setAutoRepeatDelay(300)
+        self.rb_games_betano.setAutoRepeatInterval(100)
+        self.rb_games_betano.setObjectName("rb_games_betano")
+        self.horizontalLayout_10.addWidget(self.rb_games_betano)
+        self.rb_games_esporte365 = QtWidgets.QRadioButton(self.frame_options_games)
+        self.rb_games_esporte365.setMinimumSize(QtCore.QSize(200, 20))
+        self.rb_games_esporte365.setMaximumSize(QtCore.QSize(200, 20))
+        self.rb_games_esporte365.setStyleSheet("\n"
 "QRadioButton{\n"
 "    font: 75 12pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(255, 255, 255);\n"
@@ -488,8 +488,23 @@ class Ui_Main(object):
 "    font: 75 12pt \"MS Shell Dlg 2\";\n"
 "    color: rgb(0, 0, 0);\n"
 "}")
-        self.rb_jogos_pixbet.setObjectName("rb_jogos_pixbet")
-        self.horizontalLayout_10.addWidget(self.rb_jogos_pixbet)
+        self.rb_games_esporte365.setObjectName("rb_games_esporte365")
+        self.horizontalLayout_10.addWidget(self.rb_games_esporte365)
+        self.rb_games_pixbet = QtWidgets.QRadioButton(self.frame_options_games)
+        self.rb_games_pixbet.setMinimumSize(QtCore.QSize(220, 20))
+        self.rb_games_pixbet.setMaximumSize(QtCore.QSize(220, 20))
+        self.rb_games_pixbet.setStyleSheet("\n"
+"QRadioButton{\n"
+"    font: 75 12pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QRadioButton:pressed{\n"
+"    font: 75 12pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(0, 0, 0);\n"
+"}")
+        self.rb_games_pixbet.setObjectName("rb_games_pixbet")
+        self.horizontalLayout_10.addWidget(self.rb_games_pixbet)
         self.verticalLayout_11.addWidget(self.frame_options_games)
         self.frame_tb_games = QtWidgets.QFrame(self.page_view_games)
         self.frame_tb_games.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -703,13 +718,14 @@ class Ui_Main(object):
         self.gridLayout_2.addWidget(self.frame_home_bottom, 1, 0, 1, 1)
         self.pages.addWidget(self.page_home)
         self.page_preview = QtWidgets.QWidget()
+        self.page_preview.setMinimumSize(QtCore.QSize(0, 0))
         self.page_preview.setObjectName("page_preview")
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page_preview)
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.frame_options_camp = QtWidgets.QFrame(self.page_preview)
-        self.frame_options_camp.setMinimumSize(QtCore.QSize(0, 100))
+        self.frame_options_camp.setMinimumSize(QtCore.QSize(0, 0))
         self.frame_options_camp.setMaximumSize(QtCore.QSize(16777215, 100))
         self.frame_options_camp.setStyleSheet("background-color: #4195FF;")
         self.frame_options_camp.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -720,6 +736,8 @@ class Ui_Main(object):
         self.verticalLayout_13.setSpacing(0)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
         self.frame_search_teams = QtWidgets.QFrame(self.frame_options_camp)
+        self.frame_search_teams.setMinimumSize(QtCore.QSize(0, 30))
+        self.frame_search_teams.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.frame_search_teams.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_search_teams.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_search_teams.setObjectName("frame_search_teams")
@@ -728,14 +746,14 @@ class Ui_Main(object):
         self.verticalLayout_16.setSpacing(0)
         self.verticalLayout_16.setObjectName("verticalLayout_16")
         self.frame_season = QtWidgets.QFrame(self.frame_search_teams)
-        self.frame_season.setMaximumSize(QtCore.QSize(16777215, 30))
+        self.frame_season.setMaximumSize(QtCore.QSize(16777215, 80))
         self.frame_season.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_season.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_season.setObjectName("frame_season")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.frame_season)
-        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_6.setSpacing(0)
-        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.frame_season)
+        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_4.setSpacing(0)
+        self.gridLayout_4.setObjectName("gridLayout_4")
         self.btn_side_options_season = QtWidgets.QToolButton(self.frame_season)
         self.btn_side_options_season.setMinimumSize(QtCore.QSize(0, 20))
         self.btn_side_options_season.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -776,11 +794,51 @@ class Ui_Main(object):
         self.btn_side_options_season.setToolButtonStyle(QtCore.Qt.ToolButtonFollowStyle)
         self.btn_side_options_season.setAutoRaise(True)
         self.btn_side_options_season.setObjectName("btn_side_options_season")
-        self.gridLayout_6.addWidget(self.btn_side_options_season, 0, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.btn_side_options_season, 0, 0, 1, 1)
         spacerItem2 = QtWidgets.QSpacerItem(1088, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_6.addItem(spacerItem2, 0, 1, 1, 1)
+        self.gridLayout_4.addItem(spacerItem2, 0, 1, 1, 1)
+        self.btn_update_base = QtWidgets.QPushButton(self.frame_season)
+        self.btn_update_base.setMinimumSize(QtCore.QSize(100, 30))
+        self.btn_update_base.setMaximumSize(QtCore.QSize(100, 30))
+        self.btn_update_base.setStyleSheet("QPushButton{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 10pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: #0954B2;\n"
+"    border-radius: 8px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"QPushButton:hover{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 10pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    \n"
+"    background-color: rgb(26, 60, 102);\n"
+"    border-radius: 8px;\n"
+"    border-bottom-color: rgb(4, 35, 38);\n"
+"    border-right-color:  rgb(4, 35, 38);\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:pressed{\n"
+"    border-style: none;\n"
+"    border-width: 2px;\n"
+"    font: 75 10pt \"MS Shell Dlg 2\";\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color:#0954B2;\n"
+"    border-radius: 8px;\n"
+"    border-top-color: rgb(4, 35, 38);\n"
+"    border-left-color:  rgb(4, 35, 38);\n"
+"}")
+        self.btn_update_base.setObjectName("btn_update_base")
+        self.gridLayout_4.addWidget(self.btn_update_base, 0, 2, 1, 1)
         self.verticalLayout_16.addWidget(self.frame_season)
         self.frame_teams_bottom = QtWidgets.QFrame(self.frame_search_teams)
+        self.frame_teams_bottom.setMinimumSize(QtCore.QSize(0, 0))
+        self.frame_teams_bottom.setMaximumSize(QtCore.QSize(16777215, 200))
         self.frame_teams_bottom.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_teams_bottom.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_teams_bottom.setObjectName("frame_teams_bottom")
@@ -789,15 +847,16 @@ class Ui_Main(object):
         self.horizontalLayout_6.setSpacing(0)
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
         self.frame_side_season = QtWidgets.QFrame(self.frame_teams_bottom)
+        self.frame_side_season.setMinimumSize(QtCore.QSize(0, 0))
         self.frame_side_season.setMaximumSize(QtCore.QSize(16777215, 0))
         self.frame_side_season.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_side_season.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_side_season.setObjectName("frame_side_season")
-        self.gridLayout_4 = QtWidgets.QGridLayout(self.frame_side_season)
-        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout_4.setHorizontalSpacing(10)
-        self.gridLayout_4.setVerticalSpacing(0)
-        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.gridLayout_6 = QtWidgets.QGridLayout(self.frame_side_season)
+        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_6.setHorizontalSpacing(10)
+        self.gridLayout_6.setVerticalSpacing(0)
+        self.gridLayout_6.setObjectName("gridLayout_6")
         self.cb_camp = QtWidgets.QComboBox(self.frame_side_season)
         self.cb_camp.setMinimumSize(QtCore.QSize(0, 40))
         self.cb_camp.setMaximumSize(QtCore.QSize(300, 40))
@@ -849,7 +908,7 @@ class Ui_Main(object):
         self.cb_camp.addItem(icon9, "")
         self.cb_camp.addItem(icon9, "")
         self.cb_camp.addItem(icon9, "")
-        self.gridLayout_4.addWidget(self.cb_camp, 0, 0, 1, 1)
+        self.gridLayout_6.addWidget(self.cb_camp, 0, 0, 1, 1)
         self.cb_games = QtWidgets.QComboBox(self.frame_side_season)
         self.cb_games.setMinimumSize(QtCore.QSize(0, 40))
         self.cb_games.setMaximumSize(QtCore.QSize(300, 40))
@@ -862,7 +921,7 @@ class Ui_Main(object):
         self.cb_games.addItem(icon9, "")
         self.cb_games.addItem(icon9, "")
         self.cb_games.addItem(icon9, "")
-        self.gridLayout_4.addWidget(self.cb_games, 0, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.cb_games, 0, 1, 1, 1)
         self.le_team1 = QtWidgets.QLineEdit(self.frame_side_season)
         self.le_team1.setMinimumSize(QtCore.QSize(200, 40))
         self.le_team1.setMaximumSize(QtCore.QSize(200, 40))
@@ -871,7 +930,7 @@ class Ui_Main(object):
 "background-color: rgb(255, 255, 255);\n"
 "")
         self.le_team1.setObjectName("le_team1")
-        self.gridLayout_4.addWidget(self.le_team1, 0, 2, 1, 1)
+        self.gridLayout_6.addWidget(self.le_team1, 0, 2, 1, 1)
         self.le_team2 = QtWidgets.QLineEdit(self.frame_side_season)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -885,7 +944,7 @@ class Ui_Main(object):
 "background-color: rgb(255, 255, 255);\n"
 "")
         self.le_team2.setObjectName("le_team2")
-        self.gridLayout_4.addWidget(self.le_team2, 0, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.le_team2, 0, 3, 1, 1)
         self.btn_search = QtWidgets.QPushButton(self.frame_side_season)
         self.btn_search.setMinimumSize(QtCore.QSize(150, 40))
         self.btn_search.setMaximumSize(QtCore.QSize(150, 35))
@@ -937,9 +996,9 @@ class Ui_Main(object):
         self.btn_search.setIcon(icon10)
         self.btn_search.setIconSize(QtCore.QSize(35, 35))
         self.btn_search.setObjectName("btn_search")
-        self.gridLayout_4.addWidget(self.btn_search, 0, 4, 1, 1)
+        self.gridLayout_6.addWidget(self.btn_search, 0, 4, 1, 1)
         spacerItem3 = QtWidgets.QSpacerItem(59, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem3, 0, 5, 1, 1)
+        self.gridLayout_6.addItem(spacerItem3, 0, 5, 1, 1)
         self.horizontalLayout_6.addWidget(self.frame_side_season)
         self.verticalLayout_16.addWidget(self.frame_teams_bottom)
         self.verticalLayout_13.addWidget(self.frame_search_teams)
@@ -1132,7 +1191,7 @@ class Ui_Main(object):
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.frame_options = QtWidgets.QFrame(self.frame)
         self.frame_options.setMinimumSize(QtCore.QSize(0, 0))
-        self.frame_options.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.frame_options.setMaximumSize(QtCore.QSize(16777215, 100))
         self.frame_options.setStyleSheet("background-color: #4195FF;")
         self.frame_options.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_options.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -1143,7 +1202,7 @@ class Ui_Main(object):
         self.gridLayout_3.setSpacing(0)
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.frame_btn_options = QtWidgets.QFrame(self.frame_options)
-        self.frame_btn_options.setMinimumSize(QtCore.QSize(0, 25))
+        self.frame_btn_options.setMinimumSize(QtCore.QSize(0, 30))
         self.frame_btn_options.setMaximumSize(QtCore.QSize(16777215, 30))
         self.frame_btn_options.setStyleSheet("background-color: #4195FF;")
         self.frame_btn_options.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -1497,7 +1556,7 @@ class Ui_Main(object):
         Main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Main)
-        self.pages.setCurrentIndex(3)
+        self.pages.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(Main)
 
     def retranslateUi(self, Main):
@@ -1509,8 +1568,9 @@ class Ui_Main(object):
         self.btn_previsoes.setText(_translate("Main", "Previsões              "))
         self.btn_calculator.setText(_translate("Main", "Calculadora           "))
         self.btn_about.setText(_translate("Main", "Sobre"))
-        self.rb_jogos_betano.setText(_translate("Main", "Jogos Betano"))
-        self.rb_jogos_pixbet.setText(_translate("Main", "Jogos Pixbet"))
+        self.rb_games_betano.setText(_translate("Main", "Jogos Betano"))
+        self.rb_games_esporte365.setText(_translate("Main", "Esporte365"))
+        self.rb_games_pixbet.setText(_translate("Main", "Jogos Pixbet"))
         self.tb_view_games.setSortingEnabled(True)
         item = self.tb_view_games.horizontalHeaderItem(0)
         item.setText(_translate("Main", "New Column"))
@@ -1543,6 +1603,7 @@ class Ui_Main(object):
         item = self.tb_view_games.horizontalHeaderItem(14)
         item.setText(_translate("Main", "New Column"))
         self.btn_side_options_season.setText(_translate("Main", "..."))
+        self.btn_update_base.setText(_translate("Main", "Atualizar Base"))
         self.cb_camp.setItemText(0, _translate("Main", "Argentina Primera Division"))
         self.cb_camp.setItemText(1, _translate("Main", "Australian A-League"))
         self.cb_camp.setItemText(2, _translate("Main", "Austrian T-Mobile Bundesliga"))
