@@ -104,7 +104,7 @@ class Betano:
             ano = '/2022'
             self.df['Data'] =  self.df['Data'].apply(lambda x: (x+ano).replace('/','-'))
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado:{e}')
             pass
 
     def parser_data_double_chance(self):

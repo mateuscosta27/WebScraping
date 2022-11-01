@@ -78,3 +78,10 @@ class Controller:
     def create_table_matches(self):
         controller = Database()
         controller.create_table_matches_latest()
+
+
+
+
+
+controller = Controller()
+controller.controller_betano()
