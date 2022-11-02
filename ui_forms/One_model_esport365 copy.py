@@ -1,13 +1,7 @@
 
-from select import select
-import shutil
 import os, sys
-from wsgiref import headers
 import pandas as pd
 from time import sleep
-from urllib import request
-import requests as rq
-from bs4 import BeautifulSoup
 from selenium import webdriver
 sys.path.insert(0,os.path.abspath(os.curdir))
 from selenium.webdriver.chrome.options import Options

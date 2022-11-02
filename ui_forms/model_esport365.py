@@ -1,144 +1,65 @@
-
-import os, sys
-import pandas as pd
-from time import sleep
-from selenium import webdriver
-sys.path.insert(0,os.path.abspath(os.curdir))
-from selenium.webdriver.chrome.options import Options
-
+import requests
+from pandas import json_normalize
 
 
 class Esporte365:
-    def __init__(self):
-        ###Carregando driver, recebendo o web site, definindo diretorio###
-        self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
-        self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
-        self.path = self.directory_driver +'\\chromedriver.exe'
-        self.web_site = 'https://www.esporte365.com/' ##Site onde estamos buscando as informações###
-        self.options = webdriver.ChromeOptions()
-        #self.options.add_argument('--window-size=1920,1080')
-        #self.options.add_argument('--start-maximized')
-        #self.options.add_argument('--headless')
-        #self.options.add_experimental_option('excludeSwitches',['enable-logging'])
-        self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
-        self.dic_jogos = {'TimeCasa':[], 'TimeVisitante':[], 'Odds1':[],'OddsX':[],'Odds2':[]}
-
-          
+    def __init__(self) -> None:
+        self.directory_file = 'C:\\tmp\\Arquivos' 
         
-    def open_web_site(self):
-        ###Abrindo website##
-        try:
-            self.driver.get(self.web_site)
-            print('executou')
-            self.driver.maximize_window()
-            print('executou')
-            #self.driver.execute_script("return document.getElementsByTagName('html')[0].innerHTML")
-            #print('executou')
-        except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
-            pass    
     
     
-    def select_football(self):
-          
-        try:
-            btn_list = self.driver.find_element(
-                'xpath', '//*[@id="app-component-view"]/app-window-plus2/div/app-home-desktop-plus2/div/div/div/app-events-area-plus2/div/app-events-area-desktop-plus2/div[1]/div[1]/app-game-selection-plus2/div/div[1]/app-game-button-plus2[1]/button/div') ##path do botão de fechar do banner que é exibido##
-            sleep(2)
-            btn_list.click()
-            sleep(5)
-        except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
-            pass
-        
-    def select_all(self):
-          
-        try:
-            btn_select_all = self.driver.find_element(
-                'xpath', '//*[@id="app-component-view"]/app-window-plus2/div/app-home-desktop-plus2/div/div/div/app-events-area-plus2/div/app-events-area-desktop-plus2/div[1]/div[2]/div/div/app-events-list-desktop-plus2/app-card-plus2/div/div[2]/nav/div[2]/div/div/a[4]') ##path do botão de fechar do banner que é exibido##
-            sleep(2)
-            btn_select_all.click()
-            sleep(5)
-        except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
-            pass      
-        
-    def scroll_page(self):
-        ###Rolando a pagina para obtenção do html###
-        try:
-            sleep(2)
-            for page in range(2):
-                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
-                sleep(2)
-        except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
-            pass  
+    def request(self):
+        headers = {
+            'authority': 'vip.ngx.bet',
+            'accept': 'application/json, text/plain, */*',
+            'accept-language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+            'if-none-match': 'W/"1d033-6Y9vpm1geQPAaRW8KANZySpPu10"',
+            'origin': 'https://www.esporte365.com',
+            'referer': 'https://www.esporte365.com/',
+            'sec-ch-ua': '"Chromium";v="106", "Google Chrome";v="106", "Not;A=Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'cross-site',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36',
+        }
 
-    def capture_teams(self):
-        team1 = self.driver.find_elements(
-            'xpath',  '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[1]/div[1]/div[2]/div[1]/span')
-        team2 = self.driver.find_elements(
-            'xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[1]/div[1]/div[2]/div[2]/span')
-        for i in range(len(team1)):
-            t1 = team1[i].text
-            self.dic_jogos['TimeCasa'].append(t1)
-        for j in range(len(team1)):
-            t2 = team2[j].text
-            self.dic_jogos['TimeVisitante'].append(t2)    
-            
-    def capture_odds(self):
-        odds1 = self.driver.find_elements(
-            'xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[1]/div/div/button/div')
-        oddsX = self.driver.find_elements(
-            'xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[2]/div/div/button/div')
-        odds2 = self.driver.find_elements(
-            'xpath', '//*[@id="agsVirtual"]/app-event-item-desktop-plus2/app-event-item-soccer-desktop-plus2/div/div/div[2]/app-odd-button-plus2[3]/div/div/button/div')
-        for i in range(len(odds1)):
-            odd1 = odds1[i].text
-            self.dic_jogos['Odds1'].append(odd1)
-        print('funcionou')    
-            
-        for j in range(len(oddsX)):
-            oddx = oddsX[j].text
-            self.dic_jogos['OddsX'].append(oddx)
-        print('funcionou')                    
-        for k in range(len(odds2)):
-            odd2 = odds2[k].text
-            self.dic_jogos['Odds2'].append(odd2)
-        print('funcionou')                    
-            
+        params = {
+            'type': 'SOCCER',
+            'external_championship_id': '20913',
+        }
+
+        response = requests.get('https://vip.ngx.bet/event', params=params, headers=headers)
+
+        esporte365 = json_normalize(response.json())
+        df = esporte365[[
+                    'home_team', 
+                    'away_team',
+                    'odds.full_time.home.value',
+                    'odds.full_time.draw.value',
+                    'odds.full_time.away.value',
+                    'odds.full_time.home_or_draw.value',
+                    'odds.full_time.draw_or_away.value']]
+
+        df.columns = [
+                    'TimeCasa',
+                    'TimeVisitante',
+                    'Odds1',
+                    'OddsX',
+                    'Odds2',
+                    '1x',
+                    '2x']
+        self.Data_Frame = df
+        
     def export_data(self):
-        try:
-            df = pd.DataFrame(self.dic_jogos) ##transformando dicionario em dataframe##
-            df.to_csv(
-                self.directory_file+'\\esporte365.csv',encoding='utf-8', sep=';', index=False) ##exportando arquivo CSV para o diretorio definido a cima##
-        except Exception as e:
-            print(f'Houve um erro inesperado: {e}')
-            pass      
-    
-        
-    def creating_index_esport365(self):
-        
-        ###criando indice no data frame devido aos nomes dos times estarem escritos diferentes nos sites###
-        try:
-            esport365 = pd.read_csv(self.directory_file+'\\esporte365.csv', encoding = 'utf-8', sep=';')
-            ind_esport365={'Timec':[], 'Timev':[]}
-            df1 = esport365['TimeCasa']
-            for nome in df1:
-                abrev = nome[0:3]
-                ind_esport365['Timec'].append(abrev)
+        for column_remove in self.Data_Frame.columns:
+                self.Data_Frame[column_remove] = self.Data_Frame[column_remove].apply(lambda x:str(x).strip())
                 
-            df1 = esport365['TimeVisitante']
-            for nome in df1:
-                abrev = nome[0:3]  
-                ind_esport365['Timev'].append(abrev)
-                
-            df_esport365 = pd.DataFrame(ind_esport365,columns=['Timec', 'Timev'])
-            df_esport365['Index'] = df_esport365['Timec'].map(str)+'x'+df_esport365['Timev']
-
-            df_esport365 = df_esport365.drop(['Timec', 'Timev'], axis=1)
-            esport365.insert(0,'ind',df_esport365)
-            esport365.to_csv(self.directory_file+'\\DataFrame_esport365.csv',encoding='utf-8', sep=';', index=False)  ##exportando dataframe final##
-        except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
-  
+        self.Data_Frame.to_csv(
+                self.directory_file+'\\Data_Frame_esporte.csv',encoding='utf-8', sep=';', index=False)
+       
+       
+esport = Esporte365()
+esport.request()
+esport.export_data()       

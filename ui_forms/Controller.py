@@ -80,8 +80,3 @@ class Controller:
         controller.create_table_matches_latest()
 
 
-
-
-
-controller = Controller()
-controller.controller_betano()
