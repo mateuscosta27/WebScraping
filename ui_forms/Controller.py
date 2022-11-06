@@ -48,6 +48,7 @@ class Controller:
     def controller_pixbet(self):
         pixbet = Pixbet()
         pixbet.open_web_site()
+        pixbet.scroll_page()
         pixbet.parser_data()
         pixbet.data_transform()
         pixbet.export_data()

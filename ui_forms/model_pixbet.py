@@ -20,7 +20,7 @@ class Pixbet:
         self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
         self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
         self.path = self.directory_driver +'\\chromedriver.exe'
-        self.web_site = 'https://pixbet.com/prejogo/#league/2417-undefined' ##Site onde estamos buscando as informações###
+        self.web_site = 'https://pixbet.com/prejogo/#leagues/2417,46,1,49' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
@@ -36,7 +36,19 @@ class Pixbet:
         except Exception as e:
             print(e)
             pass
-
+    
+    def scroll_page(self):
+        ###Rolando a pagina para obtenção do html###
+        try:
+            sleep(2)
+            for page in range(3):
+                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
+                sleep(2)
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass        
+    
+    
     def parser_data(self):
         try:
             self.soup = BeautifulSoup(self.driver.page_source, 'lxml')

@@ -17,7 +17,7 @@ class Betano:
         self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
         self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
         self.path = self.directory_driver +'\\chromedriver.exe'
-        self.web_site = 'https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=0' ##Site onde estamos buscando as informações###
+        self.web_site = 'https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=0' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
         #self.options.add_argument('--window-size=1920,1080')
         #self.options.add_argument('--start-maximized')
@@ -51,8 +51,8 @@ class Betano:
         ###Rolando a pagina para obtenção do html###
         try:
             sleep(2)
-            for page in range(2):
-                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
+            for page in range(3):
+                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
                 sleep(2)
         except Exception as e:
             print('Houve um erro inesperado:  '+ e)
@@ -111,7 +111,7 @@ class Betano:
         ###Obtendo dados da dupla chance##
         try:
             self.driver.refresh()
-            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=1')")
+            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=1')")
             self.driver._switch_to.window(self.driver.window_handles[1])
             sleep(5)
             #btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div') ##path do botão de dupla chance##
@@ -139,12 +139,12 @@ class Betano:
     def except_button(self):
         try:
             self.driver.refresh()
-            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/brasil/brasileirao-serie-a/10016/?bt=2')")
+            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=2')")
             self.driver._switch_to.window(self.driver.window_handles[2])
             sleep(3)
             
-            for page in range(2):
-                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
+            for page in range(3):
+                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
             sleep(2)
             ##mesmo processo de tratamento dos dados com dicionario ##
             dic_duplachance = {'Dupla':[]} 
