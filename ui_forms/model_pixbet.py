@@ -19,6 +19,7 @@ class Pixbet:
     def __init__(self):
         
         self.dic_jogos = {'Jogos':[]}
+        self.list_website = ['2417','46','1','49']
         self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
         self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
         self.path = self.directory_driver +'\\chromedriver.exe'
@@ -35,38 +36,41 @@ class Pixbet:
             self.driver.stop_client()           
             self.driver.maximize_window()
             self.driver.delete_all_cookies()
-            
-
         except Exception as e:
             print(e)
             pass
-        
-    def loop(self):
-        my_list = ['2417','46','1','49']
-        handless = 1
-        for i in my_list:
-            self.driver.execute_script(f"window.open('https://pixbet.com/prejogo/#leagues/{i}-undefined')")
-            self.driver._switch_to.window(self.driver.window_handles[handless])
-            sleep(5)
-            self.driver.delete_all_cookies()
-            sleep(2)
-            self.driver.refresh()            
-            self.soup = BeautifulSoup(self.driver.page_source, 'lxml')
-            self.partidas =self.soup.find_all('table',{'class':'odds_table'})
-            
-            self.dic_jogos['Jogos'].append(self.partidas)      
-            sleep(10)
-            handless = handless + 1
-              
+    
+    def brasileiro_serie_A(self):
+        idLeague = 2417
+        self.driver.execute_script(f"window.open('https://pixbet.com/prejogo/#leagues/{idLeague}-undefined')")
+        self.driver._switch_to.window(self.driver.window_handles[1])
+        sleep(5)
+        soup = BeautifulSoup(self.driver.page_source, 'lxml')
+        for sub in soup.find_all('tr', {'class': 'odds_tr'}):
+            jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+            self.dic_jogos['Jogos'].append(jogos) 
+        print(self.dic_jogos)
+        self.driver.close()
+        sleep(5)
+
+
+    def inglaterra_premiere_league(self):
+        idLeague = 46
+        self.driver.execute_script(f"window.open('https://pixbet.com/prejogo/#leagues/{idLeague}-undefined')")
+        self.driver._switch_to.window(self.driver.window_handles[2])
+        soup = BeautifulSoup(self.driver.page_source, 'lxml')
+        for sub in soup.find_all('tr', {'class': 'odds_tr'}):
+            jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+            self.dic_jogos['Jogos'].append(jogos) 
+        self.driver.close() 
+
     def export_data(self):
         try:
             df = pd.DataFrame(self.dic_jogos)
             df.to_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';', index=False)
         except Exception as e:
             print(e)
-            pass
-        
-        
+            pass    
     def split_columns(self):
         try:
             self.df = pd.read_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';')

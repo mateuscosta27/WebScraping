@@ -51,7 +51,9 @@ class Controller:
         #pixbet.scroll_page()
         #pixbet.parser_data()
         #pixbet.data_transform()
-        pixbet.loop()
+        pixbet.brasileiro_serie_A()
+        sleep(5)
+        pixbet.inglaterra_premiere_league()
         pixbet.export_data()
         """pixbet.split_columns()
         pixbet.rename_columns()
@@ -82,5 +84,6 @@ class Controller:
         controller.create_table_global_rankings_intl()
 
 
-controller = Controller()
-controller.controller_pixbet()
+
+teste = Controller()
+teste.controller_pixbet()
