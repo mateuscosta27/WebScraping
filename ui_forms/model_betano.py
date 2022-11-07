@@ -51,8 +51,8 @@ class Betano:
         ###Rolando a pagina para obtenção do html###
         try:
             sleep(2)
-            for page in range(3):
-                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
+            for page in range(5):
+                scroll = self.driver.execute_script("window.scrollBy(0,450)","")
                 sleep(2)
         except Exception as e:
             print('Houve um erro inesperado:  '+ e)
@@ -110,14 +110,12 @@ class Betano:
     def parser_data_double_chance(self):
         ###Obtendo dados da dupla chance##
         try:
-            self.driver.refresh()
             self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=1')")
             self.driver._switch_to.window(self.driver.window_handles[1])
             sleep(5)
             #btn_dupla_chance = self.driver.find_element('xpath', '/html/body/div[1]/div/section[2]/div[5]/div[2]/section/div[3]/div/div[1]/div/ul/li[3]/div') ##path do botão de dupla chance##
             #btn_dupla_chance.click()
             sleep(3)
-            self.driver.refresh()
             for page in range(2):
                 scroll = self.driver.execute_script("window.scrollBy(0,350)","")
             sleep(2)

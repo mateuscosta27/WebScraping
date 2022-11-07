@@ -48,18 +48,19 @@ class Controller:
     def controller_pixbet(self):
         pixbet = Pixbet()
         pixbet.open_web_site()
-        pixbet.scroll_page()
-        pixbet.parser_data()
-        pixbet.data_transform()
+        #pixbet.scroll_page()
+        #pixbet.parser_data()
+        #pixbet.data_transform()
+        pixbet.loop()
         pixbet.export_data()
-        pixbet.split_columns()
+        """pixbet.split_columns()
         pixbet.rename_columns()
         pixbet.order_columns()
         pixbet.remove_space()
         pixbet.data_convert_types()
         pixbet.export_dataframe()
         pixbet.create_index_pixbet()
-        pixbet.remove_file()
+        pixbet.remove_file()"""
         
     def controller_probabilidades(self):
         controller = Probability()
@@ -71,13 +72,15 @@ class Controller:
         controller = Database()
         controller.create_table_betano()
         controller.create_table_pixbet()
+        
+
+
+    def create_table_matches(self):
+        controller = Database()
         controller.create_table_matches_latest() 
         controller.create_table_global_rankings()
         controller.create_table_global_rankings_intl()
 
 
-    def create_table_matches(self):
-        controller = Database()
-        controller.create_table_matches_latest()
-
-
+controller = Controller()
+controller.controller_pixbet()

@@ -13,16 +13,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 class Pixbet:
- 
-
-   
+    
     def __init__(self):
         
-        self.dic_jogos = {'Jogos':[]}
+        
         self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
         self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
         self.path = self.directory_driver +'\\chromedriver.exe'
-        self.web_site = 'https://pixbet.com/prejogo/' ##Site onde estamos buscando as informações###
+        self.web_site = 'https://pixbet.com/prejogo/#leagues/2417,46,1,49' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
@@ -31,33 +29,47 @@ class Pixbet:
         
     def open_web_site(self):
         try:
-            self.driver.get(self.web_site)
-            self.driver.stop_client()           
+            self.driver.get(self.web_site)           
             self.driver.maximize_window()
-            self.driver.delete_all_cookies()
-            
-
+            self.driver.stop_client()
+          
+        except Exception as e:
+            print(e)
+            pass
+    
+    def scroll_page(self):
+        ###Rolando a pagina para obtenção do html###
+        try:
+            sleep(2)
+            for page in range(3):
+                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
+                sleep(2)
+        except Exception as e:
+            print('Houve um erro inesperado:  '+ e)
+            pass        
+    
+    
+    def parser_data(self):
+        try:
+            self.soup = BeautifulSoup(self.driver.page_source, 'lxml')
+            self.partidas =self.soup.find_all('table',{'class':'odds_table'})
         except Exception as e:
             print(e)
             pass
         
-    def loop(self):
-        my_list = ['2417','46','1','49']
-        handless = 1
-        for i in my_list:
-            self.driver.execute_script(f"window.open('https://pixbet.com/prejogo/#leagues/{i}-undefined')")
-            self.driver._switch_to.window(self.driver.window_handles[handless])
-            sleep(5)
-            self.driver.delete_all_cookies()
-            sleep(2)
-            self.driver.refresh()            
-            self.soup = BeautifulSoup(self.driver.page_source, 'lxml')
-            self.partidas =self.soup.find_all('table',{'class':'odds_table'})
-            
-            self.dic_jogos['Jogos'].append(self.partidas)      
-            sleep(10)
-            handless = handless + 1
-              
+          
+    def data_transform(self):
+        try:
+            self.dic_jogos = {'Jogos':[]}
+            for sub in self.soup.find_all('tr', {'class': 'odds_tr'}):
+                jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+                self.dic_jogos['Jogos'].append(jogos) 
+            self.driver.close()
+        except Exception as e:
+            print(e)
+            pass
+        
+               
     def export_data(self):
         try:
             df = pd.DataFrame(self.dic_jogos)
@@ -65,8 +77,6 @@ class Pixbet:
         except Exception as e:
             print(e)
             pass
-        
-        
     def split_columns(self):
         try:
             self.df = pd.read_csv(self.directory_file+'\\scraping_pixbet.csv',encoding='utf-8', sep=';')

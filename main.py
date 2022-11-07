@@ -330,8 +330,8 @@ class ModuloPrincipal(QMainWindow):
         ################################################################################################
     def collect_odds(self):
         controller = Controller()
-        controller.controller_pixbet()
         controller.controller_betano()
+        controller.controller_pixbet()
         controller.create_tables()
         self.stop_animations()
         self.ui.lb_collect_animation.setVisible(False)
