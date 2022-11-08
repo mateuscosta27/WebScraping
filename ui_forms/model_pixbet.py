@@ -9,8 +9,12 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 sys.path.insert(0,os.path.abspath(os.curdir))
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.wait import WebDriverWait
 
+""" Brasileirão série A - 2417
+    Inglaterra Premiere League - 46
+    Alemanha Bundesliga - 1
+    Portugal - Primeira Liga - 220
+"""
 
 class Pixbet:
  
@@ -29,40 +33,70 @@ class Pixbet:
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
         #self.driver = uc.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), options=self.options)
 
-        
-    def open_web_site(self):
+
+    def brasileiro_serie_A(self):
         try:
-            self.driver.get(self.web_site)
-            self.driver.stop_client()           
+            brasileiro = 'https://pixbet.com/prejogo/#leagues/2417-undefined'
+            self.driver.get(brasileiro)
             self.driver.maximize_window()
             self.driver.delete_all_cookies()
+            self.driver.refresh()
+            sleep(5)
+            soup = BeautifulSoup(self.driver.page_source, 'lxml')
+            for sub in soup.find_all('tr', {'class': 'odds_tr'}):
+                jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+                self.dic_jogos['Jogos'].append(jogos) 
+            sleep(5)
         except Exception as e:
-            print(e)
-            pass
-    
-    def brasileiro_serie_A(self):
-        idLeague = 2417
-        self.driver.execute_script(f"window.open('https://pixbet.com/prejogo/#leagues/{idLeague}-undefined')")
-        self.driver._switch_to.window(self.driver.window_handles[1])
-        sleep(5)
-        soup = BeautifulSoup(self.driver.page_source, 'lxml')
-        for sub in soup.find_all('tr', {'class': 'odds_tr'}):
-            jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
-            self.dic_jogos['Jogos'].append(jogos) 
-        print(self.dic_jogos)
-        self.driver.close()
-        sleep(5)
+            print(f'Ocorreu um erro {e}')    
 
 
     def inglaterra_premiere_league(self):
-        idLeague = 46
-        self.driver.execute_script(f"window.open('https://pixbet.com/prejogo/#leagues/{idLeague}-undefined')")
-        self.driver._switch_to.window(self.driver.window_handles[2])
-        soup = BeautifulSoup(self.driver.page_source, 'lxml')
-        for sub in soup.find_all('tr', {'class': 'odds_tr'}):
-            jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
-            self.dic_jogos['Jogos'].append(jogos) 
-        self.driver.close() 
+        try:
+            premiere = 'https://pixbet.com/prejogo/#leagues/46-undefined'
+            self.driver.get(premiere)
+            self.driver.delete_all_cookies()
+            self.driver.refresh()
+            sleep(5)
+            soup = BeautifulSoup(self.driver.page_source, 'lxml')
+            for sub in soup.find_all('tr', {'class': 'odds_tr'}):
+                jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+                self.dic_jogos['Jogos'].append(jogos)
+            sleep(5)
+        except Exception as e:
+            print(f'Ocorreu um erro {e}') 
+    
+    def alemanha_bundesliga(self):
+        try:
+            bundesliga = 'https://pixbet.com/prejogo/#leagues/1-undefined'
+            self.driver.get(bundesliga)
+            self.driver.delete_all_cookies()
+            self.driver.refresh()
+            sleep(5)
+            soup = BeautifulSoup(self.driver.page_source, 'lxml')
+            for sub in soup.find_all('tr', {'class': 'odds_tr'}):
+                jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+                self.dic_jogos['Jogos'].append(jogos)
+            sleep(5)
+        except Exception as e:
+            print(f'Ocorreu um erro {e}')
+            
+    def portugal_primeira_liga(self):
+        try:
+            primeir_liga = 'https://pixbet.com/prejogo/#leagues/220-undefined'
+            self.driver.get(primeir_liga)
+            self.driver.delete_all_cookies()
+            self.driver.refresh()
+            sleep(5)
+            soup = BeautifulSoup(self.driver.page_source, 'lxml')
+            for sub in soup.find_all('tr', {'class': 'odds_tr'}):
+                jogos = sub.get_text().strip().replace('\n\n\n\n',';').replace('\n\n\n',';').replace('\n\n',';')
+                self.dic_jogos['Jogos'].append(jogos)
+            sleep(5)
+        except Exception as e:
+            print(f'Ocorreu um erro {e}')          
+                  
+        
 
     def export_data(self):
         try:
@@ -78,6 +112,7 @@ class Pixbet:
             self.df_split[['Data','Hora']] = self.df_split[0].str.split('|',expand=True)
             self.df_split[['TimeCasa','TimeVisitante']] = self.df_split[1].str.split(' - ',expand=True)
             self.df_split = self.df_split.drop(columns=[0,1,5,6,7,9,10,11,12,13,14,16,17,18,19,23,24,27])
+            self.driver.close()
         except Exception as e:
             print(e)
             pass    

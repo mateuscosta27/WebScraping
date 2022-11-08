@@ -37,6 +37,7 @@ class Controller:
         betano.parser_data_double_chance()
         betano.export_double_chance()
         betano.double_chance()
+        sleep(10)
         betano.close_driver()
         betano.data_convert_types()
         betano.df_concat()
@@ -47,22 +48,25 @@ class Controller:
     
     def controller_pixbet(self):
         pixbet = Pixbet()
-        pixbet.open_web_site()
         #pixbet.scroll_page()
         #pixbet.parser_data()
         #pixbet.data_transform()
         pixbet.brasileiro_serie_A()
         sleep(5)
         pixbet.inglaterra_premiere_league()
+        sleep(5)
+        pixbet.alemanha_bundesliga()
+        sleep(5)
+        pixbet.portugal_primeira_liga()
         pixbet.export_data()
-        """pixbet.split_columns()
+        pixbet.split_columns()
         pixbet.rename_columns()
         pixbet.order_columns()
         pixbet.remove_space()
         pixbet.data_convert_types()
         pixbet.export_dataframe()
         pixbet.create_index_pixbet()
-        pixbet.remove_file()"""
+        pixbet.remove_file()
         
     def controller_probabilidades(self):
         controller = Probability()
@@ -85,5 +89,8 @@ class Controller:
 
 
 
+
+
 teste = Controller()
-teste.controller_pixbet()
+teste.controller_betano()
+

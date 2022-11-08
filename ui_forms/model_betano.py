@@ -32,7 +32,7 @@ class Betano:
             self.driver.get(self.web_site)
             self.driver.maximize_window()
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass    
         
     def close_banner(self):
@@ -43,7 +43,7 @@ class Betano:
             sleep(5)
             btn_fechar.click()
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
 
         
@@ -51,11 +51,11 @@ class Betano:
         ###Rolando a pagina para obtenção do html###
         try:
             sleep(2)
-            for page in range(5):
-                scroll = self.driver.execute_script("window.scrollBy(0,450)","")
+            for page in range(10):
+                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
                 sleep(2)
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass        
             
     def parser_data(self):
@@ -66,7 +66,7 @@ class Betano:
             table = soup.find('table', {'class': 'events-list__grid'}) ##classe onde se encontram as informações##
             self.tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
                 
     def insert_data_dic(self):
@@ -76,7 +76,7 @@ class Betano:
                 self.dic_jogos['Jogos'].append(jogos)
             self.dic_jogos = self.dic_jogos
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
 
                
@@ -86,7 +86,7 @@ class Betano:
             df.to_csv(
                 self.directory_file+'\\scraping_betano.csv',encoding='utf-8', sep=';', index=False) ##exportando arquivo CSV para o diretorio definido a cima##
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
         
     def data_transform(self):
@@ -117,31 +117,6 @@ class Betano:
             #btn_dupla_chance.click()
             sleep(3)
             for page in range(2):
-                scroll = self.driver.execute_script("window.scrollBy(0,350)","")
-            sleep(2)
-            ##mesmo processo de tratamento dos dados com dicionario ##
-            dic_duplachance = {'Dupla':[]} 
-            soup_dupla = BeautifulSoup(self.driver.page_source, 'lxml')
-            table = soup_dupla.find('table', {'class': 'events-list__grid'})
-            tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
-            for jogo in tr_element:
-                jogos = jogo.get_text().strip()
-                dic_duplachance['Dupla'].append(jogos)
-            self.dic_duplachance = dic_duplachance
-        except Exception as e:
-            print(e)
-            print('passou')
-            self.except_button()
-            pass
-            
-    def except_button(self):
-        try:
-            self.driver.refresh()
-            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=2')")
-            self.driver._switch_to.window(self.driver.window_handles[2])
-            sleep(3)
-            
-            for page in range(3):
                 scroll = self.driver.execute_script("window.scrollBy(0,400)","")
             sleep(2)
             ##mesmo processo de tratamento dos dados com dicionario ##
@@ -154,8 +129,31 @@ class Betano:
                 dic_duplachance['Dupla'].append(jogos)
             self.dic_duplachance = dic_duplachance
         except Exception as e:
-            print(e)
-            print('passou')
+            print(f'Houve um erro inesperado: {e}')
+            self.except_button()
+            pass
+            
+    def except_button(self):
+        try:
+            self.driver.refresh()
+            self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=2')")
+            self.driver._switch_to.window(self.driver.window_handles[2])
+            sleep(3)
+            
+            for page in range(10):
+                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
+            sleep(2)
+            ##mesmo processo de tratamento dos dados com dicionario ##
+            dic_duplachance = {'Dupla':[]} 
+            soup_dupla = BeautifulSoup(self.driver.page_source, 'lxml')
+            table = soup_dupla.find('table', {'class': 'events-list__grid'})
+            tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
+            for jogo in tr_element:
+                jogos = jogo.get_text().strip()
+                dic_duplachance['Dupla'].append(jogos)
+            self.dic_duplachance = dic_duplachance
+        except Exception as e:
+            print(f'Houve um erro inesperado: {e}')
             pass
         
                      
@@ -163,7 +161,7 @@ class Betano:
         try:    
             self.driver.close() ##fechando o driver##
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
 
     def export_double_chance(self): 
@@ -172,7 +170,7 @@ class Betano:
             df_odds = pd.DataFrame(self.dic_duplachance)
             df_odds.to_csv(self.directory_file+'\\scraping_betano_dupla.csv',encoding='utf-8', sep=';', index=False)
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
 
     def double_chance(self):
@@ -187,7 +185,7 @@ class Betano:
             self.df_dupla = self.DuplaChance
             self.df_dupla.to_csv(self.directory_file+'\\DataFrame_betano_dupla.csv',encoding='utf-8', sep=';', index=False) ##exportando csv##
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass    
        
                
@@ -197,7 +195,7 @@ class Betano:
             for column_float in self.df.columns[4:]:
                 self.df[column_float] = pd.Series(self.df[column_float], dtype=float)
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
 
     def df_concat(self):
@@ -205,7 +203,7 @@ class Betano:
         try:
             self.df_full = pd.concat([self.df, self.df_dupla], axis=1)   
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
 
     def export_dataframe(self):
@@ -213,7 +211,7 @@ class Betano:
         try:
             self.df_full.to_csv(self.directory_file+'\\df_betano.csv',encoding='utf-8', sep=';', index=False)
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
         
     def creating_index_betano(self):
@@ -239,7 +237,7 @@ class Betano:
             betano.insert(0,'ind',df_betano)
             betano.to_csv(self.directory_file+'\\DataFrame_betano.csv',encoding='utf-8', sep=';', index=False)  ##exportando dataframe final##
         except Exception as e:
-            print('Houve um erro inesperado:  '+ e)
+            print(f'Houve um erro inesperado: {e}')
             pass
 
     def remove_files(self):         
