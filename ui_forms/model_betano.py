@@ -65,6 +65,7 @@ class Betano:
             soup = BeautifulSoup(self.driver.page_source, 'lxml')
             table = soup.find('table', {'class': 'events-list__grid'}) ##classe onde se encontram as informações##
             self.tr_element = table.find_all('tr',{'class':'events-list__grid__event'})
+            
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
             pass
@@ -75,6 +76,7 @@ class Betano:
                 jogos = jogo.get_text().strip()
                 self.dic_jogos['Jogos'].append(jogos)
             self.dic_jogos = self.dic_jogos
+            print(self.dic_jogos)
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
             pass
@@ -139,7 +141,6 @@ class Betano:
             self.driver.execute_script("window.open('https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=2')")
             self.driver._switch_to.window(self.driver.window_handles[2])
             sleep(3)
-            
             for page in range(10):
                 scroll = self.driver.execute_script("window.scrollBy(0,400)","")
             sleep(2)
@@ -251,3 +252,11 @@ class Betano:
             print(f"Error:{e.strerror}")
             print('Algo deu errado')
 
+
+
+teste = Betano()
+teste.open_web_site()
+teste.close_banner()
+teste.scroll_page()
+teste.parser_data()
+teste.insert_data_dic()

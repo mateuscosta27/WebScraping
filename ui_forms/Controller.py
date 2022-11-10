@@ -88,9 +88,3 @@ class Controller:
         controller.create_table_global_rankings_intl()
 
 
-
-
-
-teste = Controller()
-teste.controller_betano()
-
