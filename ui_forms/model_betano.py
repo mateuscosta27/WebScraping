@@ -252,11 +252,3 @@ class Betano:
             print(f"Error:{e.strerror}")
             print('Algo deu errado')
 
-
-
-teste = Betano()
-teste.open_web_site()
-teste.close_banner()
-teste.scroll_page()
-teste.parser_data()
-teste.insert_data_dic()

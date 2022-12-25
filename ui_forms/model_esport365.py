@@ -58,8 +58,4 @@ class Esporte365:
                 
         self.Data_Frame.to_csv(
                 self.directory_file+'\\Data_Frame_esporte.csv',encoding='utf-8', sep=';', index=False)
-       
-       
-esport = Esporte365()
-esport.request()
-esport.export_data()       
+  
