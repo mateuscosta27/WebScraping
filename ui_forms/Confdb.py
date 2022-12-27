@@ -6,10 +6,19 @@ import zipfile
 import sys,os
 sys.path.insert(0,os.path.abspath(os.curdir))
 
+import sys
+from PyQt5.QtWidgets import QApplication, QFileDialog
 class Confdb:
+
+
+  
     def __init__(self) :
-         ###Criando diretorios padrao###      
-        diretorios = ['C:\\tmp\\Arquivos','C:\\tmp\\Bancos','C:\\tmp\\Driver']
+
+
+        app = QApplication(sys.argv)
+        selected_directory = QFileDialog.getExistingDirectory(directory="/C:")
+        print(selected_directory) 
+        diretorios = [selected_directory+'\\tmp\\Arquivos',selected_directory+'\\tmp\\Bancos',selected_directory+'\\tmp\\Driver']
         for diretorio in diretorios:
             if not os.path.exists(diretorio):
                 os.makedirs(diretorio)
@@ -28,3 +37,6 @@ class Confdb:
         directory_database = 'C:\\tmp\\Bancos'
         con = sqlite3.connect(directory_database+'\\DADOS.db')
         con.close()           
+
+
+teste = Confdb()
