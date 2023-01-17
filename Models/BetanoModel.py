@@ -1,5 +1,6 @@
 
 import shutil
+import json
 import os, sys
 import pandas as pd
 from time import sleep
@@ -13,10 +14,25 @@ from selenium.webdriver.chrome.options import Options
 
 class Betano:
     def __init__(self):
+
+
+        _names_files = {
+                'Betano': 'Betano.csv', 
+                'BetanoDupla':'BetanoDupla',
+                'DataFrameDupla':'DataFrame_betano_dupla.csv',
+                'Complete':'BetanoComplete.csv', 
+                'Final':'DataFrame_betano.csv'}
+
+        with open("../Data/Startup.json") as Directorys:
+            directory = json.load(Directorys)
+            file = directory['Files']
+            driver = directory['Driver']
         ###Carregando driver, recebendo o web site, definindo diretorio###
-        self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
-        self.directory_driver = 'C:\\tmp\\Driver'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
-        self.path = self.directory_driver +'\\chromedriver.exe'
+        #self.directory_file = 'C:\\tmp\\Arquivos'   ##Diretorio onde serão salvos os arquivos CSV com informações obtidas###     
+        #self.directory_driver = 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application'   ##Diretorio onde esta localizado o driver do google chrome para operação com selenium###    
+        self.directory_file = file
+        self.directory_driver = driver
+        self.path = os.path.join(self.directory_driver,'chromedriver.exe')
         self.web_site = 'https://br.betano.com/sport/futebol/ligas/10016r,10016o,10017r,1r,1o,216r,216o,1635r,1635o,5r,5o/?bt=0' ##Site onde estamos buscando as informações###
         self.options = webdriver.ChromeOptions()
         #self.options.add_argument('--window-size=1920,1080')
@@ -24,6 +40,7 @@ class Betano:
         #self.options.add_argument('--headless')
         self.options.add_experimental_option('excludeSwitches',['enable-logging'])
         self.driver = webdriver.Chrome(options=self.options,executable_path=self.path)
+        self.names_files = _names_files
     
                       
     def open_web_site(self):
@@ -49,15 +66,9 @@ class Betano:
         
     def scroll_page(self):
         ###Rolando a pagina para obtenção do html###
-        try:
-            sleep(2)
-            for page in range(10):
-                scroll = self.driver.execute_script("window.scrollBy(0,400)","")
-                sleep(2)
-        except Exception as e:
-            print(f'Houve um erro inesperado: {e}')
-            pass        
-            
+        scroll_position = self.driver.execute_script('return window.pageYOffset;')
+        self.driver.execute_script('window.scrollTo(0,document.body.scrollHeight);')
+        scroll_position = self.driver.execute_script('return window.pageYOffset;')
     def parser_data(self):
         ###Analisando o html e capturando as informações desejadas###
         try:
@@ -86,7 +97,7 @@ class Betano:
         try:
             df = pd.DataFrame(self.dic_jogos) ##transformando dicionario em dataframe##
             df.to_csv(
-                self.directory_file+'\\scraping_betano.csv',encoding='utf-8', sep=';', index=False) ##exportando arquivo CSV para o diretorio definido a cima##
+                os.path.join(self.directory_file,self.names_files['Betano']),encoding='utf-8', sep=';', index=False) ##exportando arquivo CSV para o diretorio definido a cima##
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
             pass
@@ -94,7 +105,7 @@ class Betano:
     def data_transform(self):
         ###Limpeza dos dados###
         try:
-            df = pd.read_csv(self.directory_file+'\\scraping_betano.csv',encoding='utf-8', sep=';') ##importação do CSV###
+            df = pd.read_csv(os.path.join(self.directory_file,self.names_files['Betano']),encoding='utf-8', sep=';') ##importação do CSV###
             df = df['Jogos'].str.split('\n ', expand= True)
             df = df.drop(columns=[1,3,5,7,8,9,11,13,15,16,17,19,21,22,23,25,27]) ##Removendo as colunas desnecessárias##
             df.columns = ['Data','Hora','TimeCasa','TimeVisitante','Odds1','OddsX','Odds2','MaisGols','MenosGols',
@@ -169,7 +180,7 @@ class Betano:
         ###Exportando os dados coletados da dupla chance##
         try:
             df_odds = pd.DataFrame(self.dic_duplachance)
-            df_odds.to_csv(self.directory_file+'\\scraping_betano_dupla.csv',encoding='utf-8', sep=';', index=False)
+            df_odds.to_csv(os.path.joins(self.directory_file,self.names_files['BetanoDupla']),encoding='utf-8', sep=';', index=False)
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
             pass
@@ -177,14 +188,15 @@ class Betano:
     def double_chance(self):
         ##limpando os dados##
         try:
-            self.DuplaChance = pd.read_csv(self.directory_file+'\\scraping_betano_dupla.csv',encoding='utf-8', sep=';')
+            self.DuplaChance = pd.read_csv(os.path.join(self.directory_file,self.names_files['BetanoDupla']),encoding='utf-8', sep=';')
             self.DuplaChance = self.DuplaChance['Dupla'].str.split('\n ', expand= True)
             self.DuplaChance = self.DuplaChance[[10,12,14]]
             self.DuplaChance.columns = ['Dupla1x','Dupla2x','Dupla12'] ##renomenando as colunas
             for convertion in self.DuplaChance:
                 self.DuplaChance[convertion] = pd.Series(self.DuplaChance[convertion], dtype=float)
             self.df_dupla = self.DuplaChance
-            self.df_dupla.to_csv(self.directory_file+'\\DataFrame_betano_dupla.csv',encoding='utf-8', sep=';', index=False) ##exportando csv##
+            self.df_dupla.to_csv(
+                    os.path.join(self.directory_file,self.names_files['DataFrameDupla']),encoding='utf-8', sep=';', index=False) ##exportando csv##
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
             pass    
@@ -210,7 +222,8 @@ class Betano:
     def export_dataframe(self):
         ##exportando o datafreme com todos os dados###
         try:
-            self.df_full.to_csv(self.directory_file+'\\df_betano.csv',encoding='utf-8', sep=';', index=False)
+            self.df_full.to_csv(
+                    os.path.join(self.directory_file,self.names_files['Complete']),encoding='utf-8', sep=';', index=False)
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
             pass
@@ -219,7 +232,8 @@ class Betano:
         
         ###criando indice no data frame devido aos nomes dos times estarem escritos diferentes nos sites###
         try:
-            betano = pd.read_csv(self.directory_file+'\\df_betano.csv', encoding = 'utf-8', sep=';')
+            betano = pd.read_csv( 
+                    os.path.join(self.directory_file,self.names_files['Complete']), encoding = 'utf-8', sep=';')
             ind_betano={'Timec':[], 'Timev':[]}
             df1 = betano['TimeCasa']
             for nome in df1:
@@ -236,7 +250,8 @@ class Betano:
 
             df_betano = df_betano.drop(['Timec', 'Timev'], axis=1)
             betano.insert(0,'ind',df_betano)
-            betano.to_csv(self.directory_file+'\\DataFrame_betano.csv',encoding='utf-8', sep=';', index=False)  ##exportando dataframe final##
+            betano.to_csv(
+                    os.path.join(self.directory_file,self.names_files['Final']),encoding='utf-8', sep=';', index=False)  ##exportando dataframe final##
         except Exception as e:
             print(f'Houve um erro inesperado: {e}')
             pass
@@ -244,11 +259,28 @@ class Betano:
     def remove_files(self):         
         try:
             #os.remove(self.directory_file+'\\scraping_betano.csv')
-            os.remove(self.directory_file+'\\df_betano.csv')
-            os.remove(self.directory_file+'\\DataFrame_betano_dupla.csv')
-            os.remove(self.directory_file+'\\scraping_betano_dupla.csv')
-            os.remove(self.directory_file+'\\scraping_betano.csv')
+            os.remove(self.directory_file,self.names_files['BetanoDupla'])
+            os.remove(self.directory_file,self.names_files['DataFrameDupla'])
+            os.remove(self.directory_file,self.names_files['Complete'])
         except OSError as e:
             print(f"Error:{e.strerror}")
             print('Algo deu errado')
 
+betano = Betano()
+betano.open_web_site()
+betano.close_banner()
+betano.scroll_page()
+betano.parser_data()
+betano.insert_data_dic()
+betano.export_data()
+betano.data_transform()
+betano.parser_data_double_chance()
+betano.export_double_chance()
+betano.double_chance()
+sleep(10)
+betano.close_driver()
+betano.data_convert_types()
+betano.df_concat()
+betano.export_dataframe()
+betano.creating_index_betano()
+betano.remove_files()

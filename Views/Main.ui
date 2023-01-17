@@ -370,7 +370,6 @@ border-right-color: #0954B2;</string>
                 <font>
                  <family>MS Shell Dlg 2</family>
                  <pointsize>11</pointsize>
-                 <weight>9</weight>
                  <italic>false</italic>
                  <bold>false</bold>
                 </font>
@@ -1061,7 +1060,6 @@ QRadioButton:pressed{
                        <font>
                         <family>MS Shell Dlg 2</family>
                         <pointsize>10</pointsize>
-                        <weight>9</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -1117,11 +1115,11 @@ background-color:rgb(243, 243, 243);
                       <property name="columnCount">
                        <number>15</number>
                       </property>
-                      <attribute name="horizontalHeaderDefaultSectionSize">
-                       <number>150</number>
-                      </attribute>
                       <attribute name="horizontalHeaderMinimumSectionSize">
                        <number>50</number>
+                      </attribute>
+                      <attribute name="horizontalHeaderDefaultSectionSize">
+                       <number>150</number>
                       </attribute>
                       <attribute name="verticalHeaderVisible">
                        <bool>false</bool>
@@ -1139,7 +1137,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1158,7 +1155,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1177,7 +1173,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1196,7 +1191,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1215,7 +1209,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1234,7 +1227,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1253,7 +1245,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1269,7 +1260,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1285,7 +1275,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1301,7 +1290,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1317,7 +1305,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1333,7 +1320,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1349,7 +1335,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1365,7 +1350,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1381,7 +1365,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2382,7 +2365,6 @@ background-color: rgb(255, 255, 255);
                                 <font>
                                  <family>MS Shell Dlg 2</family>
                                  <pointsize>14</pointsize>
-                                 <weight>9</weight>
                                  <italic>false</italic>
                                  <bold>false</bold>
                                 </font>
@@ -2498,7 +2480,6 @@ QPushButton:pressed{
                        <font>
                         <family>MS Shell Dlg 2</family>
                         <pointsize>10</pointsize>
-                        <weight>9</weight>
                         <italic>false</italic>
                         <bold>false</bold>
                        </font>
@@ -2554,11 +2535,11 @@ background-color:rgb(243, 243, 243);
                       <property name="columnCount">
                        <number>15</number>
                       </property>
-                      <attribute name="horizontalHeaderDefaultSectionSize">
-                       <number>150</number>
-                      </attribute>
                       <attribute name="horizontalHeaderMinimumSectionSize">
                        <number>50</number>
+                      </attribute>
+                      <attribute name="horizontalHeaderDefaultSectionSize">
+                       <number>150</number>
                       </attribute>
                       <attribute name="verticalHeaderVisible">
                        <bool>false</bool>
@@ -2576,7 +2557,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2595,7 +2575,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2614,7 +2593,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2633,7 +2611,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2652,7 +2629,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2671,7 +2647,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2690,7 +2665,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2706,7 +2680,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2722,7 +2695,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2738,7 +2710,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2754,7 +2725,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2770,7 +2740,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2786,7 +2755,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2802,7 +2770,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -2818,7 +2785,6 @@ background-color:rgb(243, 243, 243);
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -3131,7 +3097,6 @@ color: rgb(255, 255, 255);</string>
                             <property name="font">
                              <font>
                               <pointsize>12</pointsize>
-                              <weight>50</weight>
                               <bold>false</bold>
                              </font>
                             </property>
@@ -3152,7 +3117,6 @@ color: rgb(255, 255, 255);</string>
                              <font>
                               <family>MS Shell Dlg 2</family>
                               <pointsize>10</pointsize>
-                              <weight>9</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -3185,7 +3149,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
                              <font>
                               <family>MS Shell Dlg 2</family>
                               <pointsize>10</pointsize>
-                              <weight>9</weight>
                               <italic>false</italic>
                               <bold>false</bold>
                              </font>
@@ -3306,7 +3269,6 @@ QPushButton:pressed{
                           <font>
                            <family>MS Shell Dlg 2</family>
                            <pointsize>10</pointsize>
-                           <weight>9</weight>
                            <italic>false</italic>
                            <bold>false</bold>
                           </font>
@@ -3362,11 +3324,11 @@ background-color:rgb(243, 243, 243);
                          <property name="columnCount">
                           <number>15</number>
                          </property>
-                         <attribute name="horizontalHeaderDefaultSectionSize">
-                          <number>150</number>
-                         </attribute>
                          <attribute name="horizontalHeaderMinimumSectionSize">
                           <number>50</number>
+                         </attribute>
+                         <attribute name="horizontalHeaderDefaultSectionSize">
+                          <number>150</number>
                          </attribute>
                          <attribute name="verticalHeaderVisible">
                           <bool>false</bool>
@@ -3384,7 +3346,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3403,7 +3364,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3422,7 +3382,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3441,7 +3400,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3460,7 +3418,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3479,7 +3436,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3498,7 +3454,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3514,7 +3469,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3530,7 +3484,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3546,7 +3499,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3562,7 +3514,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3578,7 +3529,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3594,7 +3544,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3610,7 +3559,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
@@ -3626,7 +3574,6 @@ background-color:rgb(243, 243, 243);
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>

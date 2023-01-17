@@ -1,6 +1,3 @@
-modificando o web driver para ficar indetectavel
-com editor de hexadecimal alterar a palavra webdriver por outra de mesmo comprimento ex: modificar
+Aplicação desenvolvida para monitorar p valor das odds das casas de apostas
 
-com editor de hexadecimal alterar a string cdc_asdjflasutopfhvcZLmcfl_ por outra de mesmo comprimento ex:foi_alteradocorretamentebb_
-
-
+Os dados são coletados através de webscreping, em algumas casas foi utilizado o selenium enquanto em outras somente a api já bastou para a obtenção das infrmações
