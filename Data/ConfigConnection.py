@@ -43,7 +43,7 @@ class ConfigConnection:
         defulLocaleDriver = os.path.join(self.selected_dir,'tmp','Driver')
         dicConnection = {'StartConnection':defautlConnection, 'Files':defaultFiles, 'Driver': defulLocaleDriver}
         Staturp = json.dumps(dicConnection, indent=4)
-        with open("../Data/Startup.json", "w") as outfile:
+        with open("./Data/Startup.json", "w") as outfile:
             outfile.write(Staturp)
 
 

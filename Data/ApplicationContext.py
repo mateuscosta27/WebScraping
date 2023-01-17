@@ -4,7 +4,7 @@ import json
 
 
 class ApplicationContext():
-    with open("../Data/Startup.json") as stringConnection:
+    with open("./Data/Startup.json") as stringConnection:
         connection = json.load(stringConnection)
     database = connection['StartConnection']
     conn = None
