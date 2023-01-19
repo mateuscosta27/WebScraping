@@ -1,15 +1,24 @@
 import requests
 import json
 import os
+import pandas as pd
 
 
 class ApiBetano:
     def __init__(self):
 
+
+        
+        dic_jogos_betano = {"name":[],'region_name':[],'region_id':[],'leagueDescription':[],
+        'home_team':[],'tie':[],'away_team':[]}
+        self.dic_jogos_betano = dic_jogos_betano
+
         with open("./Data/Startup.json") as directory_files:
             DataFut = json.load(directory_files)
             _files = DataFut['Files']
             self.files = _files
+
+            
 
     def request_api(self):
 
@@ -42,3 +51,27 @@ class ApiBetano:
                 tie = participants[1]['fullName']
                 away_team = participants[2]['fullName']
 
+                print(name,region_name, region_id,leagueDescription,participants,home_team,tie,away_team)
+
+                self.dic_jogos_betano['name'].append(name)
+                self.dic_jogos_betano['region_name'].append(region_name)
+                self.dic_jogos_betano['region_id'].append(region_id)
+                self.dic_jogos_betano['leagueDescription'].append(leagueDescription)
+                self.dic_jogos_betano['home_team'].append(home_team)
+                self.dic_jogos_betano['tie'].append(tie)
+                self.dic_jogos_betano['away_team'].append(away_team)
+
+
+                
+
+    def export_data(self):
+
+        df = pd.DataFrame(self.dic_jogos_betano) ##transformando dicionario em dataframe##
+        df.to_csv(os.path.join(self.files,'test.csv'),encoding='utf-16', sep=';', index=False)
+                
+
+Betano = ApiBetano()
+Betano.request_api()
+Betano.read_json()
+Betano.data_api()
+Betano.export_data()
